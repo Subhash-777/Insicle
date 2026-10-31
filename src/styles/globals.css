@@ -4,21 +4,60 @@
    ================================================================ */
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 /* ----------------------------------------------------------------
    Design tokens
    ---------------------------------------------------------------- */
 :root {
-  /* Brand colours */
+  /* Brand palette primitives */
   --color-lime: #C5F45B;
   --color-charcoal: #171917;
   --color-warm-white: #FAFAF6;
   --color-lime-tint: #EFF8DA;
-  --color-slate: #777D75;
+  --color-slate-raw: #777D75;
   --color-border: #E5E7DF;
   --color-white: #FFFFFF;
   --color-charcoal-mid: #343A34;
+
+  /* Semantic surface tokens */
+  --color-bg: var(--color-warm-white);
+  --color-surface-primary: var(--color-white);
+  --color-surface-secondary: var(--color-warm-white);
+  --color-surface-tint: var(--color-lime-tint);
+  --color-surface-dark: var(--color-charcoal);
+  --color-surface-elevated: #FFFFFF;
+
+  /* Semantic text tokens — Light surfaces (WCAG 2.2 AA / AAA) */
+  --color-text-primary: var(--color-charcoal);       /* 17.2:1 on Warm White, 18.1:1 on White (AAA) */
+  --color-text-secondary: #484E45;                   /* 8.26:1 on Warm White, 8.68:1 on White (AAA) */
+  --color-text-muted: #5E655A;                       /* 5.55:1 on Warm White, 5.83:1 on White (AA) */
+
+  /* Semantic text tokens — Dark surfaces (Charcoal #171917) */
+  --color-text-on-dark-primary: #FFFFFF;             /* 18.1:1 on Charcoal (AAA) */
+  --color-text-on-dark-secondary: #D8DBD2;           /* 9.8:1 on Charcoal (AAA) */
+  --color-text-on-dark-muted: #B8BCB2;               /* 7.5:1 on Charcoal (AAA) */
+  --color-text-on-dark-accent: var(--color-lime);    /* 14.2:1 on Charcoal (AAA) */
+
+  /* Legacy slate mapping to accessible secondary text */
+  --color-slate: #484E45;
+
+  /* Accent & Interaction */
+  --color-accent: var(--color-lime);
+  --color-accent-fg: var(--color-charcoal);          /* 14.2:1 text on Electric Lime (AAA) */
+  --color-accent-subtle: rgba(197, 244, 91, 0.15);
+  --color-link: var(--color-charcoal);
+  --color-link-hover: #354710;
+  --color-focus-ring: #688e14;                       /* High visibility dark lime focus ring (3.8:1 on white) */
+
+  /* Status states */
+  --color-error: #B91C1C;                            /* 6.3:1 on White (AA) */
+  --color-error-bg: #FEF2F2;
+  --color-error-border: #FCA5A5;
+  --color-success: #15803D;                          /* 5.2:1 on White (AA) */
+  --color-success-bg: #F0FDF4;
+  --color-warning: #B45309;                          /* 5.0:1 on White (AA) */
+  --color-warning-bg: #FFFBEB;
 
   /* Typography */
   --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
@@ -71,8 +110,8 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--text-body);
-  color: var(--color-charcoal);
-  background-color: var(--color-warm-white);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--color-charcoal);
+  color: var(--color-text-primary);
 }
 
 h1 { font-size: var(--text-hero); }
@@ -97,7 +136,7 @@ h4 { font-size: var(--text-card-heading); }
 
 p {
   line-height: 1.7;
-  color: var(--color-slate);
+  color: var(--color-text-secondary);
 }
 
 a {
@@ -120,6 +159,12 @@ button {
 input, textarea, select {
   font-family: var(--font-body);
   font-size: var(--text-body);
+  color: var(--color-text-primary);
+}
+
+::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
 }
 
 ul, ol {
@@ -155,7 +200,7 @@ ul, ol {
   gap: 8px;
   padding: 14px 28px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--font-body);
   border-radius: var(--radius-btn);
   border: 2px solid transparent;
@@ -163,6 +208,7 @@ ul, ol {
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
+  min-height: 44px;
 }
 
 .btn-primary {
@@ -174,6 +220,7 @@ ul, ol {
 .btn-primary:hover {
   background: #b8ee4a;
   border-color: #b8ee4a;
+  color: var(--color-charcoal);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(197, 244, 91, 0.4);
 }
@@ -186,7 +233,7 @@ ul, ol {
 
 .btn-secondary:hover {
   background: var(--color-charcoal);
-  color: var(--color-warm-white);
+  color: var(--color-white);
   transform: translateY(-2px);
 }
 
@@ -208,6 +255,7 @@ ul, ol {
 
 .btn-dark:hover {
   background: #b8ee4a;
+  color: var(--color-charcoal);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(197, 244, 91, 0.3);
 }
@@ -239,39 +287,41 @@ ul, ol {
 }
 
 .card-charcoal p {
-  color: rgba(250, 250, 246, 0.7);
+  color: var(--color-text-on-dark-secondary);
 }
 
 .card-lime-tint {
   background: var(--color-lime-tint);
-  border-color: var(--color-lime-tint);
+  border-color: rgba(197, 244, 91, 0.5);
 }
 
 /* ----------------------------------------------------------------
-   Section headings
+   Section labels & eyebrows
    ---------------------------------------------------------------- */
 .label {
   display: inline-block;
   font-size: var(--text-label);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-slate);
+  color: var(--color-charcoal);
   margin-bottom: 12px;
 }
 
 .label-lime {
-  color: var(--color-lime);
-  background: rgba(197, 244, 91, 0.15);
+  color: var(--color-charcoal);
+  background: var(--color-lime);
   padding: 4px 12px;
   border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 /* ----------------------------------------------------------------
    Focus states (accessibility)
    ---------------------------------------------------------------- */
 :focus-visible {
-  outline: 3px solid var(--color-lime);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -302,7 +352,7 @@ ul, ol {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-slate);
+  background: var(--color-text-muted);
 }
 
 /* ----------------------------------------------------------------
@@ -310,7 +360,7 @@ ul, ol {
    ---------------------------------------------------------------- */
 .text-lime { color: var(--color-lime); }
 .text-charcoal { color: var(--color-charcoal); }
-.text-slate { color: var(--color-slate); }
+.text-slate { color: var(--color-text-secondary); }
 .text-white { color: var(--color-white); }
 
 .bg-charcoal { background: var(--color-charcoal); }

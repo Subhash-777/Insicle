@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'motion/react'
-import { ArrowRight, Code2, Brain, Building2, TrendingUp, Users } from 'lucide-react'
+import { motion, AnimatePresence } from 'motion/react'
+import { ArrowRight, Code2, Brain, Building2, TrendingUp, Users, ChevronDown } from 'lucide-react'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import PageHero from '@/components/common/PageHero'
 import ContactCTA from '@/components/common/ContactCTA'
@@ -18,24 +19,26 @@ const process = [
 ]
 
 const faqs = [
-  { q: 'Do you work with small businesses?', a: 'Yes. Our solutions are designed to scale — from early-stage businesses to established enterprises.' },
-  { q: 'Can you handle end-to-end projects?', a: 'We can support the full project lifecycle — from initial discovery and design through to development, testing and deployment.' },
-  { q: 'Do you offer ongoing support?', a: 'Yes. Support and maintenance arrangements can be agreed as part of a project engagement.' },
-  { q: 'How do I get started?', a: 'Contact us through our contact page or call us directly. We\'ll schedule an initial conversation to understand your requirements.' },
+  { q: 'Do you work with early-stage as well as established organizations?', a: 'Yes. Our architectures and engagement models are designed to scale — from targeted prototypes for emerging teams to mission-critical operational systems for established companies.' },
+  { q: 'Can INSICLE handle complete end-to-end technical lifecycles?', a: 'We can support the entire lifecycle — from initial problem framing, scoping, and systems architecture through to full-stack implementation, quality assurance, deployment, and handover.' },
+  { q: 'Do you offer ongoing architecture advisory and maintenance support?', a: 'Yes. Support, code review, and maintenance arrangements can be structured as part of any project engagement to guarantee system reliability and team adoption.' },
+  { q: 'What is the recommended first step to engage?', a: 'Reach out through our project inquiry form or contact our engineering leadership directly. We will schedule an initial briefing to understand your operational context and provide a structured technical proposal.' },
 ]
 
 export default function Services() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0)
+
   return (
     <div>
       <PageHero
+        breadcrumb={[{ label: 'Services' }]}
         label="Services"
         heading="Five Capability Divisions. One Integrated Team."
         subheading="Explore our service areas and find the capabilities that match your business needs."
-        breadcrumb={[{ label: 'Services' }]}
       />
 
-      {/* Division overview */}
-      <section className="section" style={{ background: 'var(--color-warm-white)' }}>
+      {/* Divisions Section */}
+      <section className="section" style={{ background: 'var(--color-white)' }}>
         <div className="container">
           <AnimatedSection>
             <span className="label">Our Capabilities</span>
@@ -43,31 +46,46 @@ export default function Services() {
           </AnimatedSection>
 
           <div className={styles.divisionsGrid}>
-            {serviceDivisions.filter(d => d.approved).map((division, idx) => {
+            {serviceDivisions.map((division, idx) => {
               const Icon = iconMap[division.icon] || Code2
               return (
-                <AnimatedSection key={division.id} delay={idx * 0.08} id={division.id}>
-                  <div className={`${styles.divisionCard} ${idx % 2 === 1 ? styles.divisionCardAlt : ''}`}>
-                    <div className={styles.divisionHeader}>
-                      <div className={styles.divisionMeta}>
-                        <span className={styles.divNum}>{division.number}</span>
-                        <div className={styles.divIcon}>
-                          <Icon size={22} />
-                        </div>
+                <AnimatedSection
+                  key={division.id}
+                  id={division.id}
+                  delay={idx * 0.08}
+                  className={`${styles.divisionCard} ${
+                    idx % 2 === 1 ? styles.divisionCardAlt : ''
+                  }`}
+                >
+                  <div className={styles.divisionHeader}>
+                    <div className={styles.divisionMeta}>
+                      <span className={styles.divNum}>{division.number}</span>
+                      <div className={styles.divIcon}>
+                        <Icon size={24} />
                       </div>
-                      <h3 className={styles.divTitle}>{division.title}</h3>
-                      <p className={styles.divDesc}>{division.description}</p>
                     </div>
-                    <ul className={styles.serviceList}>
-                      {division.services.filter(s => s.approved).map((svc) => (
-                        <li key={svc.slug}>
-                          <Link to={`/services/${svc.slug}`} className={styles.serviceItem}>
-                            <span>{svc.title}</span>
-                            <ArrowRight size={12} />
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    <h3 className={styles.divTitle}>{division.title}</h3>
+                    <p className={styles.divDesc}>{division.description}</p>
+                    <Link
+                      to={`/services/${division.services[0].slug}`}
+                      className="btn btn-secondary"
+                      style={{ alignSelf: 'flex-start', marginTop: 'auto' }}
+                    >
+                      Explore {division.shortTitle} <ArrowRight size={16} />
+                    </Link>
+                  </div>
+
+                  <div className={styles.serviceList}>
+                    {division.services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        to={`/services/${service.slug}`}
+                        className={styles.serviceItem}
+                      >
+                        <span>{service.title}</span>
+                        <ArrowRight size={16} />
+                      </Link>
+                    ))}
                   </div>
                 </AnimatedSection>
               )
@@ -76,13 +94,14 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* Process Section */}
       <section className="section" style={{ background: 'var(--color-charcoal)' }}>
         <div className="container">
           <AnimatedSection>
-            <span className="label" style={{ color: 'var(--color-lime)' }}>How We Work</span>
-            <h2 className={styles.sectionHeadingLight}>Our Delivery Approach.</h2>
+            <span className="label" style={{ color: 'var(--color-lime)' }}>Our Approach</span>
+            <h2 className={styles.sectionHeadingLight}>How We Deliver.</h2>
           </AnimatedSection>
+
           <motion.div
             className={styles.processGrid}
             variants={staggerContainer}
@@ -101,18 +120,46 @@ export default function Services() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ Accordion */}
       <section className="section" style={{ background: 'var(--color-white)' }}>
-        <div className="container" style={{ maxWidth: 800 }}>
+        <div className="container" style={{ maxWidth: 840 }}>
           <AnimatedSection>
             <span className="label">FAQ</span>
             <h2 className={styles.sectionHeading}>Common Questions.</h2>
           </AnimatedSection>
           <div className={styles.faqList}>
             {faqs.map((faq, i) => (
-              <AnimatedSection key={i} delay={i * 0.07} className={styles.faqItem}>
-                <h4 className={styles.faqQ}>{faq.q}</h4>
-                <p className={styles.faqA}>{faq.a}</p>
+              <AnimatedSection key={i} delay={i * 0.05} className={styles.faqItem}>
+                <button
+                  type="button"
+                  className={styles.faqQuestionBtn}
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                  id={`faq-question-${i}`}
+                >
+                  <span className={styles.faqQ}>{faq.q}</span>
+                  <ChevronDown
+                    size={20}
+                    className={`${styles.faqChevron} ${openFaq === i ? styles.faqChevronOpen : ''}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {openFaq === i && (
+                    <motion.div
+                      id={`faq-answer-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${i}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className={styles.faqAnswerWrap}
+                    >
+                      <p className={styles.faqA}>{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </AnimatedSection>
             ))}
           </div>

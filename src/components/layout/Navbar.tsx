@@ -59,8 +59,18 @@ export default function Navbar() {
         setMegaOpen(false)
       }
     }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMegaOpen(false)
+        setMobileOpen(false)
+      }
+    }
     document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
   }, [])
 
   return (
@@ -272,6 +282,7 @@ export default function Navbar() {
                 <li><NavLink to="/industries" className={styles.mobileNavLink} onClick={() => setMobileOpen(false)}>Industries</NavLink></li>
                 <li><NavLink to="/portfolio" className={styles.mobileNavLink} onClick={() => setMobileOpen(false)}>Portfolio</NavLink></li>
                 <li><NavLink to="/careers" className={styles.mobileNavLink} onClick={() => setMobileOpen(false)}>Careers</NavLink></li>
+                <li><NavLink to="/contact" className={styles.mobileNavLink} onClick={() => setMobileOpen(false)}>Contact</NavLink></li>
               </ul>
 
               <div className={styles.mobileCta}>

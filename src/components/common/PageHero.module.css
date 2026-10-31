@@ -48,15 +48,15 @@
 }
 
 .breadcrumb svg {
-  color: var(--color-border);
+  color: var(--color-text-muted);
 }
 
 .dark .breadcrumb li {
-  color: rgba(250, 250, 246, 0.5);
+  color: var(--color-text-on-dark-secondary);
 }
 
 .dark .breadcrumb a {
-  color: rgba(250, 250, 246, 0.5);
+  color: var(--color-text-on-dark-secondary);
 }
 
 .dark .breadcrumb a:hover {
@@ -88,9 +88,9 @@
   font-size: clamp(16px, 1.3vw, 20px);
   line-height: 1.6;
   max-width: 600px;
-  color: var(--color-slate);
+  color: var(--color-text-secondary);
 }
 
 .dark .subheading {
-  color: rgba(250, 250, 246, 0.65);
+  color: var(--color-text-on-dark-secondary);
 }

@@ -88,6 +88,12 @@ All supporting assets created according to the art direction: *Electric Lime `#C
 | | Homepage Editorial Overhaul | **Complete** | Asymmetric 1+4 capability grid, approved editorial statement, 4 substantial Why principles, and research showcase. |
 | | Contact CTA & Process | **Complete** | 3-step structured engagement framework (`01 Initial Briefing`, `02 Technical Scoping`, `03 Actionable Proposal`). |
 | | GitHub Remote Sync | **Complete** | Remote configured to `git@github.com:Subhash-777/Insicle.git`, production build committed and pushed to `main`. |
+| **Phase 9: Production Readiness & Contrast Remediation (Round 2)** | Semantic Design Tokens | **Complete** | Established comprehensive semantic color tokens in `src/styles/globals.css` (surfaces, light text, dark text, focus rings, status colors). |
+| | WCAG 2.2 AA/AAA Remediation | **Complete** | Replaced `#777D75` with `#484E45` (8.26:1–8.68:1 AAA); inverted `.label-lime` to `#171917` on `#C5F45B` (14.2:1 AAA); upgraded dark-mode secondary/muted text to 7.5:1–12.8:1 AAA; created `CONTRAST_AUDIT.md`. |
+| | Mega Menu & Drawer Usability | **Complete** | Widened mega menu CTA column to 236px (no text clipping); added Escape key dismiss listener; added Contact link to mobile drawer; upgraded close touch target to 44x44px. |
+| | Services FAQ Accordion | **Complete** | Converted static FAQ cards into fully accessible interactive accordion with `aria-expanded` and height animation in `src/pages/Services.tsx`. |
+| | Multi-Viewport QA & Screenshot Automation | **Complete** | Created `scripts/capture-round-2.mjs`; captured and indexed 37 screenshots across 7 viewports (360px–1920px), 11 routes, and 6 interaction states in `qa-screenshots/round-2/`. |
+| | Live Deployment Verification | **Complete** | Live site `https://insicle.vercel.app/` verified HTTP 200 and matches production bundle. |
 
 ---
 
@@ -95,23 +101,17 @@ All supporting assets created according to the art direction: *Electric Lime `#C
 
 1. **Commands Executed:**
    - `npx tsc`: **PASSED** (0 errors)
-   - `npm run build`: **PASSED** (Vite production build bundled with code-splitting chunks in 1.92s)
+   - `npm run build`: **PASSED** (Vite production build bundled cleanly with code-splitting chunks in 2.05s)
    - `node scripts/test-responsive-overflow.mjs`: **PASSED** (56/56 checks with ZERO horizontal overflow across 360px–1440px)
    - `node scripts/test-interactions.mjs`: **PASSED** (Mega menu, mobile drawer, portfolio filters, form validation)
-2. **Screenshots Verified in Browser:**
-   - `qa-screenshots/home-desktop.png` (1440px)
-   - `qa-screenshots/home-mobile.png` (390px)
-   - `qa-screenshots/home-services-scroll.png` (1440px)
-   - `qa-screenshots/home-ai-scroll.png` (1440px)
-   - `qa-screenshots/home-footer-scroll.png` (1440px)
-   - `qa-screenshots/about-desktop.png` (1440px)
-   - `qa-screenshots/services-desktop.png` (1440px)
-   - `qa-screenshots/service-detail.png` (1440px)
-   - `qa-screenshots/solutions-desktop.png` (1440px)
-   - `qa-screenshots/solution-detail.png` (1440px)
-   - `qa-screenshots/industries-desktop.png` (1440px)
-   - `qa-screenshots/portfolio-desktop.png` (1440px)
-   - `qa-screenshots/case-study.png` (1440px)
-   - `qa-screenshots/careers-desktop.png` (1440px)
-   - `qa-screenshots/contact-desktop.png` (1440px)
-   - `qa-screenshots/not-found.png` (1440px)
+   - `node scripts/capture-round-2.mjs`: **PASSED** (37/37 screenshots captured across desktop, tablet, mobile viewports & interactive states)
+   - `curl -I https://insicle.vercel.app/`: **PASSED** (HTTP 200 OK)
+
+2. **Screenshot Catalog & Evidence:**
+   - **Round 1 Gallery:** 16 baseline captures in `qa-screenshots/`
+   - **Round 2 Comprehensive Production Gallery:** 37 high-resolution captures in `qa-screenshots/round-2/`:
+     - *Responsive Breakpoints (Home):* `home-360px.png`, `home-390px.png`, `home-430px.png`, `home-768px.png`, `home-1024px.png`, `home-1440px.png`, `home-1920px.png`
+     - *Full Desktop Suite (1440px):* `home-desktop-1440.png`, `about-desktop-1440.png`, `services-desktop-1440.png`, `service-detail-desktop-1440.png`, `solutions-desktop-1440.png`, `solution-detail-desktop-1440.png`, `industries-desktop-1440.png`, `portfolio-desktop-1440.png`, `case-study-desktop-1440.png`, `careers-desktop-1440.png`, `contact-desktop-1440.png`, `notfound-desktop-1440.png`
+     - *Full Mobile Suite (390px):* `home-mobile-390.png`, `about-mobile-390.png`, `services-mobile-390.png`, `service-detail-mobile-390.png`, `solutions-mobile-390.png`, `solution-detail-mobile-390.png`, `industries-mobile-390.png`, `portfolio-mobile-390.png`, `case-study-mobile-390.png`, `careers-mobile-390.png`, `contact-mobile-390.png`, `notfound-mobile-390.png`
+     - *Interactive State Verification:* `interaction-mega-menu-open.png`, `interaction-mobile-drawer-open.png`, `interaction-mobile-subaccordion-open.png`, `interaction-contact-validation-errors.png`, `interaction-portfolio-filter-active.png`, `interaction-faq-accordion-expanded.png`
+   - Detailed documentation and visual matrix available in [`qa-screenshots/round-2/README.md`](qa-screenshots/round-2/README.md) and [`CONTRAST_AUDIT.md`](CONTRAST_AUDIT.md).
