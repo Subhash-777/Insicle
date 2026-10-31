@@ -1,0 +1,203 @@
+.page {
+  background: var(--color-warm-white);
+}
+
+.cultureSection {
+  background: var(--color-white);
+  border-bottom: var(--border);
+}
+
+.sectionHeading {
+  font-size: var(--text-section-heading);
+  color: var(--color-charcoal);
+  margin-bottom: 40px;
+}
+
+.cultureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.pillarCard {
+  background: var(--color-warm-white);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+}
+
+.pillarCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-lime);
+  box-shadow: var(--shadow-card);
+}
+
+.iconCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  border: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-charcoal);
+  margin-bottom: 20px;
+}
+
+.pillarTitle {
+  font-size: 20px;
+  color: var(--color-charcoal);
+  margin-bottom: 12px;
+}
+
+.pillarDesc {
+  font-size: 15px;
+  color: var(--color-slate);
+  line-height: 1.6;
+}
+
+/* Positions Section */
+.positionsSection {
+  background: var(--color-warm-white);
+}
+
+.sectionHeader {
+  margin-bottom: 32px;
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jobCard {
+  background: var(--color-white);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.jobTitle {
+  font-size: 22px;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.jobMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-slate);
+  margin-bottom: 12px;
+}
+
+.jobType {
+  font-weight: 600;
+  color: var(--color-charcoal);
+  background: var(--color-lime-tint);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.jobDesc {
+  font-size: 15px;
+  color: var(--color-slate);
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* Empty State */
+.emptyWrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.emptyCard {
+  background: var(--color-white);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  padding: 56px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+.emptyIcon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--color-warm-white);
+  border: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-slate);
+  margin-bottom: 20px;
+}
+
+.emptyTitle {
+  font-size: 22px;
+  color: var(--color-charcoal);
+  margin-bottom: 12px;
+}
+
+.emptyDesc {
+  font-size: 15px;
+  color: var(--color-slate);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.speculativeContact {
+  background: var(--color-warm-white);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.speculativeText {
+  font-size: 14px;
+  color: var(--color-charcoal);
+  font-weight: 500;
+}
+
+.emailBtn {
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .cultureGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .jobCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 639px) {
+  .emptyCard {
+    padding: 36px 20px;
+  }
+}
