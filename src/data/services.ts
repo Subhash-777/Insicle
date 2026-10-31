@@ -14,6 +14,8 @@ export interface ServiceDivision {
   title: string;
   shortTitle: string;
   description: string;
+  businessProblem: string;
+  useCaseExample: string;
   icon: string;
   image: string;
   color: 'lime' | 'charcoal' | 'white' | 'lime-tint';
@@ -28,7 +30,11 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'Digital Engineering',
     shortTitle: 'Digital Engineering',
     description:
-      'We design and build custom software, web and mobile applications tailored to your business needs — from API integrations to full-stack platforms.',
+      'We architect, engineer, and modernize custom web platforms, mobile applications, and enterprise microservices tailored to mission-critical operational requirements.',
+    businessProblem:
+      'Off-the-shelf software rarely fits nuanced organizational workflows, while legacy systems create technical debt, security liabilities, and sluggish feature cycles.',
+    useCaseExample:
+      'A cross-platform field service application synchronizing offline inspections with a central ERP via asynchronous event queues.',
     icon: 'Code2',
     image: '/images/digital-engineering.png',
     color: 'charcoal',
@@ -48,7 +54,11 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'AI & Business Intelligence',
     shortTitle: 'AI & BI',
     description:
-      'Leverage data, machine learning and intelligent automation to power smarter business decisions and automate complex processes.',
+      'Unlock predictive insights, automate cognitive repetitive tasks, and consolidate disparate organizational data into decision-ready business intelligence dashboards.',
+    businessProblem:
+      'Valuable data remains trapped in departmental silos, spreadsheets, and legacy databases, forcing executives to make strategic decisions based on delayed or incomplete reports.',
+    useCaseExample:
+      'Automated semantic extraction pipeline converting unstructured PDF vendor invoices into structured ledger records with validation checks.',
     icon: 'Brain',
     image: '/images/ai-network.png',
     color: 'white',
@@ -68,18 +78,22 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'Enterprise Solutions',
     shortTitle: 'Enterprise Solutions',
     description:
-      'Streamline core business operations with capable enterprise systems — CRM, HRM, finance, sales and customer service platforms.',
+      'Design, configure, and integrate comprehensive operational backbones spanning customer relationship management, human resources, accounting, and automated sales.',
+    businessProblem:
+      'Fragmented vendor tools lead to duplicate data entry, inconsistent customer records, and manual billing reconciliation between departments.',
+    useCaseExample:
+      'Unified CRM and billing integration connecting customer contracts to automated milestone invoicing and finance reconciliation.',
     icon: 'Building2',
     image: '/images/enterprise-systems.png',
     color: 'lime-tint',
     approved: true,
     services: [
-      { slug: 'crm', title: 'CRM', description: 'Customer relationship management systems to manage leads, customers and communications.', approved: true },
-      { slug: 'hrm', title: 'HRM', description: 'Human resource management platforms covering employee lifecycle and HR processes.', approved: true },
-      { slug: 'accounting-finance', title: 'Accounting & Finance Systems', description: 'Financial management and accounting software for accurate reporting.', approved: true },
-      { slug: 'customer-service', title: 'Customer Service Systems', description: 'Help desk and customer support platforms to improve service quality.', approved: true },
-      { slug: 'sales-automation', title: 'Sales Automation', description: 'Tools and workflows that automate sales processes and improve productivity.', approved: true },
-      { slug: 'implementation-integration', title: 'Implementation & Integration', description: 'Professional implementation and integration of enterprise software platforms.', approved: true },
+      { slug: 'crm', title: 'CRM Solutions', description: 'Customer relationship management systems to manage leads, accounts, and communication logs.', approved: true },
+      { slug: 'hrm', title: 'HRM Systems', description: 'Human resource management platforms covering lifecycle management and attendance.', approved: true },
+      { slug: 'accounting-finance', title: 'Accounting & Finance', description: 'Financial management and accounting software for accurate balance sheets.', approved: true },
+      { slug: 'customer-service', title: 'Customer Service & Help Desk', description: 'Ticketing platforms to improve resolution speed and customer satisfaction.', approved: true },
+      { slug: 'sales-automation', title: 'Sales Force Automation', description: 'Pipeline tools and automated triggers that eliminate manual data entry.', approved: true },
+      { slug: 'implementation-integration', title: 'Implementation & Integration', description: 'Expert technical onboarding and cross-system database synchronizations.', approved: true },
     ],
   },
   {
@@ -88,18 +102,22 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'Digital Growth',
     shortTitle: 'Digital Growth',
     description:
-      'Grow your digital presence with data-driven marketing, SEO, content strategy and performance campaigns that deliver measurable results.',
+      'Expand organic market visibility and customer acquisition through structured technical SEO, content strategy, performance campaigns, and analytics instrumentation.',
+    businessProblem:
+      'High-performing technology investments fail to yield commercial returns if prospective buyers cannot find the business or encounter confusing customer journeys.',
+    useCaseExample:
+      'Technical SEO audit and conversion rate optimization (CRO) overhaul turning passive web traffic into qualified sales inquiries.',
     icon: 'TrendingUp',
     image: '/images/digital-growth.png',
     color: 'white',
     approved: true,
     services: [
-      { slug: 'digital-marketing', title: 'Digital Marketing', description: 'Comprehensive digital marketing strategies across channels and touchpoints.', approved: true },
-      { slug: 'seo', title: 'Search Engine Optimization', description: 'Organic search strategies that improve visibility and qualified traffic.', approved: true },
-      { slug: 'sem', title: 'Search Engine Marketing', description: 'Paid search campaigns designed to maximize ROI and conversions.', approved: true },
-      { slug: 'social-media', title: 'Social Media Management', description: 'Social media strategy, content creation and community management.', approved: true },
-      { slug: 'content-marketing', title: 'Content Marketing', description: 'Strategic content that educates, engages and converts audiences.', approved: true },
-      { slug: 'performance-marketing', title: 'Performance Marketing', description: 'Data-driven paid campaigns optimized for measurable business outcomes.', approved: true },
+      { slug: 'digital-marketing', title: 'Digital Marketing Strategy', description: 'Comprehensive marketing roadmaps aligned with business revenue goals.', approved: true },
+      { slug: 'seo', title: 'Technical Search Engine Optimization', description: 'Architecture, crawlability, and schema enhancements for high-intent search visibility.', approved: true },
+      { slug: 'sem', title: 'Search Engine Marketing', description: 'Precision-targeted paid search campaigns optimized for cost-per-acquisition.', approved: true },
+      { slug: 'social-media', title: 'Social Media Management', description: 'Strategic industry positioning and professional audience engagement.', approved: true },
+      { slug: 'content-marketing', title: 'Content Marketing', description: 'Authority-building whitepapers, technical articles, and case documentation.', approved: true },
+      { slug: 'performance-marketing', title: 'Performance Marketing', description: 'Data-driven multichannel campaigns managed against explicit ROI benchmarks.', approved: true },
     ],
   },
   {
@@ -108,16 +126,20 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'Talent Solutions',
     shortTitle: 'Talent Solutions',
     description:
-      'Find and engage the right talent with professional recruitment outsourcing, screening and onboarding coordination services.',
+      'Identify, screen, and coordinate specialized technical talent to augment internal engineering initiatives and accelerate project milestones.',
+    businessProblem:
+      'Engineering leaders spend disproportionate hours sifting through unqualified resumes rather than focusing on system architecture and code delivery.',
+    useCaseExample:
+      'Rigorous technical screening pipeline providing pre-vetted full-stack engineers within 10 business days for a major release milestone.',
     icon: 'Users',
     image: '/images/talent-solutions.png',
     color: 'charcoal',
     approved: true,
     services: [
-      { slug: 'recruitment-outsourcing', title: 'Recruitment Outsourcing', description: 'End-to-end talent acquisition outsourcing for organisations at any scale.', approved: true },
-      { slug: 'candidate-screening', title: 'Candidate Screening', description: 'Structured screening and evaluation processes to identify quality candidates.', approved: true },
-      { slug: 'recruitment-coordination', title: 'Recruitment Coordination', description: 'Coordination and scheduling support throughout the hiring process.', approved: true },
-      { slug: 'employee-onboarding', title: 'Employee Onboarding Solutions', description: 'Structured onboarding programmes and systems to support new hires.', approved: true },
+      { slug: 'recruitment-outsourcing', title: 'Recruitment Process Outsourcing', description: 'End-to-end talent acquisition partnerships for growing engineering teams.', approved: true },
+      { slug: 'candidate-screening', title: 'Technical Candidate Screening', description: 'Code evaluation and structured technical interviews conducted by engineers.', approved: true },
+      { slug: 'recruitment-coordination', title: 'Recruitment Coordination', description: 'Interview logistics, candidate communication, and offer management.', approved: true },
+      { slug: 'employee-onboarding', title: 'Onboarding Systemization', description: 'Structured documentation, access provisioning, and developer enablement.', approved: true },
     ],
   },
 ];

@@ -9,122 +9,107 @@ import {
   Users,
   CheckCircle,
   Zap,
+  Layers,
+  Sparkles,
+  Compass,
+  FileCheck2,
+  Lock,
 } from 'lucide-react'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
 import { serviceDivisions } from '@/data/services'
 import { industries } from '@/data/industries'
+import { projects } from '@/data/projects'
 import { staggerContainer, staggerItem, heroText, floatingAnimation } from '@/animations/variants'
 import styles from './Home.module.css'
 
 const iconMap: Record<string, React.ElementType> = {
-  Code2, Brain, Building2, TrendingUp, Users,
+  Code2,
+  Brain,
+  Building2,
+  TrendingUp,
+  Users,
 }
 
-const capabilities = [
-  'Digital Engineering',
-  'AI & Business Intelligence',
-  'Enterprise Solutions',
-  'Digital Growth',
-  'Talent Solutions',
+const capabilityLinks = [
+  { name: 'Digital Engineering', href: '/services#digital-engineering' },
+  { name: 'AI & Business Intelligence', href: '/services#ai-business-intelligence' },
+  { name: 'Enterprise Solutions', href: '/services#enterprise-solutions' },
+  { name: 'Digital Growth', href: '/services#digital-growth' },
+  { name: 'Talent Solutions', href: '/services#talent-solutions' },
 ]
 
-const whyInsicle = [
+const whyPrinciples = [
   {
     number: '01',
-    title: 'Tailored Technology',
+    title: 'Purpose-Driven Problem Solving',
     description:
-      'Every solution is built around the specific challenges and goals of your business — not a one-size-fits-all template.',
+      'We do not build technology for its own sake. Every engagement begins by clarifying the operational bottleneck, business objective, and intended real-world outcome before writing code.',
   },
   {
     number: '02',
-    title: 'Innovation-Led Thinking',
+    title: 'Thoughtful Technology Selection',
     description:
-      'We bring current thinking in software, AI and digital strategy to help future-proof your operations.',
+      'We evaluate frameworks, cloud architectures, and databases against long-term maintainability, team adoption, and operational cost rather than chasing short-lived industry hype.',
   },
   {
     number: '03',
     title: 'Integrated Digital Capabilities',
     description:
-      'From engineering to marketing to enterprise systems — all capabilities work together under one team.',
+      'From custom engineering and intelligent data pipelines to enterprise systems and market visibility, all capabilities operate harmoniously under a single disciplined team.',
   },
   {
     number: '04',
-    title: 'Business-Focused Solutions',
+    title: 'Clear Communication & Collaboration',
     description:
-      'We start with your business outcomes, then design the technology to support them — not the other way around.',
+      'Transparent milestone tracking, clean technical documentation, and direct engineering access ensure projects progress predictably from initial scoping to reliable handover.',
   },
 ]
 
 export default function Home() {
+  const featuredDivision = serviceDivisions[0] // 01 Digital Engineering
+  const supportingDivisions = serviceDivisions.slice(1, 5) // 02, 03, 04, 05
+  const showcaseProject = projects[0] // Semantic-Graph Zero-Trust prototype
+
   return (
     <div className={styles.page}>
-      {/* HERO */}
-      <section className={styles.hero} aria-label="Hero section">
+      {/* 1. HERO SECTION */}
+      <section className={`${styles.hero} bg-grid-subtle`} aria-label="Hero section">
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroContent}>
             {/* Label */}
-            <motion.div
-              custom={0}
-              variants={heroText}
-              initial="hidden"
-              animate="visible"
-            >
+            <motion.div custom={0} variants={heroText} initial="hidden" animate="visible">
               <span className="label label-lime">Creative + Enterprise Hybrid</span>
             </motion.div>
 
             {/* Headline */}
-            <motion.h1
-              className={styles.heroHeadline}
-              custom={1}
-              variants={heroText}
-              initial="hidden"
-              animate="visible"
-            >
+            <motion.h1 className={styles.heroHeadline} custom={1} variants={heroText} initial="hidden" animate="visible">
               We Make Technology{' '}
               <span className={styles.limeText}>Work For</span>{' '}
-              What's Next.
+              What&apos;s Next.
             </motion.h1>
 
-            {/* Sub */}
-            <motion.p
-              className={styles.heroSub}
-              custom={2}
-              variants={heroText}
-              initial="hidden"
-              animate="visible"
-            >
-              From custom software and intelligent solutions to digital experiences
-              that support business growth, we turn ambitious ideas into practical
-              digital outcomes.
+            {/* Subtext */}
+            <motion.p className={styles.heroSub} custom={2} variants={heroText} initial="hidden" animate="visible">
+              From custom software and intelligent solutions to digital experiences that support business growth, we connect ambitious ideas with practical digital outcomes.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div
-              className={styles.heroCtas}
-              custom={3}
-              variants={heroText}
-              initial="hidden"
-              animate="visible"
-            >
+            <motion.div className={styles.heroCtas} custom={3} variants={heroText} initial="hidden" animate="visible">
               <Link to="/services" className="btn btn-primary">
-                Explore Our Services <ArrowRight size={18} />
+                Explore Capabilities <ArrowRight size={18} />
               </Link>
               <Link to="/contact" className="btn btn-secondary">
-                Let's Discuss Your Project
+                Discuss Your Requirements
               </Link>
             </motion.div>
 
-            {/* Floating tags */}
-            <motion.div
-              className={styles.heroTags}
-              custom={4}
-              variants={heroText}
-              initial="hidden"
-              animate="visible"
-            >
-              {capabilities.slice(0, 3).map((cap) => (
-                <span key={cap} className={styles.tag}>{cap}</span>
+            {/* Capability chips */}
+            <motion.div className={styles.heroTags} custom={4} variants={heroText} initial="hidden" animate="visible">
+              {capabilityLinks.slice(0, 3).map((cap) => (
+                <Link key={cap.name} to={cap.href} className={styles.tag}>
+                  {cap.name}
+                </Link>
               ))}
             </motion.div>
           </div>
@@ -133,174 +118,253 @@ export default function Home() {
           <motion.div
             className={styles.heroVisual}
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1, transition: { duration: 0.9, delay: 0.3 } }}
+            animate={{ opacity: 1, scale: 1, transition: { duration: 0.9, delay: 0.25 } }}
           >
-            <motion.div
-              animate={floatingAnimation.animate}
-              className={styles.heroImageWrap}
-            >
+            <motion.div animate={floatingAnimation.animate} className={styles.heroImageWrap}>
               <img
                 src="/images/hero-abstract.png"
                 alt="Abstract lime geometric technology composition"
                 className={styles.heroImage}
                 loading="eager"
               />
+              <div className={styles.ambientGlow} aria-hidden="true" />
             </motion.div>
-            {/* Floating capability labels */}
+
+            {/* Anchored capability cards */}
             <motion.div
-              className={`${styles.floatLabel} ${styles.floatLabel1}`}
+              className={`${styles.floatBadge} ${styles.badgeAI}`}
               animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <Brain size={14} /> AI & BI
+              <Brain size={14} className={styles.badgeIconLime} />
+              <span>AI & Business Intelligence</span>
             </motion.div>
+
             <motion.div
-              className={`${styles.floatLabel} ${styles.floatLabel2}`}
+              className={`${styles.floatBadge} ${styles.badgeEng}`}
               animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
             >
-              <Code2 size={14} /> Engineering
+              <Code2 size={14} className={styles.badgeIconCharcoal} />
+              <span>Full-Stack Engineering</span>
             </motion.div>
+
             <motion.div
-              className={`${styles.floatLabel} ${styles.floatLabel3}`}
+              className={`${styles.floatBadge} ${styles.badgeGrowth}`}
               animate={{ y: [-3, 3, -3] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
             >
-              <Zap size={14} /> Digital Growth
+              <Zap size={14} className={styles.badgeIconLime} />
+              <span>Enterprise Systems</span>
             </motion.div>
           </motion.div>
         </div>
 
         {/* Scroll indicator */}
         <div className={styles.scrollIndicator} aria-hidden="true">
-          <div className={styles.scrollLine}></div>
+          <div className={styles.scrollLine} />
         </div>
       </section>
 
-      {/* CAPABILITY STRIP */}
-      <section className={styles.capabilityStrip} aria-label="Capability areas">
+      {/* 2. CAPABILITY STRIP (Interactive) */}
+      <section className={styles.capabilityStrip} aria-label="Quick capability navigation">
         <div className="container">
           <div className={styles.stripInner}>
-            <span className={styles.stripLabel}>Capabilities</span>
+            <span className={styles.stripLabel}>Capability Divisions</span>
             <div className={styles.stripItems}>
-              {capabilities.map((cap, i) => (
-                <span key={i} className={styles.stripItem}>
-                  <span className={styles.stripDot}></span>
-                  {cap}
-                </span>
+              {capabilityLinks.map((cap, i) => (
+                <Link key={i} to={cap.href} className={styles.stripItemLink}>
+                  <span className={styles.stripDot} />
+                  {cap.name}
+                </Link>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ABOUT PREVIEW */}
+      {/* 3. ABOUT EDITORIAL INTRODUCTION */}
       <section className={`section ${styles.aboutSection}`} aria-label="About INSICLE">
         <div className="container">
           <div className={styles.aboutGrid}>
             <AnimatedSection className={styles.aboutLeft}>
-              <span className="label">About INSICLE</span>
+              <span className="label">ABOUT INSICLE</span>
               <h2 className={styles.aboutHeading}>
                 We Believe Great Technology Should Move Business Forward.
               </h2>
-            </AnimatedSection>
-            <AnimatedSection className={styles.aboutRight} delay={0.15}>
-              <p className={styles.aboutText}>
-                INSICLE is a technology and digital solutions company focused on helping
-                businesses harness the potential of software, data and digital strategy.
-                We work with organisations that want to build better systems, reach more
-                customers and operate more efficiently.
+              <p className={styles.aboutLead}>
+                INSICLE is a technology and digital solutions company focused on helping organisations explore practical software, data and digital capabilities. The aim is to connect technology with real business requirements through thoughtful design, engineering and implementation.
               </p>
-              <p className={styles.aboutText}>
-                Our team brings together engineering capability, business intelligence
-                and creative thinking to deliver solutions that are practical, purposeful
-                and built to last.
+              <p className={styles.aboutBody}>
+                Rather than treating software as an isolated technical layer, we design architectures that respect operational constraints, integrate cleanly with existing infrastructure, and deliver verifiable business utility.
               </p>
-              <div className={styles.aboutValues}>
-                {['Purpose-built solutions', 'Clear communication', 'Measured outcomes'].map((val) => (
-                  <div key={val} className={styles.aboutValue}>
-                    <CheckCircle size={16} className={styles.checkIcon} />
-                    <span>{val}</span>
+
+              <div className={styles.aboutPillars}>
+                <div className={styles.aboutPillar}>
+                  <CheckCircle size={18} className={styles.pillarCheck} />
+                  <div>
+                    <h4 className={styles.pillarTitle}>Pragmatic Architecture</h4>
+                    <p className={styles.pillarDesc}>Clean, documented codebases designed for longevity and adoption.</p>
                   </div>
-                ))}
+                </div>
+                <div className={styles.aboutPillar}>
+                  <CheckCircle size={18} className={styles.pillarCheck} />
+                  <div>
+                    <h4 className={styles.pillarTitle}>Unified Digital Disciplines</h4>
+                    <p className={styles.pillarDesc}>Engineering, business intelligence, and enterprise systems under one roof.</p>
+                  </div>
+                </div>
               </div>
-              <Link to="/about" className={`btn btn-secondary ${styles.aboutLink}`}>
-                Learn More About Us <ArrowRight size={16} />
-              </Link>
+
+              <div className={styles.aboutActions}>
+                <Link to="/about" className="btn btn-secondary">
+                  Learn More About Our Approach <ArrowRight size={16} />
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection className={styles.aboutRight} delay={0.15}>
+              <div className={styles.aboutVisualCard}>
+                <img
+                  src="/images/about-visual.png"
+                  alt="INSICLE editorial technology composition"
+                  className={styles.aboutImg}
+                  loading="lazy"
+                />
+                <div className={styles.aboutQuoteBox}>
+                  <p className={styles.aboutQuoteText}>
+                    &ldquo;Connecting technology with real business requirements through thoughtful engineering.&rdquo;
+                  </p>
+                  <span className={styles.aboutQuoteAuthor}>— Dr. S. Selvi, Proprietor, INSICLE</span>
+                </div>
+              </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* 4. BALANCED ASYMMETRIC SERVICES SECTION */}
       <section className={`section ${styles.servicesSection}`} aria-label="Services">
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">What We Do</span>
+              <span className="label">Capabilities & Offerings</span>
               <h2 className={styles.sectionHeading}>
                 Different Capabilities. One Goal. Your Growth.
               </h2>
+              <p className={styles.sectionSub}>
+                Explore our five core capability divisions. Every engagement is structured around explicit operational requirements, transparent scoping, and modern engineering standards.
+              </p>
             </div>
           </AnimatedSection>
 
-          <motion.div
-            className={styles.servicesGrid}
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            {serviceDivisions.filter(d => d.approved).map((division, idx) => {
-              const Icon = iconMap[division.icon] || Code2
-              const isFeature = idx === 0 || idx === 2
-              return (
-                <motion.div
-                  key={division.id}
-                  variants={staggerItem}
-                  className={`${styles.serviceCard} ${
-                    division.color === 'charcoal' ? styles.cardCharcoal :
-                    division.color === 'lime-tint' ? styles.cardLimeTint :
-                    styles.cardWhite
-                  } ${isFeature ? styles.cardFeature : ''}`}
-                  whileHover={{ y: -6, transition: { duration: 0.22 } }}
-                >
-                  <div className={styles.cardTop}>
-                    <span className={styles.divNumber}>{division.number}</span>
-                    <div className={`${styles.iconWrap} ${division.color === 'charcoal' ? styles.iconLime : styles.iconCharcoal}`}>
-                      <Icon size={22} />
-                    </div>
-                  </div>
-                  <h3 className={styles.cardTitle}>{division.title}</h3>
-                  <p className={styles.cardDesc}>{division.description}</p>
-                  <Link
-                    to={`/services#${division.id}`}
-                    className={`${styles.cardLink} ${division.color === 'charcoal' ? styles.cardLinkLight : ''}`}
-                  >
-                    Learn More <ArrowRight size={14} />
-                  </Link>
-                </motion.div>
-              )
-            })}
-          </motion.div>
+          {/* Asymmetric 1 + 4 Editorial Layout */}
+          <div className={styles.servicesAsymmetricGrid}>
+            {/* Featured Card (Digital Engineering) */}
+            <AnimatedSection className={styles.featuredServiceCard}>
+              <div className={styles.featuredTop}>
+                <span className={styles.featuredBadge}>{featuredDivision.number} — Featured Division</span>
+                <div className={styles.featuredIconBox}>
+                  <Code2 size={28} />
+                </div>
+              </div>
 
-          <div className={styles.servicesFooter}>
+              <h3 className={styles.featuredTitle}>{featuredDivision.title}</h3>
+              <p className={styles.featuredDesc}>{featuredDivision.description}</p>
+
+              <div className={styles.featuredProblemBox}>
+                <h5 className={styles.featuredProblemHeading}>The Business Challenge Addressed:</h5>
+                <p className={styles.featuredProblemText}>{featuredDivision.businessProblem}</p>
+              </div>
+
+              <div className={styles.featuredUseBox}>
+                <h5 className={styles.featuredProblemHeading}>Example Use Case:</h5>
+                <p className={styles.featuredProblemText}>{featuredDivision.useCaseExample}</p>
+              </div>
+
+              <div className={styles.featuredServicesList}>
+                <h5 className={styles.featuredServicesHeading}>Included Capabilities:</h5>
+                <ul>
+                  {featuredDivision.services.slice(0, 4).map((s) => (
+                    <li key={s.slug}>
+                      <Link to={`/services/${s.slug}`} className={styles.featuredServiceLink}>
+                        <span>{s.title}</span>
+                        <ArrowRight size={13} />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.featuredFooter}>
+                <Link to={`/services#${featuredDivision.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                  Explore Digital Engineering <ArrowRight size={16} />
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* 4 Supporting Divisions (2x2 Grid) */}
+            <div className={styles.supportingGrid}>
+              {supportingDivisions.map((division, idx) => {
+                const Icon = iconMap[division.icon] || Zap
+                return (
+                  <AnimatedSection key={division.id} delay={idx * 0.08} className={styles.supportingCardWrap}>
+                    <div
+                      className={`${styles.supportingCard} ${
+                        division.color === 'lime-tint' ? styles.cardLimeTint : styles.cardWhite
+                      }`}
+                    >
+                      <div className={styles.cardHeader}>
+                        <div className={styles.cardMeta}>
+                          <span className={styles.cardNum}>{division.number}</span>
+                          <span className={styles.cardShortTitle}>{division.shortTitle}</span>
+                        </div>
+                        <div className={styles.cardIconBox}>
+                          <Icon size={20} />
+                        </div>
+                      </div>
+
+                      <h4 className={styles.supportingTitle}>{division.title}</h4>
+                      <p className={styles.supportingDesc}>{division.description}</p>
+
+                      <div className={styles.supportingProblem}>
+                        <span className={styles.supportingProblemLabel}>Addresses:</span>
+                        <p>{division.businessProblem}</p>
+                      </div>
+
+                      <div className={styles.supportingFooter}>
+                        <Link to={`/services#${division.id}`} className={styles.supportingLink}>
+                          <span>Explore Division</span>
+                          <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className={styles.servicesActionFooter}>
             <Link to="/services" className="btn btn-secondary">
-              View All Services <ArrowRight size={16} />
+              View Comprehensive Services Directory <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* WHY INSICLE */}
+      {/* 5. WHY INSICLE (Substantial 4-Principle Grid) */}
       <section className={`section ${styles.whySection}`} aria-label="Why INSICLE">
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Why Choose Us</span>
+              <span className="label">Our Approach</span>
               <h2 className={styles.sectionHeading}>
                 Built Around Ideas. Driven By Execution.
               </h2>
+              <p className={styles.sectionSub}>
+                Four operational principles that guide how we evaluate challenges, design architectures, and deliver software.
+              </p>
             </div>
           </AnimatedSection>
 
@@ -309,12 +373,14 @@ export default function Home() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: '-60px' }}
           >
-            {whyInsicle.map((item) => (
-              <motion.div key={item.number} variants={staggerItem} className={styles.whyItem}>
-                <span className={styles.whyNumber}>{item.number}</span>
-                <h4 className={styles.whyTitle}>{item.title}</h4>
+            {whyPrinciples.map((item) => (
+              <motion.div key={item.number} variants={staggerItem} className={styles.whyCard}>
+                <div className={styles.whyCardHeader}>
+                  <span className={styles.whyNum}>{item.number}</span>
+                </div>
+                <h3 className={styles.whyTitle}>{item.title}</h3>
                 <p className={styles.whyDesc}>{item.description}</p>
               </motion.div>
             ))}
@@ -322,70 +388,120 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI SHOWCASE */}
-      <section className={`section ${styles.aiSection}`} aria-label="AI and technology">
+      {/* 6. AI & TECHNOLOGY SHOWCASE (In-depth Narrative) */}
+      <section className={`section ${styles.aiSection}`} aria-label="AI and intelligence capabilities">
         <div className="container">
           <div className={styles.aiGrid}>
             <AnimatedSection className={styles.aiContent}>
-              <span className="label">Intelligence & Data</span>
+              <span className="label" style={{ color: 'var(--color-lime)' }}>Intelligence & Data</span>
               <h2 className={styles.aiHeading}>
-                Turning Data and Intelligence Into Action.
+                Turning Data and Intelligence Into Measurable Action.
               </h2>
-              <p className={styles.aiText}>
-                Artificial intelligence, machine learning and business intelligence
-                tools are becoming essential for competitive businesses. INSICLE
-                helps organisations implement these capabilities in practical,
-                measurable ways.
+              <p className={styles.aiLead}>
+                Modern artificial intelligence and business intelligence are most valuable when integrated directly into core workflows. We help organizations transition from isolated models to reliable, automated decision pipelines.
               </p>
-              <div className={styles.aiCapabilities}>
-                {['AI', 'Machine Learning', 'Business Intelligence', 'Analytics', 'Automation'].map((cap) => (
-                  <span key={cap} className={styles.aiChip}>{cap}</span>
+
+              <div className={styles.aiUseCases}>
+                <div className={styles.aiUseCaseItem}>
+                  <Sparkles size={18} className={styles.aiIconLime} />
+                  <div>
+                    <h4 className={styles.aiUseCaseTitle}>Automated Document Intelligence</h4>
+                    <p className={styles.aiUseCaseDesc}>Semantic extraction pipelines converting unstructured contracts and invoices into structured ledger data.</p>
+                  </div>
+                </div>
+
+                <div className={styles.aiUseCaseItem}>
+                  <Compass size={18} className={styles.aiIconLime} />
+                  <div>
+                    <h4 className={styles.aiUseCaseTitle}>Operational Analytics & Telemetry</h4>
+                    <p className={styles.aiUseCaseDesc}>Unified semantic reporting layers consolidating fragmented ERP, CRM, and financial data streams.</p>
+                  </div>
+                </div>
+
+                <div className={styles.aiUseCaseItem}>
+                  <Zap size={18} className={styles.aiIconLime} />
+                  <div>
+                    <h4 className={styles.aiUseCaseTitle}>Predictive Decision Workflows</h4>
+                    <p className={styles.aiUseCaseDesc}>Machine learning models detecting operational bottlenecks, inventory shifts, and anomalous events.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.aiChips}>
+                {['Machine Learning', 'Data Analytics', 'Business Intelligence', 'Semantic Reasoning', 'Process Automation'].map((c) => (
+                  <span key={c} className={styles.aiChip}>{c}</span>
                 ))}
               </div>
-              <Link to="/services#ai-business-intelligence" className="btn btn-primary">
-                Explore AI & BI <ArrowRight size={16} />
-              </Link>
+
+              <div className={styles.aiActions}>
+                <Link to="/services#ai-business-intelligence" className="btn btn-primary">
+                  Explore AI & BI Capabilities <ArrowRight size={16} />
+                </Link>
+              </div>
             </AnimatedSection>
+
             <AnimatedSection className={styles.aiVisual} delay={0.2}>
-              <img
-                src="/images/ai-network.png"
-                alt="Abstract AI network visualization with lime green data nodes"
-                className={styles.aiImage}
-                loading="lazy"
-              />
+              <div className={styles.aiImageWrap}>
+                <img
+                  src="/images/ai-network.png"
+                  alt="Abstract AI network visualization with lime data nodes"
+                  className={styles.aiImage}
+                  loading="lazy"
+                />
+                <div className={styles.aiBadge}>
+                  <Brain size={16} /> Intelligence & Graph Topology
+                </div>
+              </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* ENTERPRISE SOLUTIONS */}
+      {/* 7. ENTERPRISE SOLUTIONS PREVIEW */}
       <section className={`section ${styles.enterpriseSection}`} aria-label="Enterprise solutions">
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
               <span className="label">Enterprise Solutions</span>
               <h2 className={styles.sectionHeading}>
-                Smarter Systems for Everyday Business.
+                Smarter Systems for Everyday Business Operations.
               </h2>
+              <p className={styles.sectionSub}>
+                Customizable enterprise frameworks engineered to consolidate customer data, HR processes, sales pipelines, and financial reporting.
+              </p>
             </div>
           </AnimatedSection>
 
           <div className={styles.enterpriseGrid}>
             <AnimatedSection className={styles.enterpriseVisual} delay={0.1}>
-              <img
-                src="/images/enterprise-systems.png"
-                alt="Abstract enterprise systems visualization"
-                className={styles.enterpriseImage}
-                loading="lazy"
-              />
+              <div className={styles.enterpriseImgWrap}>
+                <img
+                  src="/images/enterprise-systems.png"
+                  alt="Abstract enterprise systems modular composition"
+                  className={styles.enterpriseImage}
+                  loading="lazy"
+                />
+                <div className={styles.enterpriseBadge}>
+                  <Building2 size={16} /> Framework Architecture
+                </div>
+              </div>
             </AnimatedSection>
+
             <div className={styles.enterpriseCards}>
-              {['CRM', 'HRM', 'Customer Service', 'Accounting & Finance', 'Sales Automation'].map((item, i) => (
-                <AnimatedSection key={item} delay={i * 0.07}>
-                  <Link to="/solutions" className={styles.enterpriseCard}>
-                    <Building2 size={16} />
-                    <span>{item}</span>
-                    <ArrowRight size={14} className={styles.enterpriseArrow} />
+              {[
+                { name: 'Customer Relationship Management (CRM)', slug: 'crm', desc: 'Centralized lead management, contact logs, and pipeline forecasting.' },
+                { name: 'Human Resource Management (HRM)', slug: 'hrm', desc: 'Employee records, attendance, leave, and performance review cycles.' },
+                { name: 'Customer Service & Help Desk', slug: 'customer-service', desc: 'Multichannel ticket queues, SLA tracking, and resolution workflows.' },
+                { name: 'Accounting & Finance Systems', slug: 'accounting-finance', desc: 'Double-entry bookkeeping, invoicing automation, and balance sheet reporting.' },
+                { name: 'Sales Force Automation', slug: 'sales-automation', desc: 'Automated lead assignment, follow-up workflows, and quote generation.' },
+              ].map((item, i) => (
+                <AnimatedSection key={item.slug} delay={i * 0.06}>
+                  <Link to={`/solutions/${item.slug}`} className={styles.enterpriseCard}>
+                    <div>
+                      <h4 className={styles.enterpriseCardTitle}>{item.name}</h4>
+                      <p className={styles.enterpriseCardDesc}>{item.desc}</p>
+                    </div>
+                    <ArrowRight size={16} className={styles.enterpriseArrow} />
                   </Link>
                 </AnimatedSection>
               ))}
@@ -394,17 +510,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INDUSTRIES */}
+      {/* 8. INDUSTRIES PREVIEW */}
       <section className={`section ${styles.industriesSection}`} aria-label="Industries we serve">
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Potential Application Areas</span>
+              <span className="label">Domain Applications</span>
               <h2 className={styles.sectionHeading}>
-                Technology Solutions Across Industries.
+                Technology Solutions Across Industry Sectors.
               </h2>
+              <p className={styles.sectionSub}>
+                Addressing the unique compliance, inventory, customer, and administrative requirements of modern industries.
+              </p>
             </div>
           </AnimatedSection>
+
           <motion.div
             className={styles.industriesGrid}
             variants={staggerContainer}
@@ -412,50 +532,87 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
           >
-            {industries.filter(i => i.approved).map((ind) => (
+            {industries.filter((i) => i.approved).map((ind) => (
               <motion.div key={ind.id} variants={staggerItem} className={styles.industryCard}>
-                <span className={styles.industryTitle}>{ind.title}</span>
+                <h4 className={styles.industryTitle}>{ind.title}</h4>
+                <p className={styles.industryDesc}>{ind.description}</p>
+                <div className={styles.industryFooter}>
+                  <Link to="/industries" className={styles.industryLink}>
+                    View Sector Solutions <ArrowRight size={12} />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </motion.div>
+
           <div style={{ marginTop: 40, textAlign: 'center' }}>
             <Link to="/industries" className="btn btn-secondary">
-              Explore Industries <ArrowRight size={16} />
+              Explore All Industry Applications <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* PORTFOLIO PREVIEW */}
-      <section className={`section ${styles.portfolioSection}`} aria-label="Portfolio">
+      {/* 9. PORTFOLIO TECHNICAL SHOWCASE PREVIEW */}
+      <section className={`section ${styles.portfolioSection}`} aria-label="Portfolio and technical showcases">
         <div className="container">
           <div className={styles.portfolioHeader}>
             <AnimatedSection>
-              <span className="label">Portfolio</span>
-              <h2 className={styles.sectionHeading}>Our Work.</h2>
+              <span className="label">Technical Showcases</span>
+              <h2 className={styles.sectionHeading}>Proof of Capabilities & Case Studies</h2>
+              <p className={styles.sectionSub}>
+                Architectural prototypes and research implementations demonstrating our engineering standards.
+              </p>
             </AnimatedSection>
             <Link to="/portfolio" className="btn btn-ghost">
               View All Work <ArrowRight size={16} />
             </Link>
           </div>
-          <AnimatedSection className={styles.portfolioEmpty}>
-            <div className={styles.emptyState}>
-              <div className={styles.emptyIcon}>
-                <Zap size={32} />
+
+          <AnimatedSection className={styles.showcaseCardWrap}>
+            <div className={styles.showcaseCard}>
+              <div className={styles.showcaseMedia}>
+                <img
+                  src={showcaseProject.image}
+                  alt={showcaseProject.title}
+                  className={styles.showcaseImg}
+                  loading="lazy"
+                />
+                <span className={styles.showcaseTag}>
+                  <Lock size={13} /> Research Prototype
+                </span>
               </div>
-              <h3 className={styles.emptyTitle}>Approved case studies coming soon.</h3>
-              <p className={styles.emptyText}>
-                We're preparing project showcases for publication. Visit this section again soon.
-              </p>
-              <Link to="/contact" className="btn btn-primary">
-                Discuss Your Project <ArrowRight size={16} />
-              </Link>
+
+              <div className={styles.showcaseBody}>
+                <span className={styles.showcaseCat}>{showcaseProject.category}</span>
+                <h3 className={styles.showcaseTitle}>{showcaseProject.title}</h3>
+                <p className={styles.showcaseDesc}>{showcaseProject.description}</p>
+
+                <div className={styles.showcaseProblem}>
+                  <strong>Core Challenge:</strong> {showcaseProject.challenge}
+                </div>
+
+                <div className={styles.techTagsRow}>
+                  {showcaseProject.technologies.map((t) => (
+                    <span key={t} className={styles.techTagPill}>{t}</span>
+                  ))}
+                </div>
+
+                <div className={styles.showcaseActions}>
+                  <Link to={`/portfolio/${showcaseProject.slug}`} className="btn btn-primary">
+                    Read Case Study Breakdown <ArrowRight size={16} />
+                  </Link>
+                  <span className={styles.disclaimerNote}>
+                    *Conceptual Demonstration — Pending Company Verification
+                  </span>
+                </div>
+              </div>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* CONTACT CTA */}
+      {/* 10. ENRICHED CONTACT CTA (With 3-Step Process) */}
       <ContactCTA />
     </div>
   )

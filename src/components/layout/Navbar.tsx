@@ -15,6 +15,7 @@ const navLinks = [
   { href: '/industries', label: 'Industries' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/careers', label: 'Careers' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {

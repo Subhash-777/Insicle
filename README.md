@@ -124,4 +124,8 @@ Centralized in `src/data/company.ts`:
 - **Email:** `rmkinsicle@gmail.com`
 - **Address:** `RSM Nagar, Kavaraipettai, Gummidipoondi Taluk, Thiruvallur – 601206`
 
-> **Note on Company Approvals:** In compliance with `PLAN.md`, all marketing claims, mission/vision statements, enterprise framework specifications, and technical showcases are clearly demarcated as proposed copy or technical prototypes pending final company publication approval.
+### Governance & Verification Artifacts
+- **[ENHANCEMENT_AUDIT.md](ENHANCEMENT_AUDIT.md):** Complete 10-section critical audit documenting observed findings, design rationale, proposed corrections, and responsive verification evidence.
+- **[CONTENT_APPROVAL_REQUIRED.md](CONTENT_APPROVAL_REQUIRED.md):** Formal sign-off registry distinguishing approved corporate facts from proposed capability categories and technical research prototypes.
+
+> **Note on Company Approvals:** In compliance with `PLAN.md` and `STARTUP_PROMPT.md`, all marketing claims, mission/vision statements, enterprise framework specifications, and technical showcases are clearly demarcated as proposed copy or technical prototypes pending final company publication approval.
