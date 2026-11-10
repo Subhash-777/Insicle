@@ -4,41 +4,46 @@ A complete, production-grade corporate website for **INSICLE** — a modern tech
 
 ---
 
-## 1. Brand Identity & Design System
+## 1. Brand Identity & Design System ("Steel & Ink")
 
-- **Identity Direction:** Creative + Enterprise Hybrid
-- **Visual Personality:** Neo-minimalist, disciplined typography, editorial layouts, 3D abstract technology visuals.
+- **Identity Direction:** Steel & Ink — calm, precise, editorial-corporate, trustworthy.
+- **Visual Personality:** Engineered typography, generous whitespace (75% light surfaces), dry-brush signature slash motif, zero neon, zero glassmorphism.
 - **Color Palette:**
-  - **Electric Lime:** `#C5F45B` (Primary brand signature, CTA buttons, active states, key accents)
-  - **Deep Charcoal:** `#171917` (Main headings, dark cards, footer, high-contrast surfaces)
-  - **Warm White:** `#FAFAF6` (Page background, subtle contrast cards)
-  - **Lime Tint:** `#EFF8DA` (Feature cards, tags, soft highlights)
-  - **Slate Grey:** `#777D75` (Body text, metadata, subtle borders)
-  - **Border Grey:** `#E5E7DF` (Dividers, outlines)
-  - **Pure White:** `#FFFFFF` (Surface cards, header panels)
+  - `--logo-steel`: `#385068` (Primary brand color, buttons, headings, icons)
+  - `--logo-ink`: `#284058` (Strong headings, button hover/pressed, slash mark)
+  - `--ink-900`: `#14212F` (Dark surfaces: Hero base, CTA band, Footer)
+  - `--ink-800`: `#1B2D40` (Body text on light, dark cards)
+  - `--steel-500`: `#4A7BA6` (Accents, graph nodes, borders on hover)
+  - `--steel-300`: `#9FB3C8` (Graph lines on dark, muted text on dark)
+  - `--steel-200`: `#CBD6E2` (Stronger borders, dividers)
+  - `--steel-100`: `#E3EAF1` (Hairline borders on light)
+  - `--steel-50`: `#EEF2F7` (Tinted alternate section background)
+  - `--paper`: `#F7F8FA` (Page background, matching the logo scan background)
+  - `--surface`: `#FFFFFF` (Card surfaces)
+  - `--muted`: `#5B6B7C` (Secondary text on light — 5.15:1 AA contrast)
+  - `--text-on-dark`: `#E8EEF4` (Primary text on dark — 13.95:1 AAA contrast)
 - **Typography:**
-  - **Headings & Display:** `Space Grotesk` (500, 600, 700)
-  - **Body & Interface:** `Inter` (400, 500, 600, 700)
-- **Motion & Animations:** Moderate intensity powered by Motion (`motion/react`), with full `prefers-reduced-motion` accessibility support.
+  - **Headings & Labels:** `Jost` (weight 400/500, tight line-height 1.1–1.2)
+  - **Body & Interface:** `Inter` (weight 400/500, line-height 1.65)
+  - **Eyebrows & Small Caps:** `Jost` 500, uppercase, `letter-spacing: 0.28em`, 12–13px
+- **Motion & Animations:** Calm, editorial fade-up (12px, 400ms, ease-out), reduced-motion fully honored everywhere.
 
 ---
 
-## 2. Supplied Brand Assets
+## 2. Brand Assets & Pipeline
 
-- **Master Brand Logo:** `logo.png` / `public/images/brand/insicle-logo-master.png` (preserved verbatim as authoritative master, 1774x887 PNG).
-- **Header Logo:** `public/images/brand/insicle-logo-header.png` (comfortably cropped with clean padding for proportional display at 48px height).
-- **Footer Logo:** `public/images/brand/insicle-logo-footer.png` (displayed on a protective warm-white panel within the deep charcoal footer).
-- **Favicon:** `public/favicon.svg` (charcoal background with electric lime mark).
-- **Social Preview / Open Graph:** `public/images/og-preview.png` (1200x630px high-resolution card).
-- **Original 3D Visual Library (`public/images/`):**
-  - `hero-abstract.png`: Lime geometric 3D composition for homepage hero
-  - `about-visual.png`: Editorial brand hardware/circuitry composition
-  - `digital-engineering.png`: Architectural software stack composition
-  - `ai-network.png`: Connected intelligence and data node visual
-  - `enterprise-systems.png`: Modular enterprise workflow composition
-  - `digital-growth.png`: Data visualization and analytics growth visual
-  - `talent-solutions.png`: Collaborative network and recruitment visual
-  - `contact-visual.png`: Geometric brand card visual
+- **Original Scan:** `/public/brand/logo-official-original.png` (preserved untouched, 358x92).
+- **Cleaned Transparent PNGs:**
+  - Header: `/public/images/brand/insicle-logo-header.png` (dark ink on transparent)
+  - Footer / Dark sections: `/public/images/brand/insicle-logo-footer.png` (`#E8EEF4` on transparent)
+  - Master: `/public/images/brand/insicle-logo-master.png`
+- **Vector Assets:**
+  - Standard Logo: `/public/brand/logo.svg`
+  - Light Logo: `/public/brand/logo-light.svg`
+  - Signature Brush Slash Mark: `/public/brand/slash-mark.svg` & `slash-mark-light.svg`
+  - Favicon & Icons: `/public/favicon.svg`, `/public/icon-192.png`, `/public/icon-512.png`
+  - OpenGraph Card: `/public/images/og-preview.png` (1200x630 on `--ink-900`)
+- **TODO(client): request vector logo from the company** (high-res SVG from brand designer).
 
 ---
 

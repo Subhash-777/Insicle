@@ -5,7 +5,7 @@
 
 .sectionHeadingLight {
   font-size: var(--text-section-heading);
-  color: var(--color-white);
+  color: var(--surface);
   margin-bottom: 48px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .divisionCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 40px;
@@ -29,11 +29,11 @@
 
 .divisionCard:hover {
   box-shadow: var(--shadow-hover);
-  border-color: rgba(197, 244, 91, 0.8);
+  border-color: rgba(56,80,104, 0.8);
 }
 
 .divisionCardAlt {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .divisionHeader {
@@ -51,9 +51,9 @@
 .divNum {
   font-family: var(--font-display);
   font-size: 20px;
-  font-weight: 700;
-  color: var(--color-charcoal);
-  background: var(--color-lime);
+  font-weight: 500;
+  color: var(--ink-900);
+  background: var(--logo-steel);
   padding: 4px 12px;
   border-radius: 100px;
 }
@@ -62,22 +62,22 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .divTitle {
   font-size: 28px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .divDesc {
   font-size: 16px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.7;
 }
 
@@ -93,24 +93,24 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px;
-  background: var(--color-warm-white);
-  border: 1px solid var(--color-border);
+  background: var(--paper);
+  border: 1px solid var(--steel-100);
   border-radius: var(--radius-sm);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   transition: all var(--transition-fast);
 }
 
 .divisionCardAlt .serviceItem {
-  background: var(--color-white);
+  background: var(--surface);
 }
 
 .serviceItem:hover {
-  background: var(--color-lime-tint);
-  border-color: var(--color-lime);
+  background: var(--steel-50);
+  border-color: var(--logo-steel);
   transform: translateX(4px);
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 /* Process Section */
@@ -131,15 +131,15 @@
 .processNum {
   font-family: var(--font-display);
   font-size: 32px;
-  font-weight: 700;
-  color: var(--color-lime);
+  font-weight: 500;
+  color: var(--logo-steel);
   display: block;
   margin-bottom: 16px;
 }
 
 .processTitle {
   font-size: 20px;
-  color: var(--color-white);
+  color: var(--surface);
   margin-bottom: 12px;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .faqItem {
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   border-radius: var(--radius-card);
   overflow: hidden;
@@ -184,21 +184,21 @@
 
 .faqQ {
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 500;
   font-family: var(--font-display);
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin: 0;
 }
 
 .faqChevron {
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
 }
 
 .faqChevronOpen {
   transform: rotate(180deg);
-  color: #354710;
+  color: var(--logo-ink);
 }
 
 .faqAnswerWrap {
@@ -207,7 +207,7 @@
 
 .faqA {
   font-size: 15px;
-  color: var(--color-text-secondary);
+  color: var(--muted);
   line-height: 1.7;
   padding: 0 28px 24px;
   margin: 0;

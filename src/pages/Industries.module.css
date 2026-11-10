@@ -1,5 +1,5 @@
 .page {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .advisorySection {
@@ -7,9 +7,9 @@
 }
 
 .advisoryCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
-  border-left: 4px solid var(--color-lime);
+  border-left: 4px solid var(--logo-steel);
   border-radius: var(--radius-card);
   padding: 20px 24px;
   display: flex;
@@ -19,7 +19,7 @@
 }
 
 .advisoryIcon {
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -32,13 +32,13 @@
 
 .advisoryTitle {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
 }
 
 .advisoryText {
   font-size: 14px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .industryCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 40px;
@@ -62,7 +62,7 @@
 
 .industryCard:hover {
   box-shadow: var(--shadow-hover);
-  border-color: rgba(197, 244, 91, 0.8);
+  border-color: rgba(56,80,104, 0.8);
 }
 
 .industryCardAlt {
@@ -80,19 +80,19 @@
   width: 56px;
   height: 56px;
   border-radius: var(--radius-sm);
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .cardNum {
   font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 700;
-  color: var(--color-slate);
+  font-weight: 500;
+  color: var(--muted);
   letter-spacing: 0.1em;
   display: block;
   margin-bottom: 4px;
@@ -100,12 +100,12 @@
 
 .cardTitle {
   font-size: 26px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .cardDesc {
   font-size: 16px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 880px;
@@ -115,7 +115,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   border-radius: var(--radius-sm);
   padding: 28px;
@@ -126,7 +126,7 @@
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -151,7 +151,7 @@
 .challengeList li,
 .solutionList li {
   font-size: 14px;
-  color: var(--color-slate);
+  color: var(--muted);
   position: relative;
   padding-left: 16px;
   line-height: 1.5;
@@ -161,14 +161,14 @@
   content: "—";
   position: absolute;
   left: 0;
-  color: var(--color-slate);
+  color: var(--muted);
 }
 
 .solutionList li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   font-weight: bold;
 }
 

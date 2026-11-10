@@ -1,9 +1,9 @@
 .page {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .overviewSection {
-  background: var(--color-white);
+  background: var(--surface);
   border-bottom: var(--border);
 }
 
@@ -22,20 +22,20 @@
 
 .sectionHeading {
   font-size: var(--text-section-heading);
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   line-height: 1.15;
 }
 
 .sectionHeadingLight {
   font-size: var(--text-section-heading);
-  color: var(--color-white);
+  color: var(--surface);
   line-height: 1.15;
   margin-bottom: 40px;
 }
 
 .leadText {
   font-size: 18px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   font-weight: 500;
   line-height: 1.6;
 }
@@ -54,7 +54,7 @@
   overflow: hidden;
   border: var(--border);
   box-shadow: var(--shadow-card);
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .divisionImg {
@@ -70,21 +70,21 @@
   right: 16px;
   background: rgba(23, 25, 23, 0.85);
   backdrop-filter: blur(8px);
-  color: var(--color-lime);
+  color: var(--logo-steel);
   padding: 8px 14px;
   border-radius: 100px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(197, 244, 91, 0.3);
+  border: 1px solid rgba(56,80,104, 0.3);
 }
 
 /* Problem section */
 .problemSection {
-  background: var(--color-charcoal);
-  color: var(--color-white);
+  background: var(--ink-900);
+  color: var(--surface);
 }
 
 .problemGrid {
@@ -108,12 +108,12 @@
 }
 
 .cardIconLime {
-  color: var(--color-lime);
+  color: var(--logo-steel);
 }
 
 .cardTitleLight {
   font-size: 22px;
-  color: var(--color-white);
+  color: var(--surface);
 }
 
 .cardTextLight {
@@ -124,7 +124,7 @@
 
 /* Capabilities */
 .capabilitiesSection {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .deliveryGrid {
@@ -135,7 +135,7 @@
 }
 
 .deliveryCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 32px;
@@ -145,12 +145,12 @@
 .deliveryCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(197, 244, 91, 0.8);
+  border-color: rgba(56,80,104, 0.8);
 }
 
 .checkIcon {
-  color: var(--color-lime);
-  background: var(--color-charcoal);
+  color: var(--logo-steel);
+  background: var(--ink-900);
   border-radius: 50%;
   padding: 2px;
   margin-bottom: 16px;
@@ -158,19 +158,19 @@
 
 .deliveryTitle {
   font-size: 20px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 12px;
 }
 
 .deliveryDesc {
   font-size: 15px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
 }
 
 /* Related */
 .relatedSection {
-  background: var(--color-white);
+  background: var(--surface);
   border-top: var(--border);
 }
 
@@ -188,7 +188,7 @@
 }
 
 .relatedCard {
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 28px;
@@ -199,19 +199,19 @@
 
 .relatedCard:hover {
   transform: translateY(-4px);
-  border-color: var(--color-lime);
+  border-color: var(--logo-steel);
   box-shadow: var(--shadow-card);
 }
 
 .relatedTitle {
   font-size: 18px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 8px;
 }
 
 .relatedDesc {
   font-size: 14px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 20px;
   flex-grow: 1;
@@ -219,8 +219,8 @@
 
 .relatedLink {
   font-size: 14px;
-  font-weight: 600;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -228,7 +228,7 @@
 }
 
 .relatedCard:hover .relatedLink {
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   text-decoration: underline;
 }
 

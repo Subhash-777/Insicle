@@ -1,5 +1,5 @@
 .page {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .mediaSection {
@@ -28,20 +28,20 @@
   right: 20px;
   background: rgba(23, 25, 23, 0.85);
   backdrop-filter: blur(8px);
-  color: var(--color-lime);
+  color: var(--logo-steel);
   padding: 8px 18px;
   border-radius: 100px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(197, 244, 91, 0.3);
+  border: 1px solid rgba(56,80,104, 0.3);
 }
 
 /* Editorial Grid */
 .contentSection {
-  background: var(--color-white);
+  background: var(--surface);
   border-top: var(--border);
   border-bottom: var(--border);
   margin-top: 48px;
@@ -60,22 +60,22 @@
 
 .sectionHeading {
   font-size: var(--text-section-heading);
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .bodyParagraph {
   font-size: 17px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.8;
   margin-bottom: 24px;
 }
 
 .outcomeBox {
   margin-top: 40px;
-  background: var(--color-lime-tint);
-  border: 1px solid rgba(197, 244, 91, 0.8);
+  background: var(--steel-50);
+  border: 1px solid rgba(56,80,104, 0.8);
   border-radius: var(--radius-card);
   padding: 32px;
 }
@@ -88,17 +88,17 @@
 }
 
 .outcomeIcon {
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .outcomeTitle {
   font-size: 20px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .outcomeText {
   font-size: 16px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   line-height: 1.6;
   font-weight: 500;
 }
@@ -111,7 +111,7 @@
 .metaCard {
   position: sticky;
   top: 100px;
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 32px;
@@ -124,7 +124,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--steel-100);
   padding-bottom: 18px;
 }
 
@@ -135,16 +135,16 @@
 
 .metaLabel {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-slate);
+  color: var(--muted);
 }
 
 .metaValue {
   font-size: 16px;
-  font-weight: 600;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
 }
 
 .techTags {
@@ -158,13 +158,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 12px;
-  font-weight: 600;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
 }
 
 .sideAction {
@@ -173,7 +173,7 @@
 
 /* Related */
 .relatedSection {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .relatedHeader {
@@ -190,7 +190,7 @@
 }
 
 .relatedCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   overflow: hidden;
@@ -202,7 +202,7 @@
 .relatedCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--color-lime);
+  border-color: var(--logo-steel);
 }
 
 .relatedImg {
@@ -220,21 +220,21 @@
 
 .relatedCat {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  color: var(--color-slate);
+  color: var(--muted);
   margin-bottom: 6px;
 }
 
 .relatedTitle {
   font-size: 18px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 8px;
 }
 
 .relatedDesc {
   font-size: 14px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 16px;
   flex-grow: 1;
@@ -242,8 +242,8 @@
 
 .relatedLink {
   font-size: 14px;
-  font-weight: 600;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
   display: inline-flex;
   align-items: center;
   gap: 6px;

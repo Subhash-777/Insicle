@@ -12,15 +12,13 @@ export default function Footer() {
       <div className={`container ${styles.inner}`}>
         {/* Brand column */}
         <div className={styles.brandCol}>
-          <Link to="/" aria-label="INSICLE — Home">
-            <div className={styles.logoWrap}>
-              <img
-                src={company.logo.footer}
-                alt={company.logo.alt}
-                height={52}
-                style={{ objectFit: 'contain', objectPosition: 'left' }}
-              />
-            </div>
+          <Link to="/" className={styles.logoWrap} aria-label="INSICLE — Home">
+            <img
+              src={company.logo.footer}
+              alt={company.logo.alt}
+              height={36}
+              style={{ objectFit: 'contain', objectPosition: 'left' }}
+            />
           </Link>
           <p className={styles.brandDesc}>
             Technology, software development and digital solutions. Turning ambitious ideas into practical digital outcomes.
@@ -71,9 +69,9 @@ export default function Footer() {
 
         {/* CTA column */}
         <div className={styles.ctaCol}>
-          <h3 className={styles.colHeading}>Ready to start?</h3>
+          <h3 className={styles.ctaColHeading}>Ready to start?</h3>
           <p className={styles.ctaText}>
-            Got something ambitious in mind? Let's turn your next idea into something meaningful.
+            Got something ambitious in mind? Let&apos;s turn your next idea into something meaningful.
           </p>
           <Link to="/contact" className={`btn btn-dark ${styles.ctaBtn}`}>
             Start a Conversation <ArrowRight size={16} />

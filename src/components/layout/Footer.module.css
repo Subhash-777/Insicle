@@ -1,17 +1,23 @@
+/* ================================================================
+   Footer — Steel & Ink theme
+   --ink-900 background, light logo, steel-300 text
+   ================================================================ */
+
 .footer {
-  background: var(--color-charcoal);
-  color: var(--color-white);
-  padding: 80px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--ink-900);
+  color: var(--text-on-dark);
+  padding: 72px 0 0;
+  border-top: 1px solid rgba(255,255,255,.06);
 }
 
 .inner {
   display: grid;
   grid-template-columns: 2.2fr 1.1fr 1.3fr 1.6fr;
   gap: 40px;
-  padding-bottom: 56px;
+  padding-bottom: 48px;
 }
 
+/* Brand column */
 .brandCol {
   display: flex;
   flex-direction: column;
@@ -24,15 +30,17 @@
   padding: 2px 0;
   width: fit-content;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
+  text-decoration: none;
 }
 
 .logoWrap:hover {
-  opacity: 0.88;
+  opacity: 0.85;
   transform: translateY(-1px);
+  text-decoration: none;
 }
 
 .logoWrap img {
-  height: 44px;
+  height: 36px;
   width: auto;
   display: block;
 }
@@ -40,7 +48,7 @@
 .brandDesc {
   font-size: 14px;
   line-height: 1.7;
-  color: var(--color-text-on-dark-secondary);
+  color: var(--steel-300);
   max-width: 320px;
 }
 
@@ -55,18 +63,19 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 13px;
-  color: var(--color-text-on-dark-secondary);
+  color: var(--steel-300);
   text-decoration: none;
   transition: color var(--transition-fast);
   line-height: 1.5;
 }
 
 .contactItem:hover {
-  color: var(--color-lime);
+  color: var(--text-on-dark);
+  text-decoration: none;
 }
 
 .contactItem svg {
-  color: var(--color-lime);
+  color: var(--steel-500);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -79,12 +88,12 @@
 }
 
 .colHeading {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--color-lime);
-  font-family: var(--font-body);
+  color: var(--steel-300);
 }
 
 .linkList {
@@ -95,13 +104,14 @@
 
 .link {
   font-size: 14px;
-  color: var(--color-text-on-dark-secondary);
+  color: var(--steel-300);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .link:hover {
-  color: var(--color-white);
+  color: var(--text-on-dark);
+  text-decoration: none;
 }
 
 /* CTA column */
@@ -109,28 +119,35 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 3px solid var(--color-lime);
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius-card);
   padding: 24px;
 }
 
+.ctaColHeading {
+  font-family: var(--font-display);
+  font-size: var(--text-card-heading);
+  font-weight: 500;
+  color: var(--text-on-dark);
+  margin: 0;
+}
+
 .ctaText {
   font-size: 14px;
-  color: var(--color-text-on-dark-secondary);
+  color: var(--steel-300);
   line-height: 1.6;
 }
 
 .ctaBtn {
-  font-size: 14px;
-  padding: 12px 20px;
+  font-size: 13px;
+  padding: 11px 20px;
   justify-content: center;
 }
 
 /* Bottom bar */
 .bottomBar {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255,255,255,.08);
   padding: 20px 0;
 }
 
@@ -143,12 +160,12 @@
 
 .copyright {
   font-size: 13px;
-  color: var(--color-text-on-dark-secondary);
+  color: var(--steel-300);
 }
 
 .disclaimer {
   font-size: 12px;
-  color: var(--color-text-on-dark-muted);
+  color: rgba(159,179,200,.6);
   font-style: italic;
 }
 
@@ -158,26 +175,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
-
-  .brandCol {
-    grid-column: 1 / -1;
-  }
-
-  .ctaCol {
-    grid-column: 1 / -1;
-  }
+  .brandCol { grid-column: 1 / -1; }
+  .ctaCol   { grid-column: 1 / -1; }
 }
 
 @media (max-width: 639px) {
   .inner {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
-
-  .brandDesc {
-    max-width: 100%;
-  }
-
+  .brandDesc { max-width: 100%; }
   .bottomInner {
     flex-direction: column;
     align-items: flex-start;

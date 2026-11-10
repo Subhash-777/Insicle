@@ -1,15 +1,39 @@
+/* ================================================================
+   PageHero — Steel & Ink theme
+   Inner pages hero — light and dark variants
+   ================================================================ */
+
 .hero {
-  padding-top: calc(72px + 80px);
-  padding-bottom: 80px;
+  padding-top: calc(72px + 72px);
+  padding-bottom: 72px;
 }
 
 .dark {
-  background: var(--color-charcoal);
+  background: var(--ink-900);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle brush slash watermark on dark hero */
+.dark::after {
+  content: '';
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 110px;
+  background-image: url('/brand/slash-mark-light.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
 }
 
 .light {
-  background: var(--color-warm-white);
-  border-bottom: var(--border);
+  background: var(--steel-50);
+  border-bottom: 1px solid var(--steel-100);
 }
 
 .centered .content {
@@ -18,9 +42,8 @@
   margin: 0 auto;
 }
 
-.breadcrumb {
-  margin-bottom: 24px;
-}
+/* Breadcrumb */
+.breadcrumb { margin-bottom: 24px; }
 
 .breadcrumb ol {
   display: flex;
@@ -33,64 +56,57 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
-  color: var(--color-slate);
+  font-size: 12px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .breadcrumb a {
-  color: var(--color-slate);
+  color: var(--muted);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .breadcrumb a:hover {
-  color: var(--color-charcoal);
+  color: var(--logo-steel);
+  text-decoration: none;
 }
 
-.breadcrumb svg {
-  color: var(--color-text-muted);
-}
+.breadcrumb svg { color: var(--steel-200); }
 
-.dark .breadcrumb li {
-  color: var(--color-text-on-dark-secondary);
-}
+.dark .breadcrumb li { color: var(--steel-300); }
+.dark .breadcrumb a  { color: var(--steel-300); }
+.dark .breadcrumb a:hover { color: var(--text-on-dark); }
 
-.dark .breadcrumb a {
-  color: var(--color-text-on-dark-secondary);
-}
-
-.dark .breadcrumb a:hover {
-  color: var(--color-lime);
-}
-
+/* Content */
 .content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.label {
-  margin-bottom: 4px;
-}
+.label { margin-bottom: 4px; }
 
 .heading {
   font-size: var(--text-page-heading);
+  font-family: var(--font-display);
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.03em;
-  max-width: 800px;
+  letter-spacing: -0.025em;
+  max-width: 820px;
+  color: var(--ink-800);
 }
 
-.dark .heading {
-  color: var(--color-white);
-}
+.dark .heading { color: var(--text-on-dark); }
 
 .subheading {
-  font-size: clamp(16px, 1.3vw, 20px);
-  line-height: 1.6;
+  font-size: clamp(15px, 1.2vw, 19px);
+  line-height: 1.65;
   max-width: 600px;
-  color: var(--color-text-secondary);
+  color: var(--muted);
 }
 
-.dark .subheading {
-  color: var(--color-text-on-dark-secondary);
-}
+.dark .subheading { color: var(--steel-300); }

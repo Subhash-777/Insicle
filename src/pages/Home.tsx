@@ -17,10 +17,13 @@ import {
 } from 'lucide-react'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import GraphBackground from '@/components/common/GraphBackground'
+import SlashMark from '@/components/common/SlashMark'
+import SlashDivider from '@/components/common/SlashDivider'
 import { serviceDivisions } from '@/data/services'
 import { industries } from '@/data/industries'
 import { projects } from '@/data/projects'
-import { staggerContainer, staggerItem, heroText, floatingAnimation } from '@/animations/variants'
+import { staggerContainer, staggerItem, heroText } from '@/animations/variants'
 import styles from './Home.module.css'
 
 const iconMap: Record<string, React.ElementType> = {
@@ -74,18 +77,21 @@ export default function Home() {
   return (
     <div className={styles.page}>
       {/* 1. HERO SECTION */}
-      <section className={`${styles.hero} bg-grid-subtle`} aria-label="Hero section">
+      <section className={styles.hero} aria-label="Hero section">
+        <GraphBackground />
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroContent}>
             {/* Label */}
             <motion.div custom={0} variants={heroText} initial="hidden" animate="visible">
-              <span className="label label-lime">Creative + Enterprise Hybrid</span>
+              <span className="label label-dark">
+                <SlashMark width={7} height={18} color="var(--steel-300)" /> Secure · Intelligent · Digital Solutions
+              </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1 className={styles.heroHeadline} custom={1} variants={heroText} initial="hidden" animate="visible">
               We Make Technology{' '}
-              <span className={styles.limeText}>Work For</span>{' '}
+              <span className={styles.accentText}>Work For</span>{' '}
               What&apos;s Next.
             </motion.h1>
 
@@ -96,10 +102,10 @@ export default function Home() {
 
             {/* CTAs */}
             <motion.div className={styles.heroCtas} custom={3} variants={heroText} initial="hidden" animate="visible">
-              <Link to="/services" className="btn btn-primary">
+              <Link to="/services" className="btn btn-white">
                 Explore Capabilities <ArrowRight size={18} />
               </Link>
-              <Link to="/contact" className="btn btn-secondary">
+              <Link to="/contact" className="btn btn-dark">
                 Discuss Your Requirements
               </Link>
             </motion.div>
@@ -117,46 +123,17 @@ export default function Home() {
           {/* Hero visual */}
           <motion.div
             className={styles.heroVisual}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1, transition: { duration: 0.9, delay: 0.25 } }}
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.2 } }}
           >
-            <motion.div animate={floatingAnimation.animate} className={styles.heroImageWrap}>
+            <div className={styles.heroImageWrap}>
               <img
                 src="/images/hero-abstract.png"
-                alt="Abstract lime geometric technology composition"
+                alt="Steel-blue network graph illustration representing secure digital infrastructure"
                 className={styles.heroImage}
                 loading="eager"
               />
-              <div className={styles.ambientGlow} aria-hidden="true" />
-            </motion.div>
-
-            {/* Anchored capability cards */}
-            <motion.div
-              className={`${styles.floatBadge} ${styles.badgeAI}`}
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <Brain size={14} className={styles.badgeIconLime} />
-              <span>AI & Business Intelligence</span>
-            </motion.div>
-
-            <motion.div
-              className={`${styles.floatBadge} ${styles.badgeEng}`}
-              animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-            >
-              <Code2 size={14} className={styles.badgeIconCharcoal} />
-              <span>Full-Stack Engineering</span>
-            </motion.div>
-
-            <motion.div
-              className={`${styles.floatBadge} ${styles.badgeGrowth}`}
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            >
-              <Zap size={14} className={styles.badgeIconLime} />
-              <span>Enterprise Systems</span>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
 
@@ -164,6 +141,7 @@ export default function Home() {
         <div className={styles.scrollIndicator} aria-hidden="true">
           <div className={styles.scrollLine} />
         </div>
+        <SlashDivider variant="dark" />
       </section>
 
       {/* 2. CAPABILITY STRIP (Interactive) */}
@@ -188,7 +166,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.aboutGrid}>
             <AnimatedSection className={styles.aboutLeft}>
-              <span className="label">ABOUT INSICLE</span>
+              <span className="label"><SlashMark width={7} height={18} /> ABOUT INSICLE</span>
               <h2 className={styles.aboutHeading}>
                 We Believe Great Technology Should Move Business Forward.
               </h2>
@@ -248,7 +226,7 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Capabilities & Offerings</span>
+              <span className="label"><SlashMark width={7} height={18} /> Capabilities & Offerings</span>
               <h2 className={styles.sectionHeading}>
                 Different Capabilities. One Goal. Your Growth.
               </h2>
@@ -358,7 +336,7 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Our Approach</span>
+              <span className="label"><SlashMark width={7} height={18} /> Our Approach</span>
               <h2 className={styles.sectionHeading}>
                 Built Around Ideas. Driven By Execution.
               </h2>
@@ -393,7 +371,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.aiGrid}>
             <AnimatedSection className={styles.aiContent}>
-              <span className="label" style={{ color: 'var(--color-lime)' }}>Intelligence & Data</span>
+              <span className="label" style={{ color: 'var(--steel-300)' }}><SlashMark width={7} height={18} color="var(--steel-300)" /> Intelligence & Data</span>
               <h2 className={styles.aiHeading}>
                 Turning Data and Intelligence Into Measurable Action.
               </h2>
@@ -462,7 +440,7 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Enterprise Solutions</span>
+              <span className="label"><SlashMark width={7} height={18} /> Enterprise Solutions</span>
               <h2 className={styles.sectionHeading}>
                 Smarter Systems for Everyday Business Operations.
               </h2>
@@ -515,7 +493,7 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Domain Applications</span>
+              <span className="label"><SlashMark width={7} height={18} /> Domain Applications</span>
               <h2 className={styles.sectionHeading}>
                 Technology Solutions Across Industry Sectors.
               </h2>
@@ -558,7 +536,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.portfolioHeader}>
             <AnimatedSection>
-              <span className="label">Technical Showcases</span>
+              <span className="label"><SlashMark width={7} height={18} /> Technical Showcases</span>
               <h2 className={styles.sectionHeading}>Proof of Capabilities & Case Studies</h2>
               <p className={styles.sectionSub}>
                 Architectural prototypes and research implementations demonstrating our engineering standards.

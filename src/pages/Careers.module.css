@@ -1,15 +1,15 @@
 .page {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .cultureSection {
-  background: var(--color-white);
+  background: var(--surface);
   border-bottom: var(--border);
 }
 
 .sectionHeading {
   font-size: var(--text-section-heading);
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 40px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .pillarCard {
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 36px 30px;
@@ -31,7 +31,7 @@
 
 .pillarCard:hover {
   transform: translateY(-4px);
-  border-color: var(--color-lime);
+  border-color: var(--logo-steel);
   box-shadow: var(--shadow-card);
 }
 
@@ -39,30 +39,30 @@
   width: 52px;
   height: 52px;
   border-radius: var(--radius-sm);
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 20px;
 }
 
 .pillarTitle {
   font-size: 20px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 12px;
 }
 
 .pillarDesc {
   font-size: 15px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
 }
 
 /* Positions Section */
 .positionsSection {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .sectionHeader {
@@ -76,7 +76,7 @@
 }
 
 .jobCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 32px;
@@ -88,7 +88,7 @@
 
 .jobTitle {
   font-size: 22px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 8px;
 }
 
@@ -97,21 +97,21 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  color: var(--color-slate);
+  color: var(--muted);
   margin-bottom: 12px;
 }
 
 .jobType {
-  font-weight: 600;
-  color: var(--color-charcoal);
-  background: var(--color-lime-tint);
+  font-weight: 500;
+  color: var(--ink-900);
+  background: var(--steel-50);
   padding: 2px 8px;
   border-radius: 4px;
 }
 
 .jobDesc {
   font-size: 15px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
   max-width: 720px;
 }
@@ -123,7 +123,7 @@
 }
 
 .emptyCard {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 56px 40px;
@@ -138,31 +138,31 @@
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-slate);
+  color: var(--muted);
   margin-bottom: 20px;
 }
 
 .emptyTitle {
   font-size: 22px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 12px;
 }
 
 .emptyDesc {
   font-size: 15px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 32px;
   max-width: 520px;
 }
 
 .speculativeContact {
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   border-radius: var(--radius-sm);
   padding: 24px;
@@ -175,7 +175,7 @@
 
 .speculativeText {
   font-size: 14px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   font-weight: 500;
 }
 

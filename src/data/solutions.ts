@@ -32,7 +32,7 @@ export const solutions: Solution[] = [
     longDescription:
       'A modern CRM capability that consolidates customer interactions, tracks leads through the pipeline, and provides sales teams with the context they need to close deals effectively.',
     icon: 'Users',
-    color: '#C5F45B',
+    color: '#385068',
     approved: true,
     isProprietaryProduct: false,
     features: [
@@ -52,7 +52,7 @@ export const solutions: Solution[] = [
     longDescription:
       'A comprehensive HRM capability that covers employee data management, attendance, leave, performance reviews and HR workflows.',
     icon: 'UserCheck',
-    color: '#0F1722',
+    color: '#14212F',
     approved: true,
     isProprietaryProduct: false,
     features: [
@@ -72,7 +72,7 @@ export const solutions: Solution[] = [
     longDescription:
       'A customer service platform designed to manage support tickets, streamline agent workflows and maintain high customer satisfaction levels.',
     icon: 'HeadphonesIcon',
-    color: '#EFF8DA',
+    color: '#EEF2F7',
     approved: true,
     isProprietaryProduct: false,
     features: [
@@ -112,7 +112,7 @@ export const solutions: Solution[] = [
     longDescription:
       'Sales force automation tools that eliminate manual tasks, keep data accurate and give sales leaders the visibility they need to manage team performance.',
     icon: 'Zap',
-    color: '#C5F45B',
+    color: '#385068',
     approved: true,
     isProprietaryProduct: false,
     features: [

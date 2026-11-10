@@ -95,10 +95,10 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="section" style={{ background: 'var(--color-charcoal)' }}>
+      <section className="section" style={{ background: 'var(--ink-900)' }}>
         <div className="container">
           <AnimatedSection>
-            <span className="label" style={{ color: 'var(--color-lime)' }}>Our Approach</span>
+            <span className="label" style={{ color: 'var(--steel-300)' }}>Our Approach</span>
             <h2 className={styles.sectionHeadingLight}>How We Deliver.</h2>
           </AnimatedSection>
 

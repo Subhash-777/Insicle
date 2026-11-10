@@ -1,5 +1,5 @@
 .page {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .advisorySection {
@@ -7,8 +7,8 @@
 }
 
 .advisoryCard {
-  background: rgba(197, 244, 91, 0.15);
-  border: 1px solid rgba(197, 244, 91, 0.5);
+  background: rgba(56,80,104, 0.15);
+  border: 1px solid rgba(56,80,104, 0.5);
   border-radius: var(--radius-card);
   padding: 20px 24px;
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 .advisoryIcon {
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -30,19 +30,19 @@
 
 .advisoryTitle {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
 }
 
 .advisoryText {
   font-size: 14px;
-  color: var(--color-charcoal-mid);
+  color: var(--ink-800);
   line-height: 1.5;
 }
 
 /* Showcase Section */
 .showcaseSection {
-  background: var(--color-white);
+  background: var(--surface);
   border-bottom: var(--border);
   margin-top: 40px;
 }
@@ -62,7 +62,7 @@
 
 .sectionHeading {
   font-size: var(--text-section-heading);
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   line-height: 1.15;
 }
 
@@ -77,13 +77,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   padding: 6px 14px;
   border-radius: 100px;
   font-size: 13px;
-  font-weight: 600;
-  color: var(--color-charcoal);
+  font-weight: 500;
+  color: var(--ink-900);
 }
 
 .mockupContainer {
@@ -107,20 +107,20 @@
   left: 16px;
   background: rgba(23, 25, 23, 0.85);
   backdrop-filter: blur(8px);
-  color: var(--color-lime);
+  color: var(--logo-steel);
   padding: 8px 16px;
   border-radius: 100px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(197, 244, 91, 0.3);
+  border: 1px solid rgba(56,80,104, 0.3);
 }
 
 /* Solutions Grid */
 .solutionsGridSection {
-  background: var(--color-warm-white);
+  background: var(--paper);
 }
 
 .sectionHeader {
@@ -134,7 +134,7 @@
 }
 
 .card {
-  background: var(--color-white);
+  background: var(--surface);
   border: var(--border);
   border-radius: var(--radius-card);
   padding: 36px 30px;
@@ -144,7 +144,7 @@
 }
 
 .card:hover {
-  border-color: rgba(197, 244, 91, 0.9);
+  border-color: rgba(56,80,104, 0.9);
   box-shadow: var(--shadow-hover);
 }
 
@@ -159,42 +159,42 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
-  background: var(--color-lime-tint);
-  border: 1px solid rgba(197, 244, 91, 0.5);
+  background: var(--steel-50);
+  border: 1px solid rgba(56,80,104, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
 }
 
 .subBadge {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  background: var(--color-warm-white);
+  background: var(--paper);
   border: var(--border);
   padding: 4px 10px;
   border-radius: 100px;
-  color: var(--color-slate);
+  color: var(--muted);
 }
 
 .cardTitle {
   font-size: 22px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 12px;
   line-height: 1.25;
 }
 
 .cardDesc {
   font-size: 14px;
-  color: var(--color-slate);
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 24px;
 }
 
 .featureList {
-  background: var(--color-warm-white);
+  background: var(--paper);
   border-radius: var(--radius-sm);
   padding: 16px;
   margin-bottom: 28px;
@@ -205,7 +205,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-slate);
+  color: var(--muted);
   margin-bottom: 10px;
 }
 
@@ -214,7 +214,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: var(--color-charcoal);
+  color: var(--ink-900);
   margin-bottom: 8px;
 }
 
@@ -226,8 +226,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-lime);
-  border: 1px solid var(--color-charcoal);
+  background: var(--logo-steel);
+  border: 1px solid var(--ink-900);
   flex-shrink: 0;
 }
 

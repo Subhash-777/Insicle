@@ -176,150 +176,70 @@ experimental portfolio site.
 
 # 2. Brand identity and visual design system
 
-## 2.1 Brand name and logo
+## 2.1 Brand name and official logo ("Steel & Ink")
 
 Use the brand name exactly as:
 
 **INSICLE**
 
-Proposed wordmark treatment:
+Official logo specification (sampled and traced from the official asset `/public/brand/logo-official-original.png`):
+- Wordmark letters: `#385068` (muted steel blue-slate) in Jost geometric sans capitals, wide letter-spacing.
+- The slash: `#284058` (deeper ink blue), hand-painted brush/ink stroke leaning right ~15°, tapering at top, cutting between S and C.
+- Logo background: near-white paper (`#F7F8FA`).
+- Completely monochrome and muted: strictly zero neon, cyan, violet or gradients.
+- Shipped vectors: `/public/brand/logo.svg` and `/public/brand/logo-light.svg` (`#E8EEF4` text with `#9FB3C8` slash for dark sections).
 
--   Geometric, contemporary sans-serif lettering.
--   Strong uppercase wordmark.
--   A restrained lime accent, such as a terminal dot or custom letter
-    detail.
--   Optional abstract `I` or `N` symbol.
--   Logo must work on light and dark backgrounds.
--   Create horizontal wordmark, compact mark and favicon variants if
-    image/vector generation tools permit.
--   Prefer clean SVG/vector artwork for the final logo. Do not use a
-    raster logo as the only brand asset.
--   Do not invent a complex logo that is difficult to reproduce at small
-    sizes.
+## 2.2 Colour palette ("Steel & Ink" Design Tokens)
 
-The final logo concept is a proposal and should be editable if the
-company supplies an official logo later.
+Use the following tokens consistently across CSS and components:
 
-## 2.2 Colour palette
-
-Use the following tokens consistently.
-
-  -----------------------------------------------------------------------
-  Token                   Hex                     Intended use
-  ----------------------- ----------------------- -----------------------
-  Electric Lime           `#C5F45B`               Primary brand accent,
-                                                  CTAs, highlights,
-                                                  selected graphic
-                                                  elements
-
-  Deep Charcoal           `#171917`               Main text, dark
-                                                  sections, footer
-
-  Warm White              `#FAFAF6`               Main page background
-
-  Lime Tint               `#EFF8DA`               Highlighted cards and
-                                                  soft feature
-                                                  backgrounds
-
-  Slate Grey              `#777D75`               Supporting text and
-                                                  metadata
-
-  Border Grey             `#E5E7DF`               Borders, dividers and
-                                                  outlines
-
-  White                   `#FFFFFF`               Cards and contrast
-                                                  surfaces
-
-  Muted Charcoal          `#343A34`               Secondary dark surface
-  -----------------------------------------------------------------------
-
-Suggested colour distribution:
-
--   55% warm white / white
--   25% charcoal
--   15% light grey / lime tint
--   5% electric lime
+| Token | Hex | Intended Use | Contrast / Ratio |
+|---|---|---|---|
+| `--logo-steel` | `#385068` | Primary brand color, primary buttons, key headings, icons | 8.35:1 on White (AAA) |
+| `--logo-ink` | `#284058` | Strong headings, button hover/pressed (matches slash) | >9.0:1 on White (AAA) |
+| `--ink-900` | `#14212F` | Dark sections: hero base, CTA band, footer | Base surface |
+| `--ink-800` | `#1B2D40` | Body text on light, dark cards | 13.21:1 on Paper (AAA) |
+| `--steel-500` | `#4A7BA6` | Accent for graphics, icons, graph nodes, borders on hover | 3.63:1 on Dark (UI AA) |
+| `--steel-300` | `#9FB3C8` | Graph lines on dark, muted text on dark | 7.57:1 on Dark (AAA) |
+| `--steel-200` | `#CBD6E2` | Stronger borders, dividers | Structural UI |
+| `--steel-100` | `#E3EAF1` | Hairline borders on light | Structural UI |
+| `--steel-50` | `#EEF2F7` | Tinted alternate section background | 75% Light Rhythm |
+| `--paper` | `#F7F8FA` | Page background (matches logo scan background) | Base surface |
+| `--surface` | `#FFFFFF` | Cards | Base surface |
+| `--muted` | `#5B6B7C` | Secondary text on light | 5.15:1 on Paper (AA) |
+| `--text-on-dark` | `#E8EEF4` | Primary text on dark | 13.95:1 on Dark (AAA) |
 
 Rules:
+- 75% light surfaces (`--paper` and `--steel-50`), with dark ink reserved for Hero, CTA band and Footer.
+- No gradients on UI except subtle ink gradient in Hero (`#1B2D40 -> #14212F`).
+- No neon, no cyan, no glows, no glassmorphism, no colored shadows.
+- All text/background contrast combinations strictly verify at WCAG AA / AAA.
 
--   Lime is an accent, not a page-wide background colour.
--   Use charcoal text on lime surfaces.
--   Use lime accents on charcoal surfaces.
--   Do not use pale lime text on white for important content; contrast
-    may be insufficient.
--   Maintain readable contrast for all body text and controls.
--   Avoid introducing unrelated blue, purple or orange accents.
--   Gradients, if used, should be subtle and derived from the approved
-    palette.
+## 2.3 Typography ("Steel & Ink")
 
-## 2.3 Typography
+- **Headings & Labels:** **Jost** (geometric sans, matching the INSICLE letterforms, weight 400/500, tight line-height 1.1–1.2).
+- **Body & Interface:** **Inter** (weight 400/500, line-height 1.65).
+- **Eyebrows / Section Labels / Nav:** Jost 500, uppercase, `letter-spacing: 0.28em`, 12–13px, echoing the wide-tracked INSICLE wordmark.
+- Purged fonts: Poppins and JetBrains Mono completely removed.
 
-Primary display font: **Space Grotesk**\
-Body and interface font: **Inter**
+## 2.4 Layout system & shapes
 
-Use locally hosted or reputable font delivery with sensible fallbacks.
+- Card radius: **12px** (precise, engineered).
+- Button radius: **8px**; chips **999px**.
+- Cards: White, 1px `--steel-100` border, subtle shadow `0 1px 2px rgba(20,33,47,.05)`. Hover: border `--steel-500`, translateY(-3px), shadow `0 10px 28px rgba(20,33,47,.08)`.
+- Section rhythm: 75% light surfaces alternating `--paper` (`#F7F8FA`) and `--steel-50` (`#EEF2F7`).
+- Generous whitespace: 96px desktop, 64px mobile.
 
-Suggested weights:
+## 2.5 The Brush Slash Signature Motif
 
--   Space Grotesk: 500, 600, 700
--   Inter: 400, 500, 600, 700
-
-Suggested responsive typography:
-
-  Element              Desktop     Mobile
-  ----------------- ---------- ----------
-  Hero heading        72--88px   40--48px
-  Page heading        52--64px   34--42px
-  Section heading     38--48px   28--34px
-  Card heading        21--25px   19--22px
-  Body                16--18px   15--16px
-  Labels              12--14px   12--13px
-
-Use `clamp()` for fluid typography where appropriate. Avoid overly tight
-line-height or long line lengths.
-
-## 2.4 Layout system
-
--   Maximum content width: approximately 1280px.
--   Desktop side padding: 64--80px.
--   Tablet side padding: approximately 32px.
--   Mobile side padding: approximately 20px.
--   Desktop grid: 12 columns.
--   Use asymmetric and editorial layouts selectively.
--   Keep content alignment and spacing consistent.
--   Use whitespace as a design element.
--   Avoid excessive card nesting.
-
-Suggested spacing:
-
--   Section vertical spacing: 96--120px desktop.
--   Tablet section spacing: 72--88px.
--   Mobile section spacing: 56--72px.
--   Card radius: 12--20px.
--   Button radius: 8--12px.
--   Borders: 1px solid `#E5E7DF`.
--   Shadows: subtle and rare.
-
-## 2.5 Component visual rules
-
-**Buttons** - Primary: lime background, charcoal text. - Secondary:
-transparent or warm-white background with charcoal border. -
-Dark-section CTA: lime background and charcoal text. - Include clear
-hover, active, focus and disabled states. - Use arrows sparingly as
-directional affordances.
-
-**Cards** - Mostly white/warm-white surfaces with thin borders. - Use
-lime-tint cards for selected highlights. - Use charcoal cards for
-selected featured content. - Prefer editorial card compositions over a
-uniform grid of identical rounded boxes. - Keep descriptions concise and
-readable.
-
-**Icons** - Use Lucide React or a consistent line icon family. - Avoid
-mixing multiple icon styles. - Do not use emoji as interface icons.
-
-**Imagery** - Original abstract technology graphics. - Custom geometric
-3D elements. - Carefully composed interface mockups. - Real company
-photography only if supplied or approved. - No fake office photos, fake
+- Traced faithfully from the official logo scan into `/public/brand/slash-mark.svg` and `/public/brand/slash-mark-light.svg`.
+- Solid fill `--logo-ink` (`#284058`) on light, `--steel-300` on dark.
+- Usage:
+  - **Section Divider:** Diagonal paper cut / low-opacity stroke between hero and body.
+  - **Eyebrow Mark:** 8x22px brush slash before section labels via `<SlashMark />`.
+  - **Bento Card Hover:** Small brush slash accent in card top-right corner.
+  - **Hero Background:** Large brush slash behind headline at 35% opacity.
+  - **Favicon & App Icons:** White brush slash on `--logo-steel` rounded square.
 team photos, fake customer logos or fake client projects.
 
 ------------------------------------------------------------------------
@@ -935,28 +855,32 @@ in lighting, materials and colour balance.
 
 ------------------------------------------------------------------------
 
-# 6. Animation and interaction specification
+# 6. Animation and interaction specification ("Steel & Ink")
 
-Animation intensity: **Moderate**.
+Animation intensity: **Calm, precise, editorial**.
 
-Use Motion (Framer Motion) for the majority of component animations. Use
-GSAP only for interactions that genuinely need timeline control or
-complex scroll choreography. Avoid duplicate animation systems.
+- Framer Motion fade-up: 12px, 400ms, ease-out (`[0.0, 0.0, 0.2, 1]`), once per element.
+- Hover transitions: 180ms.
+- **Hero Canvas Graph:** recolored to steel palette. Edges `--steel-300` at <= 0.18 opacity, nodes white and `--steel-300` at 0.5 opacity. A few nodes feature a thin ring pulse in `--steel-500` (zero-trust verified nod). No neon, no cyan, no glow.
+- Respect `prefers-reduced-motion` everywhere (freezes canvas graph animation and removes transitions).
+- No floating badge bobbing, no parallax on content, no count-ups unless real stats exist.
 
-  Element             Interaction                              Duration / behaviour
-  ------------------- ---------------------------------------- ----------------------
-  Hero heading        Staggered word/line reveal               700--900ms
-  Hero visual         Gentle floating movement                 4--6s, low amplitude
-  Header              Background/border transition on scroll   250ms
-  Mega menu           Fade and short vertical movement         180--250ms
-  Service cards       Small lift and icon movement             200--280ms
-  Section reveal      Fade and translate upward                450--550ms
-  Portfolio imagery   Subtle image scale on hover              300--400ms
-  CTA arrow           Short directional movement               180--220ms
-  Statistics          Count-up only for verified figures       1--1.5s
-  Route transition    Restrained fade                          200--300ms
+# 7. Visual Assets & Image Generation (Steel & Ink Editorial)
 
-Rules:
+Every visual asset adheres to the global prompt:
+> "Refined monochrome steel-blue editorial illustration, thin precise line-work with subtle hand-inked brush-stroke accents, palette strictly limited to deep ink blue (#14212F), steel blue (#385068), muted slate (#4A7BA6), pale steel (#9FB3C8) and off-white paper (#F7F8FA), soft paper grain, network-graph nodes and edges motif, minimal composition, generous negative space, calm and trustworthy mood, no neon, no glow, no gradients, no cyan, no purple, no text, no letters, no logos, no watermarks, no human faces."
+
+Assets generated in `public/images/`:
+- `hero-secure-graph.webp` / `hero-abstract.webp` (<20KB WebP)
+- `about-visual.webp` (<15KB WebP)
+- `ai-network.webp` (<15KB WebP)
+- `digital-engineering.webp` (<15KB WebP)
+- `digital-growth.webp` (<15KB WebP)
+- `enterprise-systems.webp` (<15KB WebP)
+- `talent-solutions.webp` (<15KB WebP)
+- `contact-visual.webp` (<15KB WebP)
+- `why-insicle.webp` (<15KB WebP)
+- `brand/pattern-grid.svg` (faint steel dot-grid for dark sections)
 
 -   Animate opacity and transform where possible.
 -   Avoid animating layout properties unnecessarily.

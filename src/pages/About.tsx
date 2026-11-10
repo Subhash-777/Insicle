@@ -57,7 +57,7 @@ export default function About() {
                 and enterprise systems to AI, business intelligence and digital marketing.
                 Our goal is always the same: practical solutions that create real value.
               </p>
-              <p style={{ fontStyle: 'italic', color: 'var(--color-charcoal)', fontWeight: 500 }}>
+              <p style={{ fontStyle: 'italic', color: 'var(--ink-800)', fontWeight: 500 }}>
                 — <strong>Dr. S. Selvi</strong>, Proprietor, INSICLE
               </p>
             </AnimatedSection>
