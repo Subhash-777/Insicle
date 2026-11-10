@@ -9,14 +9,20 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  background: var(--surface);
+  border-bottom: 1px solid var(--steel-100);
   transition: background var(--transition-base), border-color var(--transition-base);
 }
 
-.scrolled {
+.header.transparent {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+.header.scrolled {
   background: var(--surface);
   border-bottom-color: var(--steel-100);
+  box-shadow: 0 4px 20px rgba(20, 33, 47, 0.04);
 }
 
 .inner {
@@ -89,7 +95,7 @@
 }
 
 /* On dark hero (not scrolled) */
-.header:not(.scrolled) .navLink {
+.transparent .navLink {
   color: var(--text-on-dark);
 }
 
@@ -99,7 +105,7 @@
   text-decoration: none;
 }
 
-.header:not(.scrolled) .navLink:hover {
+.transparent .navLink:hover {
   background: rgba(255,255,255,.1);
   color: #ffffff;
 }
@@ -111,7 +117,7 @@
   border-color: var(--steel-100);
 }
 
-.header:not(.scrolled) .navLink.active {
+.transparent .navLink.active {
   color: #ffffff;
   background: rgba(255,255,255,.12);
   border-color: rgba(255,255,255,.2);
@@ -147,13 +153,13 @@
 }
 
 /* On dark: show white outline btn when not scrolled */
-.header:not(.scrolled) .ctaBtn {
+.transparent .ctaBtn {
   border-color: rgba(255,255,255,.65);
   color: #ffffff;
   background: transparent;
 }
 
-.header:not(.scrolled) .ctaBtn:hover {
+.transparent .ctaBtn:hover {
   background: rgba(255,255,255,.12);
   border-color: #ffffff;
   color: #ffffff;
@@ -173,7 +179,7 @@
   transition: all var(--transition-fast);
 }
 
-.header:not(.scrolled) .mobileToggle {
+.transparent .mobileToggle {
   color: #ffffff;
   border-color: rgba(255,255,255,.4);
 }

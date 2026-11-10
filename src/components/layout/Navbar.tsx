@@ -73,17 +73,20 @@ export default function Navbar() {
     }
   }, [])
 
+  const isDarkHero = location.pathname === '/'
+  const isSolid = scrolled || !isDarkHero
+
   return (
     <>
       <header
-        className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
+        className={`${styles.header} ${isSolid ? styles.scrolled : styles.transparent}`}
         role="banner"
       >
         <div className={styles.inner}>
           {/* Logo */}
           <Link to="/" className={styles.logo} aria-label="INSICLE — Home">
             <img
-              src={company.logo.header}
+              src={isSolid ? company.logo.svg : company.logo.svgLight}
               alt={company.logo.alt}
               width={160}
               height={56}

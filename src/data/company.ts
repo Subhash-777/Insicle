@@ -31,8 +31,8 @@ export const company = {
   // Brand assets — Steel & Ink theme
   logo: {
     master: '/images/brand/insicle-logo-master.png',
-    header: '/images/brand/insicle-logo-header.png',   // dark ink on transparent
-    footer: '/images/brand/insicle-logo-footer.png',   // light (#E8EEF4) on transparent
+    header: '/brand/logo.svg',   // dark ink on transparent
+    footer: '/brand/logo-light.svg',   // light (#E8EEF4) on transparent
     white:  '/images/brand/insicle-logo-white.png',
     svg:    '/brand/logo.svg',
     svgLight: '/brand/logo-light.svg',

@@ -25,7 +25,7 @@ const PageLoader = () => (
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '60vh',
-    background: 'var(--color-warm-white)',
+    background: 'var(--paper)',
   }}>
     <div className="loader" aria-label="Loading..."></div>
   </div>
