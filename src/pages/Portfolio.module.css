@@ -174,7 +174,7 @@
 }
 
 .projectTitle a:hover {
-  color: #171917;
+  color: var(--color-charcoal);
   text-decoration: underline;
 }
 

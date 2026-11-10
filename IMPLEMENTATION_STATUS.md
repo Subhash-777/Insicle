@@ -10,11 +10,11 @@
 
 | Item | Path / Location | Resolution / Format | Verification Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **Master Reference Logo** | `logo.png` & `public/images/brand/insicle-logo-master.png` | 1774 x 887, RGB PNG | **Preserved Unchanged** | SHA256 checksum verified intact: `b908d715526e3db82a...` |
-| **Header Logo Asset** | `public/images/brand/insicle-logo-header.png` | 1494 x 503, RGB PNG | **Verified in Browser** | Balanced padding for crisp desktop/mobile header display at 48px height. |
-| **Footer Logo Asset** | `public/images/brand/insicle-logo-footer.png` | 1494 x 503, RGB PNG | **Verified in Browser** | Enclosed within a warm-white protective panel on charcoal background. |
-| **Favicon** | `public/favicon.svg` | 32 x 32 SVG | **Verified** | Charcoal base with brand Electric Lime geometric mark & dot. |
-| **Social Open Graph** | `public/images/og-preview.png` | 1200 x 630, RGB PNG | **Generated & Verified** | Electric Lime `#C5F45B` accent bar, logo panel, typography, capability tags. |
+| **Master Reference Logo** | `logo.png` & `public/images/brand/insicle-logo-master.png` | 358 x 92, RGB PNG | **Preserved Unchanged** | Official user-supplied INSICLE mark featuring the negative-space vertical 'I' slit through textured slash. |
+| **Header Logo Asset** | `public/images/brand/insicle-logo-header.png` | 1248 x 400, RGBA PNG | **Verified in Browser** | 4x supersampled transparent PNG with authentic brand Deep Navy `#1D3347`, zero white halos, balanced breathing room. |
+| **Footer Logo Asset** | `public/images/brand/insicle-logo-footer.png` | 1248 x 400, RGBA PNG | **Verified in Browser** | Dedicated light-on-dark transparent PNG with crisp white letters and Electric Lime `#C5F45B` slash. |
+| **Favicon** | `public/favicon.svg` | 32 x 32 SVG | **Verified** | Obsidian Navy `#0F1722` base with the iconic Electric Lime slash and transparent hollow 'I' slit. |
+| **Social Open Graph** | `public/images/og-preview.png` | 1200 x 630, RGB PNG | **Generated & Verified** | High-res card featuring the new logo with Electric Lime slash, dark slate background, typography, and capability pills. |
 
 ---
 
@@ -94,6 +94,11 @@ All supporting assets created according to the art direction: *Electric Lime `#C
 | | Services FAQ Accordion | **Complete** | Converted static FAQ cards into fully accessible interactive accordion with `aria-expanded` and height animation in `src/pages/Services.tsx`. |
 | | Multi-Viewport QA & Screenshot Automation | **Complete** | Created `scripts/capture-round-2.mjs`; captured and indexed 37 screenshots across 7 viewports (360px–1920px), 11 routes, and 6 interaction states in `qa-screenshots/round-2/`. |
 | | Live Deployment Verification | **Complete** | Live site `https://insicle.vercel.app/` verified HTTP 200 and matches production bundle. |
+| **Phase 10: Official Logo Refresh & Design Harmonization** | Logo Asset Generation | **Complete** | Integrated user's new brand mark (`logo.png`, `insicle-logo-master.png`, `insicle-logo-header.png`, `insicle-logo-footer.png`, `insicle-logo-white.png`). 4x supersampled with clean transparency. |
+| | Design System Harmonization | **Complete** | Harmonized `--color-charcoal` to Obsidian Navy (`#0F1722`), `--color-border` to sleek slate (`#E2E8F0`), `--color-text-secondary` to `#475569`, and `--color-text-on-dark-secondary` to `#CBD5E1`. |
+| | Dark Footer Overhaul | **Complete** | Removed bulky white box around footer logo; rendered dedicated high-contrast light logo directly on dark footer surface with Electric Lime slash. |
+| | Favicon & OG Social Card | **Complete** | Updated `public/favicon.svg` with the iconic slash and negative space 'I' slit; regenerated `public/images/og-preview.png` (1200x630). |
+| | Full Regression QA | **Complete** | 56/56 responsive checks passed with zero overflow; all 37 screenshots refreshed in `qa-screenshots/round-2/`. |
 
 ---
 

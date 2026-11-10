@@ -52,7 +52,7 @@ export const solutions: Solution[] = [
     longDescription:
       'A comprehensive HRM capability that covers employee data management, attendance, leave, performance reviews and HR workflows.',
     icon: 'UserCheck',
-    color: '#171917',
+    color: '#0F1722',
     approved: true,
     isProprietaryProduct: false,
     features: [

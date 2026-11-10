@@ -42,10 +42,11 @@
 
 .limeText {
   color: var(--color-lime);
-  background: linear-gradient(135deg, #171917 0%, #171917 100%);
+  background: var(--color-charcoal);
+  border-radius: var(--radius-sm);
   position: relative;
   display: inline-block;
-  padding: 0 4px;
+  padding: 0 6px;
 }
 
 .limeText::after {

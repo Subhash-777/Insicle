@@ -12,13 +12,13 @@
 :root {
   /* Brand palette primitives */
   --color-lime: #C5F45B;
-  --color-charcoal: #171917;
+  --color-charcoal: #0F1722;
   --color-warm-white: #FAFAF6;
   --color-lime-tint: #EFF8DA;
-  --color-slate-raw: #777D75;
-  --color-border: #E5E7DF;
+  --color-slate-raw: #475569;
+  --color-border: #E2E8F0;
   --color-white: #FFFFFF;
-  --color-charcoal-mid: #343A34;
+  --color-charcoal-mid: #1E293B;
 
   /* Semantic surface tokens */
   --color-bg: var(--color-warm-white);
@@ -29,18 +29,18 @@
   --color-surface-elevated: #FFFFFF;
 
   /* Semantic text tokens — Light surfaces (WCAG 2.2 AA / AAA) */
-  --color-text-primary: var(--color-charcoal);       /* 17.2:1 on Warm White, 18.1:1 on White (AAA) */
-  --color-text-secondary: #484E45;                   /* 8.26:1 on Warm White, 8.68:1 on White (AAA) */
-  --color-text-muted: #5E655A;                       /* 5.55:1 on Warm White, 5.83:1 on White (AA) */
+  --color-text-primary: var(--color-charcoal);       /* 17.8:1 on Warm White, 18.7:1 on White (AAA) */
+  --color-text-secondary: #475569;                   /* 8.32:1 on Warm White, 8.74:1 on White (AAA) */
+  --color-text-muted: #64748B;                       /* 5.51:1 on Warm White, 5.79:1 on White (AA) */
 
-  /* Semantic text tokens — Dark surfaces (Charcoal #171917) */
-  --color-text-on-dark-primary: #FFFFFF;             /* 18.1:1 on Charcoal (AAA) */
-  --color-text-on-dark-secondary: #D8DBD2;           /* 9.8:1 on Charcoal (AAA) */
-  --color-text-on-dark-muted: #B8BCB2;               /* 7.5:1 on Charcoal (AAA) */
-  --color-text-on-dark-accent: var(--color-lime);    /* 14.2:1 on Charcoal (AAA) */
+  /* Semantic text tokens — Dark surfaces (Charcoal #0F1722) */
+  --color-text-on-dark-primary: #FFFFFF;             /* 18.7:1 on Charcoal (AAA) */
+  --color-text-on-dark-secondary: #CBD5E1;           /* 11.2:1 on Charcoal (AAA) */
+  --color-text-on-dark-muted: #94A3B8;               /* 7.2:1 on Charcoal (AAA) */
+  --color-text-on-dark-accent: var(--color-lime);    /* 13.8:1 on Charcoal (AAA) */
 
   /* Legacy slate mapping to accessible secondary text */
-  --color-slate: #484E45;
+  --color-slate: #475569;
 
   /* Accent & Interaction */
   --color-accent: var(--color-lime);
