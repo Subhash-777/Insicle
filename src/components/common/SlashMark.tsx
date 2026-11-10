@@ -8,8 +8,8 @@ interface SlashMarkProps {
 
 export default function SlashMark({
   className = '',
-  width = 8,
-  height = 22,
+  width = 10,
+  height = 24,
   color = 'var(--logo-steel)',
   opacity = 1,
 }: SlashMarkProps) {
@@ -20,7 +20,7 @@ export default function SlashMark({
       width={width}
       height={height}
       className={className}
-      style={{ opacity, display: 'inline-block', verticalAlign: 'middle' }}
+      style={{ opacity, display: 'inline-block', verticalAlign: 'middle', flexShrink: 0 }}
       aria-hidden="true"
     >
       <path

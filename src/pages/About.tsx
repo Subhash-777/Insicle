@@ -3,6 +3,7 @@ import { ArrowRight, Target, Eye, Heart, Lightbulb, Shield, Users } from 'lucide
 import AnimatedSection from '@/components/common/AnimatedSection'
 import PageHero from '@/components/common/PageHero'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import styles from './About.module.css'
 
 const values = [
@@ -43,7 +44,9 @@ export default function About() {
               />
             </AnimatedSection>
             <AnimatedSection className={styles.overviewContent} delay={0.15}>
-              <span className="label">Our Story</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Our Story
+              </span>
               <h2 className={styles.heading}>
                 Building Technology That Works For Business.
               </h2>
@@ -95,7 +98,9 @@ export default function About() {
       <section className={`section ${styles.valuesSection}`}>
         <div className="container">
           <AnimatedSection>
-            <span className="label">Our Values</span>
+            <span className="label">
+              <SlashMark width={10} height={24} color="var(--steel-500)" /> Our Values
+            </span>
             <h2 className={styles.sectionHeading}>What Guides Our Work.</h2>
           </AnimatedSection>
           <div className={styles.valuesGrid}>
@@ -120,7 +125,9 @@ export default function About() {
         <div className="container">
           <div className={styles.capGrid}>
             <AnimatedSection>
-              <span className="label">Capabilities</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Capabilities
+              </span>
               <h2 className={styles.sectionHeading}>What We Bring to the Table.</h2>
               <p style={{ marginTop: 16, fontSize: 17, lineHeight: 1.7, color: 'var(--color-slate)', maxWidth: 400 }}>
                 Our capabilities span five areas, each focused on a different dimension of how technology can support your business.

@@ -12,6 +12,7 @@ import {
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import { getProjectBySlug, projects } from '@/data/projects'
 import styles from './CaseStudy.module.css'
 
@@ -59,13 +60,17 @@ export default function CaseStudy() {
           <div className={styles.editorialGrid}>
             <div className={styles.mainCol}>
               <AnimatedSection>
-                <span className="label">The Challenge</span>
+                <span className="label">
+                  <SlashMark width={10} height={24} color="var(--steel-500)" /> The Challenge
+                </span>
                 <h2 className={styles.sectionHeading}>Navigating Scale & System Bottlenecks</h2>
                 <p className={styles.bodyParagraph}>{project.challenge}</p>
               </AnimatedSection>
 
               <AnimatedSection delay={0.1}>
-                <span className="label" style={{ marginTop: 32 }}>Our Solution & Approach</span>
+                <span className="label" style={{ marginTop: 32 }}>
+                  <SlashMark width={10} height={24} color="var(--steel-500)" /> Our Solution & Approach
+                </span>
                 <h2 className={styles.sectionHeading}>Architectural Design & Implementation</h2>
                 <p className={styles.bodyParagraph}>{project.solution}</p>
                 <p className={styles.bodyParagraph}>
@@ -131,7 +136,9 @@ export default function CaseStudy() {
             <AnimatedSection>
               <div className={styles.relatedHeader}>
                 <div>
-                  <span className="label">Other Showcases</span>
+                  <span className="label">
+                    <SlashMark width={10} height={24} color="var(--steel-500)" /> Other Showcases
+                  </span>
                   <h2 className={styles.sectionHeading}>Related Technical Prototypes</h2>
                 </div>
                 <Link to="/portfolio" className="btn btn-ghost">

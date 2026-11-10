@@ -3,12 +3,11 @@
 **Document type:** Product, brand, UX/UI and frontend implementation
 specification\
 **Project:** INSICLE corporate website\
-**Primary design direction:** Creative + Enterprise Hybrid\
-**Colour identity:** Electric Lime + Charcoal + Warm White\
-**Theme:** Light\
-**Animation intensity:** Moderate\
-**Implementation target:** Production-ready, responsive, multi-page
-company website
+**Primary design direction:** "Steel & Ink" — Calm, Precise, Editorial-Corporate (superseded by official logo redesign and ui-polish-v2)\
+**Colour identity:** Steel Blue (#385068) + Deep Ink Blue (#284058 / #14212F) + Paper (#F7F8FA)\
+**Theme:** 75% Light Surfaces + Obsidian-Navy Hero, CTA & Footer\
+**Typography:** Jost (Headings/Labels) + Inter (Body)\
+**Implementation target:** Production-ready, responsive, multi-page company website
 
 ------------------------------------------------------------------------
 

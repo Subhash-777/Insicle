@@ -5,6 +5,7 @@ import { ArrowRight, Code2, Brain, Building2, TrendingUp, Users, ChevronDown } f
 import AnimatedSection from '@/components/common/AnimatedSection'
 import PageHero from '@/components/common/PageHero'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import { serviceDivisions } from '@/data/services'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './Services.module.css'
@@ -38,10 +39,12 @@ export default function Services() {
       />
 
       {/* Divisions Section */}
-      <section className="section" style={{ background: 'var(--color-white)' }}>
+      <section className="section" style={{ background: 'var(--surface)' }}>
         <div className="container">
           <AnimatedSection>
-            <span className="label">Our Capabilities</span>
+            <span className="label">
+              <SlashMark width={10} height={24} color="var(--steel-500)" /> Our Capabilities
+            </span>
             <h2 className={styles.sectionHeading}>How We Help Businesses Grow.</h2>
           </AnimatedSection>
 
@@ -98,7 +101,9 @@ export default function Services() {
       <section className="section" style={{ background: 'var(--ink-900)' }}>
         <div className="container">
           <AnimatedSection>
-            <span className="label" style={{ color: 'var(--steel-300)' }}>Our Approach</span>
+            <span className="label label-dark">
+              <SlashMark width={10} height={24} color="var(--steel-300)" /> Our Approach
+            </span>
             <h2 className={styles.sectionHeadingLight}>How We Deliver.</h2>
           </AnimatedSection>
 
@@ -121,10 +126,12 @@ export default function Services() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="section" style={{ background: 'var(--color-white)' }}>
+      <section className="section" style={{ background: 'var(--surface)' }}>
         <div className="container" style={{ maxWidth: 840 }}>
           <AnimatedSection>
-            <span className="label">FAQ</span>
+            <span className="label">
+              <SlashMark width={10} height={24} color="var(--steel-500)" /> FAQ
+            </span>
             <h2 className={styles.sectionHeading}>Common Questions.</h2>
           </AnimatedSection>
           <div className={styles.faqList}>

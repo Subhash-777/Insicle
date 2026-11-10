@@ -12,6 +12,7 @@ import {
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import { company } from '@/data/company'
 import { getApprovedJobs } from '@/data/careers'
 import { staggerContainer, staggerItem } from '@/animations/variants'
@@ -51,7 +52,9 @@ export default function Careers() {
       <section className={`section ${styles.cultureSection}`}>
         <div className="container">
           <AnimatedSection>
-            <span className="label">Life at INSICLE</span>
+            <span className="label">
+              <SlashMark width={10} height={24} color="var(--steel-500)" /> Life at INSICLE
+            </span>
             <h2 className={styles.sectionHeading}>Principles of Our Practice</h2>
           </AnimatedSection>
 
@@ -83,7 +86,9 @@ export default function Careers() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Open Opportunities</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Open Opportunities
+              </span>
               <h2 className={styles.sectionHeading}>Current Vacancies</h2>
             </div>
           </AnimatedSection>

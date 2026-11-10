@@ -20,6 +20,8 @@ import ContactCTA from '@/components/common/ContactCTA'
 import GraphBackground from '@/components/common/GraphBackground'
 import SlashMark from '@/components/common/SlashMark'
 import SlashDivider from '@/components/common/SlashDivider'
+import HeroSecureVisual from '@/components/common/HeroSecureVisual'
+import AboutVisualCard from '@/components/common/AboutVisualCard'
 import { serviceDivisions } from '@/data/services'
 import { industries } from '@/data/industries'
 import { projects } from '@/data/projects'
@@ -84,15 +86,19 @@ export default function Home() {
             {/* Label */}
             <motion.div custom={0} variants={heroText} initial="hidden" animate="visible">
               <span className="label label-dark">
-                <SlashMark width={7} height={18} color="var(--steel-300)" /> Secure · Intelligent · Digital Solutions
+                <SlashMark width={10} height={24} color="var(--steel-300)" /> Secure · Intelligent · Digital Solutions
               </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1 className={styles.heroHeadline} custom={1} variants={heroText} initial="hidden" animate="visible">
-              We Make Technology{' '}
-              <span className={styles.accentText}>Work For</span>{' '}
-              What&apos;s Next.
+              We Make Technology Work{' '}
+              <span className={styles.accentText}>
+                For What&apos;s Next.
+                <svg className={styles.brushUnderline} viewBox="0 0 240 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 8C55 3 145 2 238 7C175 4.5 90 5.5 2 8Z" fill="var(--steel-300)" opacity="0.9" />
+                </svg>
+              </span>
             </motion.h1>
 
             {/* Subtext */}
@@ -102,10 +108,10 @@ export default function Home() {
 
             {/* CTAs */}
             <motion.div className={styles.heroCtas} custom={3} variants={heroText} initial="hidden" animate="visible">
-              <Link to="/services" className="btn btn-white">
+              <Link to="/services" className="btn btn-primary">
                 Explore Capabilities <ArrowRight size={18} />
               </Link>
-              <Link to="/contact" className="btn btn-dark">
+              <Link to="/contact" className="btn btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#ffffff' }}>
                 Discuss Your Requirements
               </Link>
             </motion.div>
@@ -120,27 +126,16 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Hero visual */}
+          {/* Hero visual — Unboxed Layered Vector Composition */}
           <motion.div
             className={styles.heroVisual}
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.2 } }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1, transition: { duration: 0.7, delay: 0.15 } }}
           >
-            <div className={styles.heroImageWrap}>
-              <img
-                src="/images/hero-abstract.png"
-                alt="Steel-blue network graph illustration representing secure digital infrastructure"
-                className={styles.heroImage}
-                loading="eager"
-              />
-            </div>
+            <HeroSecureVisual />
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className={styles.scrollIndicator} aria-hidden="true">
-          <div className={styles.scrollLine} />
-        </div>
         <SlashDivider variant="dark" />
       </section>
 
@@ -166,7 +161,9 @@ export default function Home() {
         <div className="container">
           <div className={styles.aboutGrid}>
             <AnimatedSection className={styles.aboutLeft}>
-              <span className="label"><SlashMark width={7} height={18} /> ABOUT INSICLE</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> ABOUT INSICLE
+              </span>
               <h2 className={styles.aboutHeading}>
                 We Believe Great Technology Should Move Business Forward.
               </h2>
@@ -177,19 +174,34 @@ export default function Home() {
                 Rather than treating software as an isolated technical layer, we design architectures that respect operational constraints, integrate cleanly with existing infrastructure, and deliver verifiable business utility.
               </p>
 
-              <div className={styles.aboutPillars}>
-                <div className={styles.aboutPillar}>
-                  <CheckCircle size={18} className={styles.pillarCheck} />
+              <div className={styles.aboutPrinciplesList}>
+                <div className={styles.aboutPrincipleRow}>
+                  <div className={styles.principleIcon}>
+                    <CheckCircle size={18} />
+                  </div>
                   <div>
-                    <h4 className={styles.pillarTitle}>Pragmatic Architecture</h4>
-                    <p className={styles.pillarDesc}>Clean, documented codebases designed for longevity and adoption.</p>
+                    <h4 className={styles.principleTitle}>Pragmatic Architecture</h4>
+                    <p className={styles.principleDesc}>Clean, documented codebases designed for longevity, maintainability, and seamless team adoption.</p>
                   </div>
                 </div>
-                <div className={styles.aboutPillar}>
-                  <CheckCircle size={18} className={styles.pillarCheck} />
+
+                <div className={styles.aboutPrincipleRow}>
+                  <div className={styles.principleIcon}>
+                    <CheckCircle size={18} />
+                  </div>
                   <div>
-                    <h4 className={styles.pillarTitle}>Unified Digital Disciplines</h4>
-                    <p className={styles.pillarDesc}>Engineering, business intelligence, and enterprise systems under one roof.</p>
+                    <h4 className={styles.principleTitle}>Unified Digital Disciplines</h4>
+                    <p className={styles.principleDesc}>Engineering, business intelligence, and enterprise systems operating harmoniously under one roof.</p>
+                  </div>
+                </div>
+
+                <div className={styles.aboutPrincipleRow}>
+                  <div className={styles.principleIcon}>
+                    <CheckCircle size={18} />
+                  </div>
+                  <div>
+                    <h4 className={styles.principleTitle}>Outcome Transparency</h4>
+                    <p className={styles.principleDesc}>Direct technical scoping, explicit milestone accountability, and verified business utility.</p>
                   </div>
                 </div>
               </div>
@@ -202,125 +214,140 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection className={styles.aboutRight} delay={0.15}>
-              <div className={styles.aboutVisualCard}>
-                <img
-                  src="/images/about-visual.png"
-                  alt="INSICLE editorial technology composition"
-                  className={styles.aboutImg}
-                  loading="lazy"
-                />
-                <div className={styles.aboutQuoteBox}>
-                  <p className={styles.aboutQuoteText}>
-                    &ldquo;Connecting technology with real business requirements through thoughtful engineering.&rdquo;
-                  </p>
-                  <span className={styles.aboutQuoteAuthor}>— Dr. S. Selvi, Proprietor, INSICLE</span>
-                </div>
-              </div>
+              <AboutVisualCard />
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* 4. BALANCED ASYMMETRIC SERVICES SECTION */}
+      {/* 4. BALANCED 12-COLUMN CAPABILITIES BENTO */}
       <section className={`section ${styles.servicesSection}`} aria-label="Services">
         <div className="container">
           <AnimatedSection>
-            <div className={styles.sectionHeader}>
-              <span className="label"><SlashMark width={7} height={18} /> Capabilities & Offerings</span>
-              <h2 className={styles.sectionHeading}>
-                Different Capabilities. One Goal. Your Growth.
-              </h2>
-              <p className={styles.sectionSub}>
-                Explore our five core capability divisions. Every engagement is structured around explicit operational requirements, transparent scoping, and modern engineering standards.
-              </p>
+            <div className={styles.bentoHeaderRow}>
+              <div className={styles.bentoHeaderLeft}>
+                <span className="label">
+                  <SlashMark width={10} height={24} color="var(--steel-500)" /> Capabilities & Offerings
+                </span>
+                <h2 className={styles.sectionHeading}>
+                  Different Capabilities. One Goal. Your Growth.
+                </h2>
+              </div>
+              <div className={styles.bentoHeaderRight}>
+                <p className={styles.sectionSub}>
+                  Explore our five core capability divisions. Every engagement is structured around explicit operational requirements, transparent scoping, and modern engineering standards.
+                </p>
+              </div>
             </div>
           </AnimatedSection>
 
-          {/* Asymmetric 1 + 4 Editorial Layout */}
-          <div className={styles.servicesAsymmetricGrid}>
-            {/* Featured Card (Digital Engineering) */}
-            <AnimatedSection className={styles.featuredServiceCard}>
-              <div className={styles.featuredTop}>
-                <span className={styles.featuredBadge}>{featuredDivision.number} — Featured Division</span>
-                <div className={styles.featuredIconBox}>
-                  <Code2 size={28} />
+          {/* Standardized 12-Column Bento Grid */}
+          <div className={styles.bentoGrid}>
+            {/* Tile 01: Featured (Digital Engineering) — Spans 7 cols, 2 rows */}
+            <AnimatedSection className={styles.bentoTileFeatured}>
+              <div className={styles.bentoCardTop}>
+                <span className={styles.bentoBadgeDark}>{featuredDivision.number} — FEATURED DIVISION</span>
+                <div className={styles.bentoIconNavy}>
+                  <Code2 size={24} />
                 </div>
               </div>
 
-              <h3 className={styles.featuredTitle}>{featuredDivision.title}</h3>
-              <p className={styles.featuredDesc}>{featuredDivision.description}</p>
+              <h3 className={styles.bentoFeaturedTitle}>{featuredDivision.title}</h3>
+              <p className={styles.bentoFeaturedDesc}>{featuredDivision.description}</p>
 
-              <div className={styles.featuredProblemBox}>
-                <h5 className={styles.featuredProblemHeading}>The Business Challenge Addressed:</h5>
-                <p className={styles.featuredProblemText}>{featuredDivision.businessProblem}</p>
-              </div>
-
-              <div className={styles.featuredUseBox}>
-                <h5 className={styles.featuredProblemHeading}>Example Use Case:</h5>
-                <p className={styles.featuredProblemText}>{featuredDivision.useCaseExample}</p>
-              </div>
-
-              <div className={styles.featuredServicesList}>
-                <h5 className={styles.featuredServicesHeading}>Included Capabilities:</h5>
-                <ul>
-                  {featuredDivision.services.slice(0, 4).map((s) => (
-                    <li key={s.slug}>
-                      <Link to={`/services/${s.slug}`} className={styles.featuredServiceLink}>
-                        <span>{s.title}</span>
-                        <ArrowRight size={13} />
-                      </Link>
-                    </li>
+              <div className={styles.bentoServicesWrapper}>
+                <span className={styles.bentoServicesLabel}>Core Capabilities Included:</span>
+                <div className={styles.bentoChipsContainer}>
+                  {featuredDivision.services.map((svc) => (
+                    <Link key={svc.slug} to={`/services/${svc.slug}`} className={styles.bentoChip}>
+                      {svc.title}
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              <div className={styles.featuredFooter}>
+              <div className={styles.bentoFeaturedFooter}>
                 <Link to={`/services#${featuredDivision.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                   Explore Digital Engineering <ArrowRight size={16} />
                 </Link>
               </div>
             </AnimatedSection>
 
-            {/* 4 Supporting Divisions (2x2 Grid) */}
-            <div className={styles.supportingGrid}>
-              {supportingDivisions.map((division, idx) => {
-                const Icon = iconMap[division.icon] || Zap
-                return (
-                  <AnimatedSection key={division.id} delay={idx * 0.08} className={styles.supportingCardWrap}>
-                    <div
-                      className={`${styles.supportingCard} ${
-                        division.color === 'lime-tint' ? styles.cardLimeTint : styles.cardWhite
-                      }`}
-                    >
-                      <div className={styles.cardHeader}>
-                        <div className={styles.cardMeta}>
-                          <span className={styles.cardNum}>{division.number}</span>
-                          <span className={styles.cardShortTitle}>{division.shortTitle}</span>
-                        </div>
-                        <div className={styles.cardIconBox}>
-                          <Icon size={20} />
-                        </div>
-                      </div>
+            {/* Tile 02: AI & Business Intelligence — Spans 5 cols, Row 1 */}
+            <AnimatedSection delay={0.08} className={styles.bentoTileSupporting}>
+              <div className={styles.bentoCardTop}>
+                <span className={styles.bentoBadgeLight}>{serviceDivisions[1].number}</span>
+                <div className={styles.bentoIconSteel}>
+                  <Brain size={20} />
+                </div>
+              </div>
 
-                      <h4 className={styles.supportingTitle}>{division.title}</h4>
-                      <p className={styles.supportingDesc}>{division.description}</p>
+              <h4 className={styles.bentoSupportingTitle}>{serviceDivisions[1].title}</h4>
+              <p className={styles.bentoSupportingDesc}>{serviceDivisions[1].description}</p>
 
-                      <div className={styles.supportingProblem}>
-                        <span className={styles.supportingProblemLabel}>Addresses:</span>
-                        <p>{division.businessProblem}</p>
-                      </div>
+              <div className={styles.bentoCardFooter}>
+                <Link to={`/services#${serviceDivisions[1].id}`} className={styles.bentoExploreLink}>
+                  Explore Division <ArrowRight size={14} />
+                </Link>
+              </div>
+            </AnimatedSection>
 
-                      <div className={styles.supportingFooter}>
-                        <Link to={`/services#${division.id}`} className={styles.supportingLink}>
-                          <span>Explore Division</span>
-                          <ArrowRight size={14} />
-                        </Link>
-                      </div>
-                    </div>
-                  </AnimatedSection>
-                )
-              })}
-            </div>
+            {/* Tile 03: Enterprise Solutions — Spans 5 cols, Row 2 */}
+            <AnimatedSection delay={0.12} className={styles.bentoTileSupporting}>
+              <div className={styles.bentoCardTop}>
+                <span className={styles.bentoBadgeLight}>{serviceDivisions[2].number}</span>
+                <div className={styles.bentoIconSteel}>
+                  <Building2 size={20} />
+                </div>
+              </div>
+
+              <h4 className={styles.bentoSupportingTitle}>{serviceDivisions[2].title}</h4>
+              <p className={styles.bentoSupportingDesc}>{serviceDivisions[2].description}</p>
+
+              <div className={styles.bentoCardFooter}>
+                <Link to={`/services#${serviceDivisions[2].id}`} className={styles.bentoExploreLink}>
+                  Explore Division <ArrowRight size={14} />
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* Tile 04: Digital Growth — Spans 6 cols, Row 3 */}
+            <AnimatedSection delay={0.16} className={`${styles.bentoTileSupporting} ${styles.bentoTileHalf}`}>
+              <div className={styles.bentoCardTop}>
+                <span className={styles.bentoBadgeLight}>{serviceDivisions[3].number}</span>
+                <div className={styles.bentoIconSteel}>
+                  <TrendingUp size={20} />
+                </div>
+              </div>
+
+              <h4 className={styles.bentoSupportingTitle}>{serviceDivisions[3].title}</h4>
+              <p className={styles.bentoSupportingDesc}>{serviceDivisions[3].description}</p>
+
+              <div className={styles.bentoCardFooter}>
+                <Link to={`/services#${serviceDivisions[3].id}`} className={styles.bentoExploreLink}>
+                  Explore Division <ArrowRight size={14} />
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* Tile 05: Talent Solutions — Spans 6 cols, Row 3 */}
+            <AnimatedSection delay={0.2} className={`${styles.bentoTileSupporting} ${styles.bentoTileHalf}`}>
+              <div className={styles.bentoCardTop}>
+                <span className={styles.bentoBadgeLight}>{serviceDivisions[4].number}</span>
+                <div className={styles.bentoIconSteel}>
+                  <Users size={20} />
+                </div>
+              </div>
+
+              <h4 className={styles.bentoSupportingTitle}>{serviceDivisions[4].title}</h4>
+              <p className={styles.bentoSupportingDesc}>{serviceDivisions[4].description}</p>
+
+              <div className={styles.bentoCardFooter}>
+                <Link to={`/services#${serviceDivisions[4].id}`} className={styles.bentoExploreLink}>
+                  Explore Division <ArrowRight size={14} />
+                </Link>
+              </div>
+            </AnimatedSection>
           </div>
 
           <div className={styles.servicesActionFooter}>
@@ -336,7 +363,9 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label"><SlashMark width={7} height={18} /> Our Approach</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Our Approach
+              </span>
               <h2 className={styles.sectionHeading}>
                 Built Around Ideas. Driven By Execution.
               </h2>
@@ -371,7 +400,9 @@ export default function Home() {
         <div className="container">
           <div className={styles.aiGrid}>
             <AnimatedSection className={styles.aiContent}>
-              <span className="label" style={{ color: 'var(--steel-300)' }}><SlashMark width={7} height={18} color="var(--steel-300)" /> Intelligence & Data</span>
+              <span className="label label-dark">
+                <SlashMark width={10} height={24} color="var(--steel-300)" /> Intelligence & Data
+              </span>
               <h2 className={styles.aiHeading}>
                 Turning Data and Intelligence Into Measurable Action.
               </h2>
@@ -440,7 +471,9 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label"><SlashMark width={7} height={18} /> Enterprise Solutions</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Enterprise Solutions
+              </span>
               <h2 className={styles.sectionHeading}>
                 Smarter Systems for Everyday Business Operations.
               </h2>
@@ -493,7 +526,9 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label"><SlashMark width={7} height={18} /> Domain Applications</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Domain Applications
+              </span>
               <h2 className={styles.sectionHeading}>
                 Technology Solutions Across Industry Sectors.
               </h2>
@@ -536,7 +571,9 @@ export default function Home() {
         <div className="container">
           <div className={styles.portfolioHeader}>
             <AnimatedSection>
-              <span className="label"><SlashMark width={7} height={18} /> Technical Showcases</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Technical Showcases
+              </span>
               <h2 className={styles.sectionHeading}>Proof of Capabilities & Case Studies</h2>
               <p className={styles.sectionSub}>
                 Architectural prototypes and research implementations demonstrating our engineering standards.

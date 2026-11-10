@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import SlashMark from './SlashMark'
 import styles from './PageHero.module.css'
 
 interface PageHeroProps {
@@ -46,7 +47,12 @@ export default function PageHero({
 
         <div className={styles.content}>
           {label && (
-            <span className={`label ${dark ? 'text-lime' : ''} ${styles.label}`}>
+            <span className={`label ${dark ? 'label-dark' : ''} ${styles.label}`}>
+              <SlashMark
+                width={10}
+                height={24}
+                color={dark ? 'var(--steel-300)' : 'var(--steel-500)'}
+              />
               {label}
             </span>
           )}

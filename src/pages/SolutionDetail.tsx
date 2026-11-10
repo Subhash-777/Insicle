@@ -16,6 +16,7 @@ import {
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import { getSolutionBySlug, solutions } from '@/data/solutions'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './SolutionDetail.module.css'
@@ -56,7 +57,9 @@ export default function SolutionDetail() {
         <div className="container">
           <div className={styles.overviewGrid}>
             <AnimatedSection className={styles.overviewText}>
-              <span className="label">Framework Overview</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Framework Overview
+              </span>
               <h2 className={styles.sectionHeading}>
                 Purpose-Built Enterprise Architecture
               </h2>
@@ -135,7 +138,9 @@ export default function SolutionDetail() {
         <section className={`section ${styles.useCasesSection}`}>
           <div className="container">
             <AnimatedSection>
-              <span className="label">Applicability</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Applicability
+              </span>
               <h2 className={styles.sectionHeading}>Target Use Cases</h2>
             </AnimatedSection>
 
@@ -158,7 +163,9 @@ export default function SolutionDetail() {
             <AnimatedSection>
               <div className={styles.relatedHeader}>
                 <div>
-                  <span className="label">Explore More</span>
+                  <span className="label">
+                    <SlashMark width={10} height={24} color="var(--steel-500)" /> Explore More
+                  </span>
                   <h2 className={styles.sectionHeading}>Complementary Solutions</h2>
                 </div>
                 <Link to="/solutions" className="btn btn-secondary">

@@ -14,6 +14,7 @@ import {
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import { solutions } from '@/data/solutions'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './Solutions.module.css'
@@ -56,7 +57,9 @@ export default function Solutions() {
         <div className="container">
           <div className={styles.showcaseGrid}>
             <AnimatedSection className={styles.showcaseText}>
-              <span className="label">Modern Interface</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Modern Interface
+              </span>
               <h2 className={styles.sectionHeading}>
                 Designed for Clarity, Built for Scale.
               </h2>
@@ -92,7 +95,9 @@ export default function Solutions() {
         <div className="container">
           <AnimatedSection>
             <div className={styles.sectionHeader}>
-              <span className="label">Available Frameworks</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Available Frameworks
+              </span>
               <h2 className={styles.sectionHeading}>Core Solution Capabilities</h2>
             </div>
           </AnimatedSection>

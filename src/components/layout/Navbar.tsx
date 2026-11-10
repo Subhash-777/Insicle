@@ -26,9 +26,12 @@ export default function Navbar() {
   const location = useLocation()
   const megaRef = useRef<HTMLDivElement>(null)
   const megaTriggerRef = useRef<HTMLButtonElement>(null)
+  const openTimeout = useRef<number | null>(null)
+  const closeTimeout = useRef<number | null>(null)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
+    const handleScroll = () => setScrolled(window.scrollY > 24)
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -37,6 +40,16 @@ export default function Navbar() {
     setMobileOpen(false)
     setMegaOpen(false)
   }, [location])
+
+  const handleMouseEnter = () => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current)
+    openTimeout.current = window.setTimeout(() => setMegaOpen(true), 60)
+  }
+
+  const handleMouseLeave = () => {
+    if (openTimeout.current) clearTimeout(openTimeout.current)
+    closeTimeout.current = window.setTimeout(() => setMegaOpen(false), 150)
+  }
 
   useEffect(() => {
     if (mobileOpen) {
@@ -74,7 +87,7 @@ export default function Navbar() {
   }, [])
 
   const isDarkHero = location.pathname === '/'
-  const isSolid = scrolled || !isDarkHero
+  const isSolid = scrolled || !isDarkHero || megaOpen || mobileOpen
 
   return (
     <>
@@ -99,14 +112,18 @@ export default function Navbar() {
             <ul className={styles.navList}>
               {navLinks.map((link) =>
                 link.hasMega ? (
-                  <li key={link.href} className={styles.navItem}>
+                  <li
+                    key={link.href}
+                    className={styles.navItem}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     <button
                       ref={megaTriggerRef}
                       className={`${styles.navLink} ${styles.megaTrigger} ${
                         location.pathname.startsWith('/services') ? styles.active : ''
                       }`}
                       onClick={() => setMegaOpen((v) => !v)}
-                      onMouseEnter={() => setMegaOpen(true)}
                       aria-expanded={megaOpen}
                       aria-haspopup="true"
                     >
@@ -165,36 +182,70 @@ export default function Navbar() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              onMouseLeave={() => setMegaOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               role="dialog"
               aria-label="Services menu"
             >
               <div className="container">
                 <div className={styles.megaGrid}>
                   {serviceDivisions.filter(d => d.approved).map((division) => (
-                    <Link
-                      key={division.id}
-                      to={`/services#${division.id}`}
-                      className={styles.megaCard}
-                      onClick={() => setMegaOpen(false)}
-                    >
-                      <span className={styles.megaDivNumber}>{division.number}</span>
-                      <span className={styles.megaDivTitle}>{division.shortTitle}</span>
+                    <div key={division.id} className={styles.megaCol}>
+                      <Link
+                        to={`/services#${division.id}`}
+                        className={styles.megaDivHeader}
+                        onClick={() => setMegaOpen(false)}
+                      >
+                        <span className={styles.megaDivNumber}>{division.number}</span>
+                        <h4 className={styles.megaDivTitle}>{division.shortTitle}</h4>
+                      </Link>
                       <ul className={styles.megaServiceList}>
                         {division.services.slice(0, 3).map((svc) => (
-                          <li key={svc.slug}>{svc.title}</li>
+                          <li key={svc.slug}>
+                            <Link
+                              to={`/services/${svc.slug}`}
+                              className={styles.megaServiceLink}
+                              onClick={() => setMegaOpen(false)}
+                            >
+                              {svc.title}
+                            </Link>
+                          </li>
                         ))}
                       </ul>
-                    </Link>
+                      <Link
+                        to={`/services#${division.id}`}
+                        className={styles.megaExploreLink}
+                        onClick={() => setMegaOpen(false)}
+                      >
+                        Explore <ArrowRight size={12} />
+                      </Link>
+                    </div>
                   ))}
-                  <div className={styles.megaCta}>
-                    <p>Need a custom solution?</p>
-                    <Link to="/contact" className="btn btn-primary" onClick={() => setMegaOpen(false)}>
-                      Start a Conversation <ArrowRight size={14} />
-                    </Link>
-                    <Link to="/services" className={styles.allServices} onClick={() => setMegaOpen(false)}>
-                      View all services <ArrowRight size={14} />
-                    </Link>
+
+                  <div className={styles.megaCtaCard}>
+                    <div className={styles.megaCtaContent}>
+                      <span className={styles.megaCtaEyebrow}>CUSTOM ENGAGEMENTS</span>
+                      <h4 className={styles.megaCtaTitle}>Need a Tailored Team?</h4>
+                      <p className={styles.megaCtaDesc}>
+                        Practical technical solutions tailored to your operational constraints.
+                      </p>
+                    </div>
+                    <div className={styles.megaCtaActions}>
+                      <Link
+                        to="/contact"
+                        className={`btn btn-primary ${styles.megaCtaBtn}`}
+                        onClick={() => setMegaOpen(false)}
+                      >
+                        Discuss Requirements <ArrowRight size={14} />
+                      </Link>
+                      <Link
+                        to="/services"
+                        className={styles.megaCtaSecondary}
+                        onClick={() => setMegaOpen(false)}
+                      >
+                        All 5 Divisions Overview →
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

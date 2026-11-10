@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Layers, Cpu, Compass, ArrowLeft } from 'lucid
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import SlashMark from '@/components/common/SlashMark'
 import { getServiceBySlug } from '@/data/services'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './ServiceDetail.module.css'
@@ -37,7 +38,9 @@ export default function ServiceDetail() {
         <div className="container">
           <div className={styles.overviewGrid}>
             <AnimatedSection className={styles.overviewContent}>
-              <span className="label">Overview</span>
+              <span className="label">
+                <SlashMark width={10} height={24} color="var(--steel-500)" /> Overview
+              </span>
               <h2 className={styles.sectionHeading}>
                 Engineered for Performance and Enterprise Value.
               </h2>
@@ -111,7 +114,9 @@ export default function ServiceDetail() {
       <section className={`section ${styles.capabilitiesSection}`}>
         <div className="container">
           <AnimatedSection>
-            <span className="label">Capabilities</span>
+            <span className="label">
+              <SlashMark width={10} height={24} color="var(--steel-500)" /> Capabilities
+            </span>
             <h2 className={styles.sectionHeading}>What We Deliver</h2>
           </AnimatedSection>
 
@@ -157,7 +162,9 @@ export default function ServiceDetail() {
             <AnimatedSection>
               <div className={styles.relatedHeader}>
                 <div>
-                  <span className="label">Complementary Offerings</span>
+                  <span className="label">
+                    <SlashMark width={10} height={24} color="var(--steel-500)" /> Complementary Offerings
+                  </span>
                   <h2 className={styles.sectionHeading}>Related in {division.shortTitle}</h2>
                 </div>
                 <Link to={`/services#${division.id}`} className="btn btn-secondary">

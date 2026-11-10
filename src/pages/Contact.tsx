@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
+import SlashMark from '@/components/common/SlashMark'
 import { company } from '@/data/company'
 import styles from './Contact.module.css'
 
@@ -122,7 +123,9 @@ export default function Contact() {
             {/* Left: Contact Info */}
             <AnimatedSection className={styles.infoCol}>
               <div className={styles.infoCard}>
-                <span className="label">Contact Information</span>
+                <span className="label">
+                  <SlashMark width={10} height={24} color="var(--steel-500)" /> Contact Information
+                </span>
                 <h2 className={styles.infoHeading}>Direct Office Details</h2>
                 <p className={styles.infoSub}>
                   We are available for project discussions, technical consultations, and strategic partnerships.

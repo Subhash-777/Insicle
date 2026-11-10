@@ -35,21 +35,23 @@ export default function GraphBackground() {
     // Check reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    // Initialize nodes
-    const nodeCount = Math.floor((width * height) / 18000)
+    // Initialize nodes with strict caps (<= 45 desktop, <= 25 mobile, radius 1.5-2.5px, opacity <= 0.5)
+    const maxNodes = width < 768 ? 25 : 45
+    const calculatedCount = Math.floor((width * height) / 30000)
+    const targetCount = Math.max(16, Math.min(calculatedCount, maxNodes))
     const nodes: Node[] = []
 
-    for (let i = 0; i < Math.max(25, Math.min(nodeCount, 60)); i++) {
-      const isPulse = i % 7 === 0 // A few nodes get a thin ring pulse
+    for (let i = 0; i < targetCount; i++) {
+      const isPulse = i % 8 === 0 // few subtle pulse rings
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.4,
-        vy: prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 1.5 + 1.5,
+        vx: prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.35,
+        vy: prefersReducedMotion ? 0 : (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.0 + 1.5, // strictly 1.5 - 2.5px
         pulseRadius: isPulse ? 2 : undefined,
         isPulseNode: isPulse,
-        baseAlpha: Math.random() * 0.3 + 0.3,
+        baseAlpha: Math.random() * 0.2 + 0.25, // strictly <= 0.45
       })
     }
 
@@ -103,7 +105,7 @@ export default function GraphBackground() {
             }
           }
           const ringRadius = node.pulseRadius || 6
-          const ringAlpha = Math.max(0, 1 - ringRadius / 14) * 0.4
+          const ringAlpha = Math.max(0, 1 - ringRadius / 14) * 0.25
           ctx.strokeStyle = `rgba(74, 123, 166, ${ringAlpha})`
           ctx.lineWidth = 1
           ctx.beginPath()
