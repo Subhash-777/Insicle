@@ -1,50 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 358 92" width="358" height="92">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 -2 304 96" width="304" height="96" fill="none">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&amp;display=swap');
-      .wordmark {
-        font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
-        font-weight: 300;
-        font-size: 52px;
-        letter-spacing: 0.45em;
-        fill: #E8EEF4;
-      }
-    </style>
+    <!-- Punches out the inner vertical 'I' cleanly so dark background shows through -->
+    <mask id="insicle-inner-i-light" maskUnits="userSpaceOnUse">
+      <rect x="12" y="-2" width="304" height="96" fill="#ffffff" />
+      <rect x="154" y="25.8" width="5.2" height="43.9" fill="#000000" />
+    </mask>
   </defs>
-  <!-- Light variant: wordmark #E8EEF4, slash #9FB3C8 — for dark sections -->
-  <text class="wordmark" x="8" y="68">INS</text>
-  <text class="wordmark" x="206" y="68">CLE</text>
-  <g transform="translate(185, -4) scale(0.52, 0.595)">
-    <path
-      d="M36 2 C37 2.5, 38.5 3, 39 5 C39.5 7, 39 9, 38 12
-         C37 15, 36 18, 34.5 22 C33 26, 31 31, 29.5 36
-         C27.5 42, 26 48, 24.5 54 C23 60, 21.5 67, 20 74
-         C18.5 81, 17 88, 16 95 C15 102, 14 109, 13.5 115
-         C13 121, 13 126, 13.5 130 C14 134, 15 138, 17 141
-         C19 144, 21.5 146, 24 148 C26.5 150, 28 151, 28.5 152
-         C29 153, 28 154, 26 154.5 C24 155, 21 155, 19 154.5
-         C17 154, 16 152.5, 15.5 150.5 C15 148.5, 15.5 145, 16 141
-         C16.5 137, 16.5 132, 16.5 127 C16.5 121, 17 114, 18 107
-         C19 100, 20 93, 21.5 86 C23 79, 24.5 72, 26.5 65
-         C28.5 58, 30 52, 32 46 C33.5 41, 34.5 36, 35.5 31
-         C36.5 26.5, 37 21, 37 16 C37 12, 36.5 8, 36 5
-         C35.5 3, 35 2, 36 2 Z"
-      fill="#9FB3C8"
-    />
-    <path
-      d="M38 8 C40 10, 41 13, 40 18 C39 23, 37.5 28, 36 33
-         C35 37, 33.5 41, 32 45 C30 51, 27.5 58, 25.5 65
-         C23.5 72, 22 79, 20.5 86 C19 93, 18 100, 17 107
-         C16.5 113, 16 119, 16 125 C16 130, 16.5 135, 17 139
-         C17.5 143, 18.5 146, 20 148 C21 149.5, 22 150, 22.5 150
-         C23 150, 23 149, 22 148 C21 147, 19.5 144.5, 19 141
-         C18.5 137.5, 18.5 133, 18.5 128 C18.5 122, 19.5 115, 21 108
-         C22.5 101, 24 94, 26 87 C28 80, 30 73, 32 66
-         C33.5 61, 35 55, 36.5 49 C38 43, 39 37, 39.5 31
-         C40 25, 40 19, 39.5 14 C39 10.5, 38.5 8.5, 38 8 Z"
-      fill="#9FB3C8"
-      opacity="0.35"
-    />
-  </g>
-</svg>
 
+  <!-- Official INSICLE Wordmark — dark-surface light ink variant -->
+  <g fill="#E8EEF4">
+    <!-- I -->
+    <rect x="17" y="26" width="5.2" height="43.5" />
+
+    <!-- N -->
+    <path d="M46 69.5 V26 H51.5 L74 61.5 V26 H79.2 V69.5 H73.7 L51.2 34 V69.5 Z" />
+
+    <!-- S -->
+    <path
+      d="M128.2 37.8 C127.8 30.8 122.8 28.0 116.2 28.0 C109.2 28.0 104.5 31.2 104.5 36.8 C104.5 42.4 109.4 44.6 116.8 46.5 C124.8 48.6 129.2 51.4 129.2 57.8 C129.2 64.2 123.6 67.4 116.0 67.4 C108.0 67.4 102.8 64.0 102.2 56.8"
+      fill="none"
+      stroke="#E8EEF4"
+      stroke-width="5.2"
+      stroke-linecap="butt"
+    />
+
+    <!-- C -->
+    <path
+      d="M209.6 39.2 C208.0 31.8 203.2 28.0 197.2 28.0 C189.0 28.0 184.2 34.4 184.2 47.7 C184.2 61.0 189.0 67.4 197.2 67.4 C203.4 67.4 208.2 63.6 209.8 56.2"
+      fill="none"
+      stroke="#E8EEF4"
+      stroke-width="5.2"
+      stroke-linecap="butt"
+    />
+
+    <!-- L -->
+    <path d="M237 26 H242.2 V64.3 H262.2 V69.5 H237 Z" />
+
+    <!-- E -->
+    <path d="M283 26 H309.5 V31.0 H288.2 V44.8 H306.0 V49.6 H288.2 V64.5 H310.2 V69.5 H283 Z" />
+  </g>
+
+  <!-- Official Hand-Painted Dry-Brush Slash with Inner 'I' Knockout -->
+  <path
+    mask="url(#insicle-inner-i-light)"
+    fill="#9FB3C8"
+    d="
+      M165.8 2.8
+      L168.4 -0.4
+      L172.8 0.2
+      L173.4 3.4
+      L177.2 2.2
+      L179.4 4.2
+      L178.8 7.8
+      L180.4 10.6
+      L173.0 34.2
+      L164.5 57.5
+      L154.2 79.4
+      L152.2 81.2
+      L150.2 78.6
+      L146.6 86.6
+      L143.4 91.8
+      L141.6 90.2
+      L141.0 85.4
+      L138.4 88.0
+      L137.2 85.6
+      L142.8 66.2
+      L150.5 43.2
+      L159.2 19.6
+      Z
+    "
+  />
+</svg>
