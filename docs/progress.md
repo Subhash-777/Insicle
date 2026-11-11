@@ -26,4 +26,4 @@ _Branch: production-hardening | Updated: 2026-11-11_
 - **ESLint:** `npm run lint` -> 0 errors / 0 warnings.
 - **Test Suite:** `npm test` -> 15/15 passed (duration: 66ms).
 - **Production Build & SSG:** `npm run build` -> Client bundle built in 1.50s, SSR bundle built in 305ms, 11 static route HTML files prerendered.
-- **Git Branch:** `production-hardening` (branched from `main`/`ui-polish-v2`, isolated from production).
+- **Git Branch:** `production-hardening` (commit `1a5feec`, tracked on remote `origin/production-hardening`, isolated from `main`).
