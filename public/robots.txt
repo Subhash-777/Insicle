@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://insicle.com/sitemap.xml
+Sitemap: https://insicle.vercel.app/sitemap.xml

@@ -5,6 +5,7 @@ import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { getServiceBySlug } from '@/data/services'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './ServiceDetail.module.css'
@@ -19,6 +20,12 @@ export default function ServiceDetail() {
 
   const { service, division } = data
   const otherServices = division.services.filter((s) => s.slug !== service.slug && s.approved).slice(0, 3)
+
+  usePageMeta({
+    title: `${service.title} — ${division.shortTitle}`,
+    description: service.description,
+    path: `/services/${service.slug}`,
+  })
 
   return (
     <div className={styles.page}>
@@ -45,7 +52,7 @@ export default function ServiceDetail() {
                 Engineered for Performance and Enterprise Value.
               </h2>
               <p className={styles.leadText}>
-                {service.description} At INSICLE, our approach couples disciplined architectural standards with agile delivery, ensuring that each capability scales naturally alongside your organizational goals.
+                {service.description} At INSICLE, our approach couples disciplined architectural standards with agile delivery, ensuring that each capability scales naturally alongside your organisational goals.
               </p>
               <p>
                 Whether modernizing a legacy component or launching a zero-to-one capability, we ensure clean integrations, rigorous testing, and clear handover documentation.
@@ -82,7 +89,7 @@ export default function ServiceDetail() {
       <section className={`section ${styles.problemSection}`}>
         <div className="container">
           <AnimatedSection>
-            <span className="label label-lime">Business Value</span>
+            <span className="label">Business Value</span>
             <h2 className={styles.sectionHeadingLight}>The Business Problem Addressed</h2>
           </AnimatedSection>
 
@@ -103,7 +110,7 @@ export default function ServiceDetail() {
                 <h3 className={styles.cardTitleLight}>Scalability & Reliability</h3>
               </div>
               <p className={styles.cardTextLight}>
-                Growth quickly tests the boundaries of initial setups. Our solutions prioritize maintainability, security compliance, and resilience so your operational backbone expands effortlessly with demand.
+                Growth quickly tests the boundaries of initial setups. Our solutions prioritise maintainability, security compliance, and resilience so your operational backbone expands effortlessly with demand.
               </p>
             </AnimatedSection>
           </div>

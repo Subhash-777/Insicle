@@ -80,7 +80,6 @@ export const portfolioCategories = [
   { id: 'digital-engineering', label: 'Digital Engineering' },
   { id: 'ai-bi', label: 'AI & BI' },
   { id: 'enterprise', label: 'Enterprise Solutions' },
-  { id: 'digital-growth', label: 'Digital Growth' },
 ];
 
 export const getProjectBySlug = (slug: string) =>

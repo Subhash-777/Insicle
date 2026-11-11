@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight, MessageCircle, ChevronUp } from 'lucide-react'
 import { company } from '@/data/company'
 import { serviceDivisions } from '@/data/services'
 import { megaMenuVariants, mobileMenuVariants } from '@/animations/variants'
@@ -18,32 +18,47 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
+const WHATSAPP_URL =
+  'https://wa.me/919600142824?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20INSICLE%27s%20services.'
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [showBackTop, setShowBackTop] = useState(false)
   const location = useLocation()
   const megaRef = useRef<HTMLDivElement>(null)
   const megaTriggerRef = useRef<HTMLButtonElement>(null)
   const openTimeout = useRef<number | null>(null)
   const closeTimeout = useRef<number | null>(null)
+  // Focus trap refs
+  const mobileMenuRef = useRef<HTMLElement>(null)
+  const mobileFirstFocusRef = useRef<HTMLAnchorElement>(null)
+  const mobileLastFocusRef = useRef<HTMLAnchorElement>(null)
 
+  // Scroll state: scrolled + back-to-top visibility
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24)
+    const handleScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 24)
+      setShowBackTop(y > 400)
+    }
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close menus on route change
   useEffect(() => {
     setMobileOpen(false)
     setMegaOpen(false)
   }, [location])
 
+  // Hover-intent: open after 120ms, close after 150ms
   const handleMouseEnter = () => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current)
-    openTimeout.current = window.setTimeout(() => setMegaOpen(true), 60)
+    openTimeout.current = window.setTimeout(() => setMegaOpen(true), 120)
   }
 
   const handleMouseLeave = () => {
@@ -51,6 +66,7 @@ export default function Navbar() {
     closeTimeout.current = window.setTimeout(() => setMegaOpen(false), 150)
   }
 
+  // Scroll lock on body when mobile drawer open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden'
@@ -60,7 +76,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  // Close mega menu on outside click
+  // Close mega menu on outside click + ESC
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (
@@ -86,13 +102,51 @@ export default function Navbar() {
     }
   }, [])
 
+  // Focus trap for mobile drawer
+  const handleMobileKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!mobileOpen) return
+    if (e.key !== 'Tab') return
+    const menu = mobileMenuRef.current
+    if (!menu) return
+    const focusable = menu.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+    if (focusable.length === 0) return
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+  }, [mobileOpen])
+
+  const isContactPage = location.pathname === '/contact'
   const isDarkHero = location.pathname === '/'
   const isSolid = scrolled || !isDarkHero || megaOpen || mobileOpen
+
+  // Header state classes for 4 states
+  const headerStateClass = (() => {
+    if (mobileOpen) return styles.mobileOpenState
+    if (megaOpen) return styles.menuOpenState
+    if (isSolid) return styles.scrolled
+    return styles.transparent
+  })()
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <>
       <header
-        className={`${styles.header} ${isSolid ? styles.scrolled : styles.transparent}`}
+        className={`${styles.header} ${headerStateClass}`}
         role="banner"
       >
         <div className={styles.inner}>
@@ -236,7 +290,7 @@ export default function Navbar() {
                         className={`btn btn-primary ${styles.megaCtaBtn}`}
                         onClick={() => setMegaOpen(false)}
                       >
-                        Discuss Requirements <ArrowRight size={14} />
+                        Talk to our team <ArrowRight size={14} />
                       </Link>
                       <Link
                         to="/services"
@@ -266,15 +320,22 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.nav
+              ref={mobileMenuRef}
               className={styles.mobileMenu}
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
               aria-label="Mobile navigation"
+              aria-modal="true"
+              onKeyDown={handleMobileKeyDown}
             >
               <div className={styles.mobileHeader}>
-                <Link to="/" onClick={() => setMobileOpen(false)}>
+                <Link
+                  ref={mobileFirstFocusRef}
+                  to="/"
+                  onClick={() => setMobileOpen(false)}
+                >
                   <img src={company.logo.header} alt={company.logo.alt} height={44} style={{ objectFit: 'contain' }} />
                 </Link>
                 <button
@@ -340,12 +401,46 @@ export default function Navbar() {
               </ul>
 
               <div className={styles.mobileCta}>
-                <Link to="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>
+                <Link
+                  ref={mobileLastFocusRef}
+                  to="/contact"
+                  className="btn btn-primary"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  onClick={() => setMobileOpen(false)}
+                >
                   Let's Talk <ArrowRight size={16} />
                 </Link>
               </div>
             </motion.nav>
           </>
+        )}
+      </AnimatePresence>
+
+      {/* WhatsApp floating button */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${styles.whatsappFloat} ${isContactPage ? styles.whatsappHidden : ''}`}
+        aria-label="Chat with INSICLE on WhatsApp"
+      >
+        <MessageCircle size={24} />
+      </a>
+
+      {/* Back to top button */}
+      <AnimatePresence>
+        {showBackTop && (
+          <motion.button
+            className={styles.backToTop}
+            onClick={scrollToTop}
+            aria-label="Scroll back to top"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ChevronUp size={20} />
+          </motion.button>
         )}
       </AnimatePresence>
     </>

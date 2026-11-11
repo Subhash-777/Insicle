@@ -163,6 +163,35 @@
   color: var(--steel-300);
 }
 
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legalLink {
+  font-size: 12px;
+  color: var(--steel-300);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--text-on-dark);
+  text-decoration: underline;
+}
+
+.divider {
+  font-size: 10px;
+  color: rgba(159, 179, 200, 0.4);
+}
+
+.gstinWrap {
+  font-size: 11px;
+  color: rgba(159, 179, 200, 0.7);
+  margin-top: 4px;
+}
+
 .disclaimer {
   font-size: 12px;
   color: rgba(159,179,200,.6);

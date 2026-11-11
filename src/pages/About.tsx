@@ -4,6 +4,7 @@ import AnimatedSection from '@/components/common/AnimatedSection'
 import PageHero from '@/components/common/PageHero'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import styles from './About.module.css'
 
 const values = [
@@ -22,6 +23,11 @@ const capabilities = [
 ]
 
 export default function About() {
+  usePageMeta({
+    title: 'About Us',
+    description: 'Learn about INSICLE, our engineering practice, core values, and leadership under Dr. S. Selvi.',
+    path: '/about',
+  })
   return (
     <div>
       <PageHero
@@ -79,7 +85,6 @@ export default function About() {
                 To deliver purposeful technology solutions that help businesses grow,
                 operate efficiently and adapt to change — with clarity, honesty and care.
               </p>
-              <p className={styles.mvNote}><em>Proposed copy — pending company approval</em></p>
             </AnimatedSection>
             <AnimatedSection className={`${styles.mvCard} ${styles.mvCardDark}`} delay={0.1}>
               <Eye size={28} className={styles.mvIconLime} />
@@ -88,7 +93,6 @@ export default function About() {
                 To become a trusted digital partner for businesses that want to turn
                 ambitious ideas into practical, lasting outcomes using technology.
               </p>
-              <p className={styles.mvNoteDark}><em>Proposed copy — pending company approval</em></p>
             </AnimatedSection>
           </div>
         </div>
@@ -129,7 +133,7 @@ export default function About() {
                 <SlashMark width={10} height={24} color="var(--steel-500)" /> Capabilities
               </span>
               <h2 className={styles.sectionHeading}>What We Bring to the Table.</h2>
-              <p style={{ marginTop: 16, fontSize: 17, lineHeight: 1.7, color: 'var(--color-slate)', maxWidth: 400 }}>
+              <p style={{ marginTop: 16, fontSize: 17, lineHeight: 1.7, color: 'var(--muted)', maxWidth: 400 }}>
                 Our capabilities span five areas, each focused on a different dimension of how technology can support your business.
               </p>
               <Link to="/services" className="btn btn-primary" style={{ marginTop: 24, alignSelf: 'flex-start' }}>

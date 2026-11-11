@@ -16,6 +16,7 @@ import {
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { industries } from '@/data/industries'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './Industries.module.css'
@@ -31,6 +32,11 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 export default function Industries() {
+  usePageMeta({
+    title: 'Industry Sector Solutions',
+    description: 'Explore INSICLE domain architectures across Healthcare, Education, E-Commerce, Manufacturing, Finance, and Logistics.',
+    path: '/industries',
+  })
   return (
     <div className={styles.page}>
       <PageHero

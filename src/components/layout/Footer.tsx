@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowRight, MessageCircle } from 'lucide-react'
 import { company } from '@/data/company'
 import { serviceDivisions } from '@/data/services'
 import styles from './Footer.module.css'
@@ -32,9 +32,21 @@ export default function Footer() {
               <Mail size={14} />
               <span>{company.contact.email}</span>
             </a>
+            <a
+              href="https://wa.me/919600142824?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20INSICLE%27s%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactItem}
+            >
+              <MessageCircle size={14} />
+              <span>WhatsApp: +91 96001 42824</span>
+            </a>
             <div className={styles.contactItem}>
               <MapPin size={14} style={{ flexShrink: 0, marginTop: 2 }} />
               <span>{company.contact.fullAddress}</span>
+            </div>
+            <div className={styles.gstinWrap}>
+              <span>GSTIN: <em>Pending Client Verification</em></span>
             </div>
           </div>
         </div>
@@ -74,7 +86,7 @@ export default function Footer() {
             Got something ambitious in mind? Let&apos;s turn your next idea into something meaningful.
           </p>
           <Link to="/contact" className={`btn btn-dark ${styles.ctaBtn}`}>
-            Start a Conversation <ArrowRight size={16} />
+            Talk to our team <ArrowRight size={16} />
           </Link>
         </div>
       </div>
@@ -86,9 +98,15 @@ export default function Footer() {
             <p className={styles.copyright}>
               &copy; {currentYear} {company.name}. All rights reserved.
             </p>
-            <p className={styles.disclaimer}>
-              Content is proposed copy pending company review.
-            </p>
+            <div className={styles.legalLinks}>
+              <Link to="/privacy-policy" className={styles.legalLink}>
+                Privacy Policy
+              </Link>
+              <span className={styles.divider}>•</span>
+              <Link to="/terms" className={styles.legalLink}>
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>

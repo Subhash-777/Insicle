@@ -1,0 +1,94 @@
+.page {
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+.contentSection {
+  padding: 80px 0 100px;
+}
+
+.legalNotice {
+  background: var(--steel-50);
+  border: 1px solid var(--steel-200);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  margin-bottom: 48px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.legalNotice strong {
+  color: var(--ink-900);
+}
+
+.legalBody {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.legalBody h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--steel-100);
+}
+
+.legalBody h2:first-of-type {
+  margin-top: 0;
+}
+
+.legalBody p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-800);
+  margin-bottom: 16px;
+}
+
+.legalBody ul {
+  margin: 0 0 24px 20px;
+  padding: 0;
+  color: var(--ink-800);
+}
+
+.legalBody li {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  color: var(--ink-800);
+}
+
+.legalBody strong {
+  color: var(--ink-900);
+}
+
+.grievanceBox {
+  background: var(--surface);
+  border: 1px solid var(--steel-100);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 20px;
+  box-shadow: 0 1px 2px rgba(20, 33, 47, 0.05);
+}
+
+.grievanceBox p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.grievanceBox p:last-child {
+  margin-bottom: 0;
+}
+
+.grievanceBox a {
+  color: var(--logo-steel);
+  text-decoration: underline;
+}
+
+.grievanceBox a:hover {
+  color: var(--logo-ink);
+}

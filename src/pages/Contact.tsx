@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -12,10 +13,12 @@ import {
   AlertCircle,
   ArrowRight,
   ExternalLink,
+  MessageCircle,
 } from 'lucide-react'
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { company } from '@/data/company'
 import styles from './Contact.module.css'
 
@@ -26,11 +29,12 @@ const contactSchema = z.object({
     .string()
     .min(7, { message: 'Please enter a valid phone number.' })
     .regex(/^[+0-9\s\-()]{7,20}$/, { message: 'Phone number format is invalid.' }),
-  companyName: z.string().min(2, { message: 'Please enter your company or organization name.' }),
+  companyName: z.string().min(2, { message: 'Please enter your company or organisation name.' }),
   serviceInterest: z.string().min(1, { message: 'Please select a service or area of interest.' }),
   requirements: z
     .string()
     .min(10, { message: 'Please provide at least 10 characters describing your project requirements.' }),
+  website: z.string().optional(), // Honeypot bot-trap field
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
@@ -44,7 +48,23 @@ const serviceOptions = [
   'Other / Multi-disciplinary Inquiry',
 ]
 
+const serviceQueryMap: Record<string, string> = {
+  'digital-engineering': 'Digital Engineering (Custom Software / Web / Apps)',
+  'ai-bi': 'AI & Business Intelligence (Analytics / ML / Automation)',
+  'artificial-intelligence': 'AI & Business Intelligence (Analytics / ML / Automation)',
+  'enterprise-solutions': 'Enterprise Solutions (CRM / HRM / ERP Integration)',
+  'enterprise': 'Enterprise Solutions (CRM / HRM / ERP Integration)',
+  'digital-growth': 'Digital Growth (Marketing / SEO / SEM)',
+  'talent-solutions': 'Talent Solutions (Technical Recruitment Outsourcing)',
+}
+
 export default function Contact() {
+  usePageMeta({
+    title: 'Talk to Our Team',
+    description: 'Get in touch with INSICLE engineering leadership to discuss technology solutions, system scoping, and custom development.',
+    path: '/contact',
+  })
+  const [searchParams] = useSearchParams()
   const [submissionState, setSubmissionState] = useState<
     'idle' | 'submitting' | 'dispatched' | 'error'
   >('idle')
@@ -53,10 +73,12 @@ export default function Contact() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    mode: 'onBlur',
     defaultValues: {
       name: '',
       email: '',
@@ -64,10 +86,25 @@ export default function Contact() {
       companyName: '',
       serviceInterest: '',
       requirements: '',
+      website: '',
     },
   })
 
+  // Prefill service from URL query param e.g. /contact?service=ai-bi
+  useEffect(() => {
+    const serviceParam = searchParams.get('service')?.toLowerCase()
+    if (serviceParam && serviceQueryMap[serviceParam]) {
+      setValue('serviceInterest', serviceQueryMap[serviceParam], { shouldValidate: true })
+    }
+  }, [searchParams, setValue])
+
   const onSubmit = async (data: ContactFormData) => {
+    // Honeypot check: if bot filled hidden field, simulate silent completion without dispatch
+    if (data.website) {
+      setSubmissionState('dispatched')
+      return
+    }
+
     setSubmissionState('submitting')
 
     // Simulate adapter latency
@@ -158,6 +195,23 @@ export default function Contact() {
 
                   <div className={styles.channelItem}>
                     <div className={styles.channelIcon}>
+                      <MessageCircle size={20} />
+                    </div>
+                    <div>
+                      <span className={styles.channelLabel}>WhatsApp</span>
+                      <a
+                        href="https://wa.me/919600142824?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20INSICLE%27s%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.channelValue}
+                      >
+                        +91 96001 42824
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className={styles.channelItem}>
+                    <div className={styles.channelIcon}>
                       <MapPin size={20} />
                     </div>
                     <div>
@@ -187,7 +241,7 @@ export default function Contact() {
                 <div className={styles.infoVisual}>
                   <img
                     src="/images/contact-visual.png"
-                    alt="INSICLE modern lime technology composition"
+                    alt="INSICLE modern steel and ink technology composition"
                     className={styles.contactImg}
                     loading="lazy"
                   />
@@ -239,6 +293,15 @@ export default function Contact() {
                 )}
 
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form} noValidate>
+                  {/* Honeypot anti-spam field */}
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', height: 0, width: 0, margin: 0, padding: 0 }}
+                    aria-hidden="true"
+                    {...register('website')}
+                  />
                   <div className={styles.fieldRow}>
                     {/* Name */}
                     <div className={styles.formGroup}>
@@ -308,7 +371,7 @@ export default function Contact() {
                     {/* Company */}
                     <div className={styles.formGroup}>
                       <label htmlFor="companyName" className={styles.label}>
-                        Company / Organization <span className={styles.required}>*</span>
+                        Company / Organisation <span className={styles.required}>*</span>
                       </label>
                       <input
                         id="companyName"
@@ -390,7 +453,11 @@ export default function Contact() {
                   </button>
 
                   <p className={styles.privacyNote}>
-                    We respect your privacy. Inquiries are handled strictly between you and INSICLE leadership.
+                    We respect your privacy. Submissions are handled under our{' '}
+                    <Link to="/privacy-policy" style={{ color: 'var(--logo-steel)', textDecoration: 'underline' }}>
+                      Privacy Policy
+                    </Link>{' '}
+                    in compliance with the Digital Personal Data Protection Act, 2023.
                   </p>
                 </form>
               </div>

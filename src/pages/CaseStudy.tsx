@@ -13,6 +13,7 @@ import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { getProjectBySlug, projects } from '@/data/projects'
 import styles from './CaseStudy.module.css'
 
@@ -25,6 +26,12 @@ export default function CaseStudy() {
   }
 
   const related = projects.filter((p) => p.slug !== project.slug && p.approved).slice(0, 2)
+
+  usePageMeta({
+    title: `${project.title} — Technical Showcase`,
+    description: project.description,
+    path: `/portfolio/${project.slug}`,
+  })
 
   return (
     <div className={styles.page}>

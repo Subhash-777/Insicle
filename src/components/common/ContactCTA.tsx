@@ -18,7 +18,7 @@ const steps = [
 export default function ContactCTA({
   heading = 'Have a Challenge Worth Solving?',
   subtext = "Tell us what you're trying to build, improve or simplify. Let's explore the right digital approach.",
-  cta = 'Start a Conversation',
+  cta = 'Talk to our team',
   showSteps = true,
 }: ContactCTAProps) {
   return (

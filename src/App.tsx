@@ -17,6 +17,8 @@ const Portfolio = lazy(() => import('@/pages/Portfolio'))
 const CaseStudy = lazy(() => import('@/pages/CaseStudy'))
 const Careers = lazy(() => import('@/pages/Careers'))
 const Contact = lazy(() => import('@/pages/Contact'))
+const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'))
+const Terms = lazy(() => import('@/pages/Terms'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 const PageLoader = () => (
@@ -55,6 +57,8 @@ function AnimatedRoutes() {
             <Route path="/portfolio/:slug" element={<CaseStudy />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

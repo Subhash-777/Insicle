@@ -22,6 +22,7 @@ import SlashMark from '@/components/common/SlashMark'
 import SlashDivider from '@/components/common/SlashDivider'
 import HeroSecureVisual from '@/components/common/HeroSecureVisual'
 import AboutVisualCard from '@/components/common/AboutVisualCard'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { serviceDivisions } from '@/data/services'
 import { industries } from '@/data/industries'
 import { projects } from '@/data/projects'
@@ -72,6 +73,11 @@ const whyPrinciples = [
 ]
 
 export default function Home() {
+  usePageMeta({
+    title: 'Technology & Digital Solutions',
+    description: "Explore INSICLE's technology, software development and digital solutions. Contact our engineering team to discuss your business requirements.",
+    path: '/',
+  })
   const featuredDivision = serviceDivisions[0] // 01 Digital Engineering
   const supportingDivisions = serviceDivisions.slice(1, 5) // 02, 03, 04, 05
   const showcaseProject = projects[0] // Semantic-Graph Zero-Trust prototype
@@ -108,17 +114,17 @@ export default function Home() {
 
             {/* CTAs */}
             <motion.div className={styles.heroCtas} custom={3} variants={heroText} initial="hidden" animate="visible">
-              <Link to="/services" className="btn btn-primary">
-                Explore Capabilities <ArrowRight size={18} />
+              <Link to="/contact" className="btn btn-primary">
+                Talk to our team <ArrowRight size={18} />
               </Link>
-              <Link to="/contact" className="btn btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#ffffff' }}>
-                Discuss Your Requirements
-              </Link>
+              <a href="#capabilities" className="btn btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#ffffff' }}>
+                Explore our capabilities
+              </a>
             </motion.div>
 
             {/* Capability chips */}
             <motion.div className={styles.heroTags} custom={4} variants={heroText} initial="hidden" animate="visible">
-              {capabilityLinks.slice(0, 3).map((cap) => (
+              {capabilityLinks.map((cap) => (
                 <Link key={cap.name} to={cap.href} className={styles.tag}>
                   {cap.name}
                 </Link>
@@ -221,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* 4. BALANCED 12-COLUMN CAPABILITIES BENTO */}
-      <section className={`section ${styles.servicesSection}`} aria-label="Services">
+      <section className={`section ${styles.servicesSection}`} id="capabilities" aria-label="Capabilities and Services">
         <div className="container">
           <AnimatedSection>
             <div className={styles.bentoHeaderRow}>
@@ -407,7 +413,7 @@ export default function Home() {
                 Turning Data and Intelligence Into Measurable Action.
               </h2>
               <p className={styles.aiLead}>
-                Modern artificial intelligence and business intelligence are most valuable when integrated directly into core workflows. We help organizations transition from isolated models to reliable, automated decision pipelines.
+                Modern artificial intelligence and business intelligence are most valuable when integrated directly into core workflows. We help organisations transition from isolated models to reliable, automated decision pipelines.
               </p>
 
               <div className={styles.aiUseCases}>
@@ -453,7 +459,7 @@ export default function Home() {
               <div className={styles.aiImageWrap}>
                 <img
                   src="/images/ai-network.png"
-                  alt="Abstract AI network visualization with lime data nodes"
+                  alt="Abstract AI network visualization with steel data nodes"
                   className={styles.aiImage}
                   loading="lazy"
                 />
@@ -618,7 +624,7 @@ export default function Home() {
                     Read Case Study Breakdown <ArrowRight size={16} />
                   </Link>
                   <span className={styles.disclaimerNote}>
-                    *Conceptual Demonstration — Pending Company Verification
+                    Internal Engineering Showcase
                   </span>
                 </div>
               </div>

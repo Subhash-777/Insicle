@@ -5,10 +5,16 @@ import { ArrowRight, Layers, Sparkles, Filter } from 'lucide-react'
 import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { projects, portfolioCategories } from '@/data/projects'
 import styles from './Portfolio.module.css'
 
 export default function Portfolio() {
+  usePageMeta({
+    title: 'Technical Capabilities & Engineering Showcases',
+    description: 'Explore INSICLE architectural prototypes, zero-trust property graphs, and cloud-native event streaming implementations.',
+    path: '/portfolio',
+  })
   const [activeCategory, setActiveCategory] = useState('all')
 
   const filteredProjects = projects.filter(

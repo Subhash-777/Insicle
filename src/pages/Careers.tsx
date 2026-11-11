@@ -13,6 +13,7 @@ import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { company } from '@/data/company'
 import { getApprovedJobs } from '@/data/careers'
 import { staggerContainer, staggerItem } from '@/animations/variants'
@@ -37,6 +38,11 @@ const culturePillars = [
 ]
 
 export default function Careers() {
+  usePageMeta({
+    title: 'Careers & Engineering Practice',
+    description: 'Explore opportunities and engineering culture at INSICLE. Send your CV to join our software and AI team.',
+    path: '/careers',
+  })
   const approvedJobs = getApprovedJobs()
 
   return (
@@ -148,7 +154,7 @@ export default function Careers() {
       <ContactCTA
         heading="Have Questions About Opportunities?"
         subtext="Reach out directly to learn more about our upcoming initiatives and technical projects."
-        cta="Get In Touch"
+        cta="Talk to our team"
       />
     </div>
   )

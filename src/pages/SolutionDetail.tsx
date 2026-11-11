@@ -17,6 +17,7 @@ import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { getSolutionBySlug, solutions } from '@/data/solutions'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './SolutionDetail.module.css'
@@ -36,6 +37,12 @@ export default function SolutionDetail() {
   if (!solution || !solution.approved) {
     return <Navigate to="/solutions" replace />
   }
+
+  usePageMeta({
+    title: `${solution.title} Framework`,
+    description: solution.description,
+    path: `/solutions/${solution.slug}`,
+  })
 
   const Icon = iconMap[solution.icon] || Zap
   const otherSolutions = solutions.filter((s) => s.slug !== solution.slug && s.approved).slice(0, 3)
@@ -111,7 +118,7 @@ export default function SolutionDetail() {
       <section className={`section ${styles.featuresSection}`}>
         <div className="container">
           <AnimatedSection>
-            <span className="label label-lime">Architectural Modules</span>
+            <span className="label">Architectural Modules</span>
             <h2 className={styles.sectionHeadingLight}>Core Framework Features</h2>
           </AnimatedSection>
 

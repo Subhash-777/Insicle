@@ -32,7 +32,7 @@ export const serviceDivisions: ServiceDivision[] = [
     description:
       'We architect, engineer, and modernize custom web platforms, mobile applications, and enterprise microservices tailored to mission-critical operational requirements.',
     businessProblem:
-      'Off-the-shelf software rarely fits nuanced organizational workflows, while legacy systems create technical debt, security liabilities, and sluggish feature cycles.',
+      'Off-the-shelf software rarely fits nuanced organisational workflows, while legacy systems create technical debt, security liabilities, and sluggish feature cycles.',
     useCaseExample:
       'A cross-platform field service application synchronizing offline inspections with a central ERP via asynchronous event queues.',
     icon: 'Code2',
@@ -54,7 +54,7 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'AI & Business Intelligence',
     shortTitle: 'AI & BI',
     description:
-      'Unlock predictive insights, automate cognitive repetitive tasks, and consolidate disparate organizational data into decision-ready business intelligence dashboards.',
+      'Unlock predictive insights, automate cognitive repetitive tasks, and consolidate disparate organisational data into decision-ready business intelligence dashboards.',
     businessProblem:
       'Valuable data remains trapped in departmental silos, spreadsheets, and legacy databases, forcing executives to make strategic decisions based on delayed or incomplete reports.',
     useCaseExample:
@@ -106,7 +106,7 @@ export const serviceDivisions: ServiceDivision[] = [
     businessProblem:
       'High-performing technology investments fail to yield commercial returns if prospective buyers cannot find the business or encounter confusing customer journeys.',
     useCaseExample:
-      'Technical SEO audit and conversion rate optimization (CRO) overhaul turning passive web traffic into qualified sales inquiries.',
+      'Technical SEO audit and conversion rate optimisation (CRO) overhaul turning passive web traffic into qualified sales inquiries.',
     icon: 'TrendingUp',
     image: '/images/digital-growth.png',
     color: 'white',
@@ -114,7 +114,7 @@ export const serviceDivisions: ServiceDivision[] = [
     services: [
       { slug: 'digital-marketing', title: 'Digital Marketing Strategy', description: 'Comprehensive marketing roadmaps aligned with business revenue goals.', approved: true },
       { slug: 'seo', title: 'Technical Search Engine Optimization', description: 'Architecture, crawlability, and schema enhancements for high-intent search visibility.', approved: true },
-      { slug: 'sem', title: 'Search Engine Marketing', description: 'Precision-targeted paid search campaigns optimized for cost-per-acquisition.', approved: true },
+      { slug: 'sem', title: 'Search Engine Marketing', description: 'Precision-targeted paid search campaigns optimised for cost-per-acquisition.', approved: true },
       { slug: 'social-media', title: 'Social Media Management', description: 'Strategic industry positioning and professional audience engagement.', approved: true },
       { slug: 'content-marketing', title: 'Content Marketing', description: 'Authority-building whitepapers, technical articles, and case documentation.', approved: true },
       { slug: 'performance-marketing', title: 'Performance Marketing', description: 'Data-driven multichannel campaigns managed against explicit ROI benchmarks.', approved: true },
@@ -126,7 +126,7 @@ export const serviceDivisions: ServiceDivision[] = [
     title: 'Talent Solutions',
     shortTitle: 'Talent Solutions',
     description:
-      'Identify, screen, and coordinate specialized technical talent to augment internal engineering initiatives and accelerate project milestones.',
+      'Identify, screen, and coordinate specialised technical talent to augment internal engineering initiatives and accelerate project milestones.',
     businessProblem:
       'Engineering leaders spend disproportionate hours sifting through unqualified resumes rather than focusing on system architecture and code delivery.',
     useCaseExample:

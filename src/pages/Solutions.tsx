@@ -15,6 +15,7 @@ import PageHero from '@/components/common/PageHero'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { solutions } from '@/data/solutions'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './Solutions.module.css'
@@ -28,6 +29,11 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 export default function Solutions() {
+  usePageMeta({
+    title: 'Enterprise Solutions & Frameworks',
+    description: 'Customizable enterprise frameworks covering CRM, HRM, Accounting, Help Desk, and Sales Automation.',
+    path: '/solutions',
+  })
   return (
     <div className={styles.page}>
       <PageHero
@@ -45,7 +51,7 @@ export default function Solutions() {
             <div className={styles.advisoryContent}>
               <h4 className={styles.advisoryTitle}>Architecture & Implementation Frameworks</h4>
               <p className={styles.advisoryText}>
-                The solutions below represent INSICLE&apos;s enterprise solution capabilities and implementation frameworks. They are custom configured and integrated into your organization&apos;s cloud infrastructure.
+                The solutions below represent INSICLE&apos;s enterprise solution capabilities and implementation frameworks. They are custom configured and integrated into your organisation&apos;s cloud infrastructure.
               </p>
             </div>
           </div>
@@ -155,7 +161,7 @@ export default function Solutions() {
       {/* Contact CTA */}
       <ContactCTA
         heading="Need a Tailored Enterprise Platform?"
-        subtext="Discuss your organizational workflows with our architects to design a bespoke deployment."
+        subtext="Discuss your organisational workflows with our architects to design a bespoke deployment."
         cta="Inquire About Solutions"
       />
     </div>

@@ -6,6 +6,7 @@ import AnimatedSection from '@/components/common/AnimatedSection'
 import PageHero from '@/components/common/PageHero'
 import ContactCTA from '@/components/common/ContactCTA'
 import SlashMark from '@/components/common/SlashMark'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { serviceDivisions } from '@/data/services'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 import styles from './Services.module.css'
@@ -20,14 +21,19 @@ const process = [
 ]
 
 const faqs = [
-  { q: 'Do you work with early-stage as well as established organizations?', a: 'Yes. Our architectures and engagement models are designed to scale — from targeted prototypes for emerging teams to mission-critical operational systems for established companies.' },
+  { q: 'Do you work with early-stage as well as established organisations?', a: 'Yes. Our architectures and engagement models are designed to scale — from targeted prototypes for emerging teams to mission-critical operational systems for established companies.' },
   { q: 'Can INSICLE handle complete end-to-end technical lifecycles?', a: 'We can support the entire lifecycle — from initial problem framing, scoping, and systems architecture through to full-stack implementation, quality assurance, deployment, and handover.' },
   { q: 'Do you offer ongoing architecture advisory and maintenance support?', a: 'Yes. Support, code review, and maintenance arrangements can be structured as part of any project engagement to guarantee system reliability and team adoption.' },
   { q: 'What is the recommended first step to engage?', a: 'Reach out through our project inquiry form or contact our engineering leadership directly. We will schedule an initial briefing to understand your operational context and provide a structured technical proposal.' },
 ]
 
 export default function Services() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0)
+  usePageMeta({
+    title: 'Our Services & Capability Divisions',
+    description: 'Explore INSICLE five core capability divisions: Digital Engineering, AI & BI, Enterprise Solutions, Digital Growth, and Talent Solutions.',
+    path: '/services',
+  })
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
     <div>
